@@ -49,6 +49,10 @@ const ValueContainer = styled.div`
   margin: 10px 0;
 `;
 
+const getInitialValue = value => {
+  return value.get ? value.get("place_id") : value.place_id;
+};
+
 class PlacesInfoHelper extends React.Component {
   onSubmit = e => {
     e.preventDefault();
@@ -58,8 +62,8 @@ class PlacesInfoHelper extends React.Component {
     fetch(`/.netlify/functions/places?placeId=${placeid}`)
       .then(resp => resp.json())
       .then(data => {
-        window.test = data;
-        // this.props.onChange(data);
+        // window.test = data;
+        this.props.onChange(data);
       });
   };
 
@@ -83,7 +87,7 @@ class PlacesInfoHelper extends React.Component {
               name="placeid"
               type="text"
               placeholder="Google maps place id"
-              defaultValue={value ? value.get("place_id") : ""}
+              defaultValue={value ? getInitialValue(value) : ""}
             />
           </Label>
           <Button type="submit">Search</Button>

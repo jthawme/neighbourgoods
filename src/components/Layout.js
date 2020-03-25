@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import WebFont from "webfontloader";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 
@@ -9,12 +8,6 @@ import Header from "./Header/Header";
 
 import "normalize.css";
 import "../styles/global.scss";
-
-WebFont.load({
-  google: {
-    families: ["DM+Sans:400,500"]
-  }
-});
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();

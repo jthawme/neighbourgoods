@@ -1,9 +1,17 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import WebFont from "webfontloader";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
+
+import "normalize.css";
+import "../styles/global.scss";
+
+WebFont.load({
+  google: {
+    families: ["DM+Sans:400,500"]
+  }
+});
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -47,9 +55,7 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
       <div>{children}</div>
-      <Footer />
     </div>
   );
 };

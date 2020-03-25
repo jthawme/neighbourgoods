@@ -1,7 +1,5 @@
 require("dotenv").config();
 
-console.log(process.env);
-
 module.exports = {
   siteMetadata: {
     title: "Gatsby + Netlify CMS Starter",

@@ -1,0 +1,24 @@
+:root {
+  --radii-md: 4px;
+
+  --body-font-family: "DM Sans", sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 500;
+
+  --font-size-normal: 16px;
+
+  --color-text: black;
+  --color-text-light: #808080;
+  --color-bg: white;
+  --color-accent: #5528f5;
+  --color-accent-light: #aa93fa;
+  --color-dark-tint: rgba(0, 0, 0, 0.8);
+  --color-dark-opacity: rgba(25, 25, 32, 0.98);
+
+  --shadow-subtle: 0px 2px 10px rgba(0, 0, 0, 0.06);
+
+  @for $i from 1 through 10 {
+    --size-unit-#{$i}: #{$i * 4}px;
+  }
+}

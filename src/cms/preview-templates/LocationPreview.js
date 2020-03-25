@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import LocationCard from "../../components/LocationCard/index";
+import LocationCard from "../../components/LocationCard/LocationCard";
+
+import "../../styles/global.scss";
 
 const LocationPreview = ({ entry, getAsset }) => {
   const data = entry.getIn(["data"]).toJS();
@@ -17,6 +19,8 @@ const LocationPreview = ({ entry, getAsset }) => {
           label: item.label || "NO LABEL"
         }))}
         image={!!data.image && image.url}
+        times={data?.location.opening_hours.periods}
+        type={data.category}
       />
     );
   } else {

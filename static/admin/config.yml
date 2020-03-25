@@ -40,14 +40,9 @@ collections:
         name: "telephone"
         widget: "string"
 
-      - label: "Categories"
-        name: "categories"
-        widget: "select"
-        multiple: true
-        options:
-          - healthy
-          - burger
-          - breakfast
+      - label: "Category"
+        name: "category"
+        widget: "categories"
 
       - label: "Links"
         name: "links"

@@ -24,9 +24,10 @@ const CustomSelect = ({ value = "", onChange, options, multiple }) => {
     },
     [multiple]
   );
+
   return (
     <SelectWrapper
-      value={multiple ? value.split(",") : value}
+      value={value}
       onChange={onInternalChange}
       multiple={multiple}
     >

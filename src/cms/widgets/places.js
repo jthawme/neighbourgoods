@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const LabelTitle = styled.span`
@@ -79,6 +79,7 @@ class PlacesInfoHelper extends React.Component {
               <a
                 href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Place ID Finder
               </a>

@@ -6,6 +6,14 @@ export const LINK_TYPES = {
   VOUCHER: "voucher"
 };
 
+export const LINK_ICONS = {
+  [LINK_TYPES.EXTERNAL]: "🏡",
+  [LINK_TYPES.DELIVEROO]: "🏡",
+  [LINK_TYPES.UBER_EATS]: "🏡",
+  [LINK_TYPES.DONATION]: "❤️",
+  [LINK_TYPES.VOUCHER]: "🎉"
+};
+
 export const LINK_OPTIONS = [
   {
     label: "External / Other",
@@ -29,13 +37,58 @@ export const LINK_OPTIONS = [
   }
 ];
 
+export const CATEGORY_TYPES = {
+  RESAURANT: "restaurant",
+  BAR: "bar",
+  CAFE: "cafe",
+  PUB: "pub",
+  BEER_SHOP: "beer_shop",
+  WINE_SHOP: "wine_shop",
+  BAKERY: "bakery",
+  GROCERS: "grocers",
+  BUTCHERS: "butchers",
+  FISHMONGERS: "fishmongers"
+};
+
 export const CATEGORIES = [
   {
-    label: "Healthy",
-    value: "healthy"
+    label: "Restaurant",
+    value: CATEGORY_TYPES.RESAURANT
   },
   {
-    label: "Burger",
-    value: "burger"
+    label: "Bar",
+    value: CATEGORY_TYPES.BAR
+  },
+  {
+    label: "Café",
+    value: CATEGORY_TYPES.CAFE
+  },
+  {
+    label: "Pub",
+    value: CATEGORY_TYPES.PUB
+  },
+  {
+    label: "Beer Shop",
+    value: CATEGORY_TYPES.BEER_SHOP
+  },
+  {
+    label: "Wine Shop",
+    value: CATEGORY_TYPES.WINE_SHOP
+  },
+  {
+    label: "Bakery",
+    value: CATEGORY_TYPES.BAKERY
+  },
+  {
+    label: "Grocers",
+    value: CATEGORY_TYPES.GROCERS
+  },
+  {
+    label: "Butchers",
+    value: CATEGORY_TYPES.BUTCHERS
+  },
+  {
+    label: "Fishmongers",
+    value: CATEGORY_TYPES.FISHMONGERS
   }
 ];

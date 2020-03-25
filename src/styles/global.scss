@@ -1,0 +1,40 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: var(--body-font-family);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-normal);
+
+  color: var(--color-text);
+}
+
+main {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 100vh;
+
+  .left {
+    display: flex;
+
+    flex-direction: column;
+
+    grid-column: 1 / span 1;
+
+    .content {
+      flex-grow: 1;
+    }
+  }
+
+  .right {
+    grid-column: 2 / span 1;
+
+    background-color: var(--color-text-light);
+  }
+}

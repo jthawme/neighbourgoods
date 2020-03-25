@@ -2,17 +2,14 @@
 templateKey: location
 name: Earl of essex
 image: /img/img_20200122_0004.jpg
-email: info@
-telephone: dssg
+email: dsg
+telephone: sdg
 categories:
   - healthy
 links:
-  - type: voucher
-    label: Voucher
-    link: google
-  - type: uber_eats
-    label: Test
-    link: 'https://google.com'
+  - type: deliveroo
+    label: sdg
+    link: sdg
 location:
   address_components:
     - long_name: '25'

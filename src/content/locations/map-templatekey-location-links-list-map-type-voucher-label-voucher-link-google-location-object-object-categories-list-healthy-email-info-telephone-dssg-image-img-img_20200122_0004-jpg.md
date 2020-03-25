@@ -10,6 +10,9 @@ links:
   - type: voucher
     label: Voucher
     link: google
+  - type: uber_eats
+    label: Test
+    link: 'https://google.com'
 location:
   address_components:
     - long_name: '25'

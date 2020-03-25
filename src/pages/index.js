@@ -1,111 +1,93 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import LocationCard from "../components/LocationCard/LocationCard";
-import { LINK_TYPES, CATEGORY_TYPES } from "../cms/constants";
+import Home from "../components/Home/Home";
 
-const DEBUG_NAME = "TEST name";
-const DEBUG_LINKS = [
-  {
-    link: "https://twitter.com",
-    type: LINK_TYPES.VOUCHER,
-    label: "Voucher"
-  },
-  {
-    link: "https://twitter.com",
-    type: LINK_TYPES.DELIVEROO,
-    label: "Delivery"
-  }
-];
-const DEBUG_TYPE = CATEGORY_TYPES.BAR;
-const DEBUG_TIMES = [
-  {
-    close: {
-      day: 0,
-      time: "2300"
-    },
-    open: {
-      day: 0,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 1,
-      time: "2330"
-    },
-    open: {
-      day: 1,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 2,
-      time: "2330"
-    },
-    open: {
-      day: 2,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 3,
-      time: "2330"
-    },
-    open: {
-      day: 3,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 4,
-      time: "2330"
-    },
-    open: {
-      day: 4,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 6,
-      time: "0000"
-    },
-    open: {
-      day: 5,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 0,
-      time: "0000"
-    },
-    open: {
-      day: 6,
-      time: "1200"
-    }
-  }
-];
+const HomePage = ({ data }) => {
+  const usableData = useMemo(() => {
+    return data.allMarkdownRemark.edges.map(edge => {
+      return {
+        ...edge.node.frontmatter,
+        slug: edge.node.fields.slug
+      };
+    });
+  }, [data]);
 
-const test = {
-  name: DEBUG_NAME,
-  links: DEBUG_LINKS,
-  type: DEBUG_TYPE,
-  times: DEBUG_TIMES
+  return (
+    <Layout>
+      <Home data={usableData} />
+    </Layout>
+  );
 };
 
-const HomePage = () => (
-  <Layout>
-    <div style={{ padding: "10px" }}>
-      <h1>home page</h1>
-      <div style={{ width: "300px" }}>
-        <LocationCard {...test} />
-      </div>
-    </div>
-  </Layout>
-);
-
 export default HomePage;
+
+export const query = graphql`
+  query MyQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            category
+            email
+            name
+            telephone
+            templateKey
+            title
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+            links {
+              label
+              link
+              type
+            }
+            location {
+              address_components {
+                long_name
+                short_name
+                types
+              }
+              geometry {
+                location {
+                  lat
+                  lng
+                }
+                viewport {
+                  northeast {
+                    lat
+                    lng
+                  }
+                  southwest {
+                    lat
+                    lng
+                  }
+                }
+              }
+              opening_hours {
+                open_now
+                periods {
+                  close {
+                    day
+                    time
+                  }
+                  open {
+                    day
+                    time
+                  }
+                }
+              }
+            }
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;

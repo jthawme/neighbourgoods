@@ -1,0 +1,29 @@
+.content {
+  background-color: var(--color-bg-dark);
+
+  height: 100%;
+}
+
+.pool {
+  display: grid;
+
+  padding: var(--size-unit-4);
+
+  grid-gap: var(--size-unit-4);
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(min-content, max-content);
+
+  .card {
+    flex-basis: calc(100% / 3);
+  }
+
+  .cardInner {
+    height: 100%;
+  }
+}
+
+.meta {
+  color: var(--color-text-light);
+  padding: var(--size-unit-6) var(--size-unit-4) 0;
+}

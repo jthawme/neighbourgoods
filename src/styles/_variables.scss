@@ -6,11 +6,16 @@
   --font-weight-normal: 400;
   --font-weight-bold: 500;
 
+  --font-size-small: 14px;
   --font-size-normal: 16px;
+  --font-size-large: 21px;
+  --font-size-x-large: 28px;
 
   --color-text: black;
   --color-text-light: #808080;
   --color-bg: white;
+  --color-bg-dark: #fbfbfb;
+  --color-line: #e8e8e8;
   --color-accent: #5528f5;
   --color-accent-light: #aa93fa;
   --color-dark-tint: rgba(0, 0, 0, 0.8);
@@ -21,4 +26,5 @@
   @for $i from 1 through 10 {
     --size-unit-#{$i}: #{$i * 4}px;
   }
+  --size-line: 1px;
 }

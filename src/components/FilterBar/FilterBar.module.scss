@@ -1,0 +1,51 @@
+.wrapper {
+}
+
+.nav {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: var(--size-unit-5);
+
+  border-bottom: var(--size-line) solid var(--color-line);
+
+  .location,
+  .filterToggle {
+    display: flex;
+
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+
+    border-radius: 0;
+
+    font-weight: var(--font-weight-normal);
+
+    outline: 0;
+    background-color: transparent;
+    border: none;
+
+    transition: {
+      duration: 0.35s;
+      property: opacity;
+    }
+
+    svg {
+      &:first-child {
+        margin-right: var(--size-unit-2);
+      }
+      &:last-child {
+        margin-left: var(--size-unit-2);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+
+      cursor: pointer;
+    }
+  }
+}

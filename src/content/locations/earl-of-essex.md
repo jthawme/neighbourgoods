@@ -4,8 +4,7 @@ name: Earl of essex
 image: /img/img_20200122_0004.jpg
 email: dsg
 telephone: sdg
-categories:
-  - healthy
+categories: bar
 links:
   - type: deliveroo
     label: sdg

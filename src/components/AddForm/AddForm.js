@@ -248,6 +248,7 @@ const AddForm = ({ onClose }) => {
                   rightSlot={
                     index > 0 ? (
                       <button
+                        type="button"
                         className={styles.remove}
                         onClick={() =>
                           dispatch({ type: "delete_support", index })
@@ -265,6 +266,7 @@ const AddForm = ({ onClose }) => {
             })}
             <div className={styles.add}>
               <button
+                type="button"
                 onClick={() => dispatch({ type: "add_support" })}
                 disabled={isSubmitting}
               >

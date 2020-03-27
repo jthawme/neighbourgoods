@@ -1,0 +1,49 @@
+.overlay {
+  position: fixed;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+
+  &AfterOpen {
+    opacity: 1;
+  }
+
+  &BeforeClose {
+    opacity: 0;
+  }
+}
+
+.modal {
+  opacity: 0;
+  outline: 0;
+  transform: scale(0.8);
+
+  transition: {
+    property: opacity, transform;
+    duration: 250ms;
+    timing-function: ease-in-out;
+  }
+
+  &AfterOpen {
+    transition-delay: 250ms;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &BeforeClose {
+    transition-delay: 0;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}

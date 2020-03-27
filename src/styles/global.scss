@@ -15,6 +15,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
 main {
   display: grid;
 

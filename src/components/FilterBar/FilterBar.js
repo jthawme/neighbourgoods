@@ -6,7 +6,7 @@ import Collapsible from "react-collapsible";
 import styles from "./FilterBar.module.scss";
 import { FilterItem } from "./FilterItem";
 
-const FilterBar = () => {
+const FilterBar = ({ onRequestLocationChange, locationName }) => {
   const [filterOpen, setFilterOpen] = useState(false);
   const toggleFilter = useCallback(
     force => {
@@ -18,9 +18,9 @@ const FilterBar = () => {
   return (
     <div className={styles.wrapper}>
       <nav className={styles.nav}>
-        <button className={styles.location}>
+        <button className={styles.location} onClick={onRequestLocationChange}>
           <MapPin />
-          <span>Islington</span>
+          <span>{locationName || "Search by postcode"}</span>
         </button>
         <button className={styles.filterToggle} onClick={toggleFilter}>
           <span>Filter</span> <ChevronDown />

@@ -1,0 +1,22 @@
+:root {
+  --spinner-speed: 1s;
+}
+
+.loader {
+  display: inline-block;
+
+  line-height: 0;
+
+  animation: {
+    name: SPIN;
+    iteration-count: infinite;
+    duration: var(--spinner-speed);
+    timing-function: linear;
+  }
+}
+
+@keyframes SPIN {
+  to {
+    transform: rotate(360deg);
+  }
+}

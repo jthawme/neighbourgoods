@@ -1,0 +1,70 @@
+.container {
+  background-color: var(--color-accent);
+
+  color: var(--color-bg);
+
+  border-radius: var(--radii-lg);
+
+  padding: 64px 100px;
+
+  max-width: 720px;
+  width: 90%;
+
+  margin: 0 auto;
+
+  text-align: center;
+
+  p {
+    font-size: var(--font-size-large);
+
+    margin: 0 0 var(--size-unit-6);
+
+    &.error {
+      margin: 0;
+      padding: 0;
+
+      font-size: var(--font-size-normal);
+    }
+  }
+}
+
+.errorBox {
+  color: var(--color-dark-opacity);
+
+  padding-top: var(--size-unit-4);
+}
+
+.button {
+  display: flex;
+
+  align-items: center;
+
+  background-color: var(--color-text);
+  outline: 0;
+  border: 0;
+
+  padding: var(--size-unit-2) var(--size-unit-6);
+  margin: 0;
+
+  color: var(--color-bg);
+
+  cursor: pointer;
+
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    svg {
+      animation: {
+        name: BOUNCE;
+        iteration-count: infinite;
+        direction: alternate;
+        duration: 0.5s;
+      }
+    }
+  }
+}
+
+@keyframes BOUNCE {
+  to {
+    transform: translate3d(35%, 0, 0);
+  }
+}

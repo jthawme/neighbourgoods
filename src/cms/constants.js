@@ -92,3 +92,34 @@ export const CATEGORIES = [
     value: CATEGORY_TYPES.FISHMONGERS
   }
 ];
+
+export const DIETARY_TYPES = {
+  VEGETARIAN: "vegetarian",
+  VEGAN: "vegan",
+  HALAL: "halal",
+  GLUTEN_FREE: "gluten_free",
+  HEALTHY: "healthy"
+};
+
+export const DIETARY = [
+  {
+    label: "Vegetarian",
+    value: DIETARY_TYPES.VEGETARIAN
+  },
+  {
+    label: "Vegan",
+    value: DIETARY_TYPES.VEGAN
+  },
+  {
+    label: "Halal",
+    value: DIETARY_TYPES.HALAL
+  },
+  {
+    label: "Gluten Free",
+    value: DIETARY_TYPES.GLUTEN_FREE
+  },
+  {
+    label: "Healthy",
+    value: DIETARY_TYPES.HEALTHY
+  }
+];

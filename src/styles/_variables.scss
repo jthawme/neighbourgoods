@@ -1,6 +1,7 @@
 :root {
   --radii-md: 4px;
   --radii-lg: 20px;
+  --radii-x-lg: 48px;
   --radii-button: 100px;
 
   --body-font-family: "DM Sans", sans-serif;
@@ -27,11 +28,16 @@
   --color-panel-bg: #383a43;
   --color-panel-fg: var(--color-bg);
 
+  --color-failure: #eb153b;
+  --color-success: #02de8f;
+
   --shadow-subtle: 0px 2px 10px rgba(0, 0, 0, 0.06);
   --shadow-dark-subtle: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-light-subtle: 0 0 20px 5px rgba(255, 255, 255, 1);
 
-  @for $i from 1 through 10 {
+  @for $i from 1 through 12 {
     --size-unit-#{$i}: #{$i * 4}px;
   }
   --size-line: 1px;
+  --size-header-clear: 72px;
 }

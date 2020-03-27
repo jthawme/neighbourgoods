@@ -1,0 +1,19 @@
+.title {
+  display: flex;
+
+  align-items: center;
+
+  border-right: var(--size-line) solid var(--color-text-light);
+
+  padding: var(--size-unit-4);
+
+  min-width: 120px;
+
+  width: 25%;
+
+  span {
+    white-space: pre;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 
+import CloseIcon from "../common/CloseIcon";
 import styles from "./AboutContent.module.scss";
-import { X } from "react-feather";
 
 const tweetLink = () => {
   const tweet = {
@@ -23,9 +23,7 @@ const tweetLink = () => {
 const AboutContent = ({ onClose }) => {
   return (
     <aside className={styles.wrapper}>
-      <button className={styles.close} onClick={onClose}>
-        <X />
-      </button>
+      <CloseIcon onClick={onClose} />
       <div className={styles.text}>
         <p>
           COVID-19 has already caused a lot of disruption to London,

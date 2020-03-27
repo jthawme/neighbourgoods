@@ -15,8 +15,9 @@ const infoReducer = (state = initialState, action) => {
         borough: action.borough,
         coords: action.coords
       };
+    default:
+      return state;
   }
-  return state;
 };
 
 export default infoReducer;

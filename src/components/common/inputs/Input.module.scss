@@ -1,0 +1,31 @@
+:root {
+  --input-bg-color: var(--color-bg);
+  --input-bg-disabled-color: var(--color-bg-dark);
+  --input-fg-inactive-color: var(--color-text-light);
+  --input-fg-color: var(--color-text);
+  --input-border-radius: var(--radii-md);
+  --input-padding: var(--size-unit-6) var(--size-unit-4) var(--size-unit-3);
+}
+
+.input {
+  display: block;
+
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: var(--input-padding);
+
+  -webkit-appearance: none;
+
+  &[disabled] {
+    color: var(--input-fg-inactive-color);
+  }
+
+  &.hide {
+    --input-padding: var(--size-unit-4);
+  }
+}

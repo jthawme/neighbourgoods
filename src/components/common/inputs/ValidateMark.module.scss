@@ -1,0 +1,34 @@
+:root {
+  --validate-bg-color: var(--color-success);
+}
+
+.circle {
+  position: absolute;
+
+  top: 50%;
+  right: var(--size-unit-4);
+
+  width: var(--size-unit-6);
+  height: var(--size-unit-6);
+
+  transform: translate3d(0, -50%, 0);
+
+  border-radius: 50%;
+
+  color: var(--color-bg);
+  background-color: var(--validate-bg-color);
+
+  line-height: 0;
+  padding: var(--size-unit-1);
+
+  box-shadow: var(--shadow-light-subtle);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.fail {
+    --validate-bg-color: var(--color-failure);
+  }
+}

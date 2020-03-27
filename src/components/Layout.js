@@ -14,6 +14,7 @@ import AboutContent from "./AboutContent/AboutContent";
 import "normalize.css";
 import "../styles/global.scss";
 import { setPostCodeInfo } from "../store/actions/info";
+import Map from "./Map/Map";
 
 const TemplateWrapper = ({ children }) => {
   const dispatch = useDispatch();
@@ -85,7 +86,7 @@ const TemplateWrapper = ({ children }) => {
         <div className="content">{children}</div>
       </div>
       <div className="right">
-        right
+        <Map coords={info.coords} />
         <FloatingButton className="button" text="Add a spot" />
       </div>
 

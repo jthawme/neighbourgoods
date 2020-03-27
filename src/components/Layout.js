@@ -115,6 +115,16 @@ const TemplateWrapper = ({ children }) => {
           <AddForm onClose={() => setAddIsOpen(false)} />
         </Modal>
 
+        <form name="add" netlify netlify-honeypot="bot-field" hidden>
+          <input type="text" name="name" />
+          <input type="text" name="postCode" />
+          <input type="text" name="category" />
+
+          <textarea name="dietary"></textarea>
+          <textarea name="links"></textarea>
+          <textarea name="support"></textarea>
+        </form>
+
         <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
           <PostcodeLookup onPostcode={onPostCodeData} />
         </Modal>

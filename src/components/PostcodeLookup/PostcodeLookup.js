@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from "react";
 
+import Collapsible from "react-collapsible";
+import { useSelector } from "react-redux";
 import { ArrowRight } from "react-feather";
-import Input from "../common/Input";
+import Input from "../common/inputs/Input";
 
 import styles from "./PostcodeLookup.module.scss";
 import Spinner from "../common/Spinner";
-import Collapsible from "react-collapsible";
-import { useSelector } from "react-redux";
 
 const getPostcode = postCode => {
   return fetch(`https://api.postcodes.io/postcodes/${postCode}`)
@@ -50,7 +50,7 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
           setLoading(false);
         });
     },
-    [postcode]
+    [postcode, onPostcode]
   );
 
   return (

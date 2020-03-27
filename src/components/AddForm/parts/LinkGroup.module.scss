@@ -1,0 +1,41 @@
+.header {
+  display: grid;
+
+  grid-template-columns: min-content 1fr min-content;
+  grid-gap: var(--size-unit-4);
+  align-items: center;
+
+  cursor: pointer;
+
+  .icon {
+    font-size: var(--font-size-x-large);
+  }
+}
+
+.title,
+.subtitle {
+  display: block;
+}
+
+.title {
+  color: var(--color-bg);
+}
+
+.subtitle {
+  color: var(--color-accent-light);
+}
+
+.inner {
+  padding-top: var(--size-unit-4);
+}
+
+.outer {
+  padding-bottom: var(--size-unit-4);
+  margin-bottom: var(--size-unit-4);
+
+  border-bottom: var(--size-line) solid var(--color-text);
+}
+
+.content > * {
+  margin-bottom: var(--size-unit-4);
+}

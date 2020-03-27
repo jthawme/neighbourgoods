@@ -8,8 +8,18 @@
   --checkbox-border-size: var(--size-line);
 }
 
+.container {
+  display: flex;
+
+  align-items: center;
+
+  cursor: pointer;
+}
+
 .checkbox {
   position: relative;
+
+  display: inline-block;
 
   width: var(--checkbox-size);
   height: var(--checkbox-size);
@@ -25,7 +35,7 @@
   }
 }
 
-.checked {
+.checked .checkbox {
   border-color: var(--checkbox-border-color);
 
   &:before {
@@ -44,5 +54,13 @@
     background-color: var(--checkbox-active-color);
 
     transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+.label {
+  margin-left: var(--size-unit-2);
+
+  .checked & {
+    color: var(--checkbox-active-color);
   }
 }

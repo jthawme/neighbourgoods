@@ -1,0 +1,11 @@
+.item {
+  display: flex;
+
+  cursor: pointer;
+}
+
+.text {
+  display: inline-block;
+
+  margin-left: var(--size-unit-2);
+}

@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <h1>Neighbourgoods</h1>
-      <button class={styles.aboutButton}>
+      <button className={styles.aboutButton}>
         <HelpCircle />
       </button>
     </header>

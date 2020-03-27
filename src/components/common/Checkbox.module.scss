@@ -1,0 +1,48 @@
+:root {
+  --checkbox-border-radius: var(--radii-md);
+  --checkbox-inactive-border-color: var(--color-inactive-border);
+  --checkbox-active-color: var(--color-text);
+
+  --checkbox-size: 16px;
+  --checkbox-circle-size: 6px;
+  --checkbox-border-size: var(--size-line);
+}
+
+.checkbox {
+  position: relative;
+
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+
+  cursor: pointer;
+
+  border: var(--checkbox-border-size) solid
+    var(--checkbox-inactive-border-color);
+  border-radius: var(--checkbox-border-radius);
+
+  input {
+    display: none;
+  }
+}
+
+.checked {
+  border-color: var(--checkbox-border-color);
+
+  &:before {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    content: "";
+
+    width: var(--checkbox-circle-size);
+    height: var(--checkbox-circle-size);
+
+    border-radius: 50%;
+
+    background-color: var(--checkbox-active-color);
+
+    transform: translate3d(-50%, -50%, 0);
+  }
+}

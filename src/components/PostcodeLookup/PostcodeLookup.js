@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from "react";
 
-import { ArrowRight, Loader } from "react-feather";
+import { ArrowRight } from "react-feather";
 import Input from "../common/Input";
 
 import styles from "./PostcodeLookup.module.scss";
 import Spinner from "../common/Spinner";
 import Collapsible from "react-collapsible";
+import { useSelector } from "react-redux";
 
 const getPostcode = postCode => {
   return fetch(`https://api.postcodes.io/postcodes/${postCode}`)
@@ -20,7 +21,8 @@ const getPostcode = postCode => {
 };
 
 const PostcodeLookup = ({ onPostcode, onClose }) => {
-  const [postcode, setPostcode] = useState("");
+  const storedPostCode = useSelector(state => state.info.postCode);
+  const [postcode, setPostcode] = useState(storedPostCode || "");
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [error, setError] = useState(false);
@@ -61,7 +63,7 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
         <Input
           label="Post Code"
           value={postcode}
-          onChange={e => setPostcode(e.target.value)}
+          onTextChange={text => setPostcode(text)}
           disabled={loading}
           rightSlot={
             <button className={styles.button} disabled={loading}>

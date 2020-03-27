@@ -1,13 +1,15 @@
 import React from "react";
 
-import styles from "./Header.module.scss";
 import { HelpCircle } from "react-feather";
+import Logo from "./Logo";
 
-const Header = () => {
+import styles from "./Header.module.scss";
+
+const Header = ({ onOpenAbout }) => {
   return (
     <header className={styles.header}>
-      <h1>Neighbourgoods</h1>
-      <button className={styles.aboutButton}>
+      <Logo className={styles.logo} />
+      <button className={styles.aboutButton} onClick={onOpenAbout}>
         <HelpCircle />
       </button>
     </header>

@@ -4,7 +4,14 @@ import classNames from "classnames";
 
 import styles from "./Input.module.scss";
 
-const Input = ({ label, value, rightSlot, disabled, ...props }) => {
+const Input = ({
+  label,
+  value,
+  rightSlot,
+  disabled,
+  onTextChange = () => {},
+  ...props
+}) => {
   const [focused, setFocused] = useState(false);
 
   const cls = classNames(
@@ -25,6 +32,8 @@ const Input = ({ label, value, rightSlot, disabled, ...props }) => {
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         disabled={disabled}
+        value={value}
+        onChange={e => onTextChange(e.target.value)}
         {...props}
       />
       {rightSlot || null}

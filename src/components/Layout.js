@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Helmet } from "react-helmet";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
@@ -6,19 +6,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 import FilterBar from "./FilterBar/FilterBar";
 import Header from "./Header/Header";
-
-import "normalize.css";
-import "../styles/global.scss";
 import FloatingButton from "./common/FloatingButton";
 import Modal from "./common/Modal";
 import PostcodeLookup from "./PostcodeLookup/PostcodeLookup";
+import AboutContent from "./AboutContent/AboutContent";
+
+import "normalize.css";
+import "../styles/global.scss";
 import { setPostCodeInfo } from "../store/actions/info";
 
 const TemplateWrapper = ({ children }) => {
   const dispatch = useDispatch();
   const info = useSelector(state => state.info);
   const { title, description } = useSiteMetadata();
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = useState(true);
+  const [aboutIsOpen, setAboutIsOpen] = useState(false);
 
   const onPostCodeData = useCallback(data => {
     dispatch(
@@ -75,7 +77,7 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <div className="left">
-        <Header />
+        <Header onOpenAbout={() => setAboutIsOpen(true)} />
         <FilterBar
           onRequestLocationChange={onOpenPostCode}
           locationName={info.borough}
@@ -86,6 +88,14 @@ const TemplateWrapper = ({ children }) => {
         right
         <FloatingButton className="button" text="Add a spot" />
       </div>
+
+      <Modal
+        isOpen={aboutIsOpen}
+        type="left"
+        onClose={() => setAboutIsOpen(false)}
+      >
+        <AboutContent onClose={() => setAboutIsOpen(false)} />
+      </Modal>
 
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <PostcodeLookup onPostcode={onPostCodeData} />

@@ -12,11 +12,12 @@ import Modal from "./common/Modal";
 import PostcodeLookup from "./PostcodeLookup/PostcodeLookup";
 import AboutContent from "./AboutContent/AboutContent";
 import AddForm from "./AddForm/AddForm";
+import Map from "./Map/Map";
+import Toast from "./common/Toast";
 
 import "normalize.css";
 import "../styles/global.scss";
 import { setPostCodeInfo } from "../store/actions/info";
-import Map from "./Map/Map";
 
 const TemplateWrapper = ({ children }) => {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const TemplateWrapper = ({ children }) => {
   }, []);
 
   return (
-    <ToastProvider>
+    <ToastProvider components={{ Toast }}>
       <main>
         <Helmet>
           <html lang="en" />

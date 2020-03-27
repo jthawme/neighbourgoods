@@ -102,9 +102,9 @@ const AddForm = ({ onClose }) => {
       })
         .then(() => {
           addToast("Submitted spot, thanks!", {
-            appearance: "success",
-            autoDismiss: true,
-            autoDismissTimeout: 10000
+            appearance: "success"
+            // autoDismiss: true,
+            // autoDismissTimeout: 10000
           });
           onClose();
         })

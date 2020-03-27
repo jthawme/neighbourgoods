@@ -34,9 +34,13 @@
     "normalize.css": "^8.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.8.4",
+    "react-collapsible": "^2.7.0",
     "react-dom": "^16.8.4",
     "react-feather": "^2.0.3",
     "react-helmet": "^5.2.0",
+    "react-modal": "^3.11.2",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
     "styled-components": "^5.0.1",
     "uuid": "^3.2.1",
     "webfontloader": "^1.6.28"

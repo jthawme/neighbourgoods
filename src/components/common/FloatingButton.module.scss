@@ -1,0 +1,53 @@
+:root {
+  --floating-button-radius: var(--radii-button);
+  --floating-button-bg-color: var(--color-accent);
+  --floating-button-fg-color: var(--color-bg);
+  --floating-button-padding: var(--size-unit-4) var(--size-unit-6);
+  --floating-button-shadow: var(--shadow-dark-subtle);
+}
+
+.container {
+  display: inline-block;
+}
+
+.button {
+  display: flex;
+
+  align-items: center;
+
+  border-radius: var(--floating-button-radius);
+  background-color: var(--floating-button-bg-color);
+  color: var(--floating-button-fg-color);
+
+  padding: var(--floating-button-padding);
+  border: 0;
+  outline: 0;
+
+  box-shadow: var(--floating-button-shadow);
+
+  cursor: pointer;
+
+  transition: {
+    property: transform;
+    duration: 0.35s;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.icon {
+  background-color: var(--color-text);
+  border-radius: 50%;
+
+  line-height: 0;
+
+  padding: var(--size-unit-1);
+  margin-right: var(--size-unit-2);
+}

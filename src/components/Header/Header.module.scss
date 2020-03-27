@@ -2,18 +2,11 @@
   display: flex;
 
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 
   padding: var(--size-unit-6) var(--size-unit-4);
 
   border-bottom: var(--size-line) solid var(--color-line);
-
-  h1 {
-    font-size: var(--font-size-x-large);
-
-    padding: 0;
-    margin: 0;
-  }
 
   .aboutButton {
     border: 0;
@@ -33,4 +26,14 @@
       cursor: pointer;
     }
   }
+}
+
+.logo {
+  position: fixed;
+
+  top: var(--size-unit-4);
+  left: var(--size-unit-4);
+
+  padding: 0;
+  margin: 0;
 }

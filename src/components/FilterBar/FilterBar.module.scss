@@ -49,3 +49,53 @@
     }
   }
 }
+
+.filterPool {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+  padding: var(--size-unit-6);
+
+  grid-gap: var(--size-unit-4);
+}
+
+.filterTitle {
+  display: block;
+
+  margin-bottom: var(--size-unit-6);
+
+  font-weight: var(--font-weight-bold);
+}
+
+.tags {
+  ul {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: var(--size-unit-2);
+    grid-row-gap: var(--size-unit-6);
+
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    flex-basis: var;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  &:nth-child(1) {
+    grid-column: 1;
+  }
+
+  &:nth-child(2) {
+    grid-column: 2;
+
+    ul {
+      grid-template-columns: 1fr;
+    }
+  }
+}

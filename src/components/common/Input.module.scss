@@ -1,0 +1,63 @@
+:root {
+  --input-bg-color: var(--color-bg);
+  --input-bg-disabled-color: var(--color-bg-dark);
+  --input-fg-inactive-color: var(--color-text-light);
+  --input-fg-color: var(--color-text);
+  --input-border-radius: var(--radii-md);
+  --input-padding: var(--size-unit-6) var(--size-unit-4) var(--size-unit-3);
+}
+
+.label {
+  position: relative;
+
+  display: flex;
+
+  background-color: var(--input-bg-color);
+  color: var(--input-fg-inactive-color);
+
+  border-radius: var(--input-border-radius);
+
+  overflow: hidden;
+
+  input {
+    display: block;
+
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: var(--input-padding);
+  }
+
+  .title {
+    position: absolute;
+
+    top: var(--size-unit-3);
+    left: var(--size-unit-4);
+    font-size: var(--font-size-x-small);
+
+    transform-origin: top left;
+
+    pointer-events: none;
+
+    transition: {
+      duration: 0.15s;
+      property: transform;
+    }
+  }
+
+  &.inactive .title {
+    transform: scale(1.5) translate(10%, 45%);
+  }
+
+  &.disabled {
+    background-color: var(--input-bg-disabled-color);
+
+    input {
+      color: var(--input-fg-inactive-color);
+    }
+  }
+}

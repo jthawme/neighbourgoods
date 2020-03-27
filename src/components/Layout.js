@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { Helmet } from "react-helmet";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
+import { useDispatch, useSelector } from "react-redux";
 
 import FilterBar from "./FilterBar/FilterBar";
 import Header from "./Header/Header";
+import FloatingButton from "./common/FloatingButton";
+import Modal from "./common/Modal";
+import PostcodeLookup from "./PostcodeLookup/PostcodeLookup";
+import AboutContent from "./AboutContent/AboutContent";
 
 import "normalize.css";
 import "../styles/global.scss";
+import { setPostCodeInfo } from "../store/actions/info";
 
 const TemplateWrapper = ({ children }) => {
+  const dispatch = useDispatch();
+  const info = useSelector(state => state.info);
   const { title, description } = useSiteMetadata();
+  const [isOpen, setIsOpen] = useState(true);
+  const [aboutIsOpen, setAboutIsOpen] = useState(false);
+
+  const onPostCodeData = useCallback(data => {
+    dispatch(
+      setPostCodeInfo(data.postcode, data.admin_district, {
+        lat: data.latitude,
+        lng: data.longitude
+      })
+    );
+    setIsOpen(false);
+  }, []);
+
+  const onOpenPostCode = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
   return (
     <main>
       <Helmet>
@@ -52,11 +77,29 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <div className="left">
-        <Header />
-        <FilterBar />
+        <Header onOpenAbout={() => setAboutIsOpen(true)} />
+        <FilterBar
+          onRequestLocationChange={onOpenPostCode}
+          locationName={info.borough}
+        />
         <div className="content">{children}</div>
       </div>
-      <div className="right">right</div>
+      <div className="right">
+        right
+        <FloatingButton className="button" text="Add a spot" />
+      </div>
+
+      <Modal
+        isOpen={aboutIsOpen}
+        type="left"
+        onClose={() => setAboutIsOpen(false)}
+      >
+        <AboutContent onClose={() => setAboutIsOpen(false)} />
+      </Modal>
+
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <PostcodeLookup onPostcode={onPostCodeData} />
+      </Modal>
     </main>
   );
 };

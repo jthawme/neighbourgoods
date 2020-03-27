@@ -1,5 +1,6 @@
 :root {
   --radii-md: 4px;
+  --radii-button: 100px;
 
   --body-font-family: "DM Sans", sans-serif;
 
@@ -23,6 +24,7 @@
   --color-inactive-border: #a0a0a0;
 
   --shadow-subtle: 0px 2px 10px rgba(0, 0, 0, 0.06);
+  --shadow-dark-subtle: 0px 4px 12px rgba(0, 0, 0, 0.25);
 
   @for $i from 1 through 10 {
     --size-unit-#{$i}: #{$i * 4}px;

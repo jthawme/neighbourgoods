@@ -35,8 +35,23 @@ main {
   }
 
   .right {
+    position: sticky;
+
+    top: 0;
+
     grid-column: 2 / span 1;
 
     background-color: var(--color-text-light);
+
+    height: 100vh;
+
+    .button {
+      position: absolute;
+
+      left: 50%;
+      bottom: var(--size-unit-10);
+
+      transform: translate3d(-50%, 0, 0);
+    }
   }
 }

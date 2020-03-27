@@ -8,6 +8,7 @@ import Header from "./Header/Header";
 
 import "normalize.css";
 import "../styles/global.scss";
+import FloatingButton from "./common/FloatingButton";
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -56,7 +57,10 @@ const TemplateWrapper = ({ children }) => {
         <FilterBar />
         <div className="content">{children}</div>
       </div>
-      <div className="right">right</div>
+      <div className="right">
+        right
+        <FloatingButton className="button" text="Add a spot" />
+      </div>
     </main>
   );
 };

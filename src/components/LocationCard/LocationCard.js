@@ -13,7 +13,6 @@ import {
 } from "../../cms/constants";
 import { isOpen, getCloseTime, getOpenTime } from "../../utils/time";
 import { getOrderLinks, getSupportLinks } from "../../utils/links";
-import { setCurrentLinks } from "../../store/actions/location";
 
 const LocationCard = ({
   name,
@@ -23,10 +22,9 @@ const LocationCard = ({
   times = [],
   className,
   highlight,
-  onClick
+  onClick,
+  onRequest
 }) => {
-  const dispatch = useDispatch();
-
   const typeLabel = useMemo(() => {
     return CATEGORIES.find(c => c.value === type)?.label;
   }, [type]);
@@ -52,12 +50,12 @@ const LocationCard = ({
   }, [links]);
 
   const setOrderLinks = useCallback(() => {
-    dispatch(setCurrentLinks(name, LINK_CATEGORIES.ORDER, orderLinks));
-  }, [dispatch, name, orderLinks]);
+    onRequest(name, LINK_CATEGORIES.ORDER, orderLinks);
+  }, [name, onRequest, orderLinks]);
 
   const setSupportLinks = useCallback(() => {
-    dispatch(setCurrentLinks(name, LINK_CATEGORIES.SUPPORT, supportLinks));
-  }, [dispatch, name, supportLinks]);
+    onRequest(name, LINK_CATEGORIES.SUPPORT, supportLinks);
+  }, [name, onRequest, supportLinks]);
 
   const cls = classNames(styles.card, className, {
     [styles.highlight]: highlight

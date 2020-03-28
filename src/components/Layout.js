@@ -93,6 +93,10 @@ const TemplateWrapper = ({ children }) => {
     );
   }, [activeFilters, activeDietary, info.results, dispatch]);
 
+  useEffect(() => {
+    dispatch(setHighlightLocation(false));
+  }, [activeFilters, activeDietary, dispatch]);
+
   return (
     <ToastProvider components={{ Toast }}>
       <main>

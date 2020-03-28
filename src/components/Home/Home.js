@@ -6,7 +6,10 @@ import FilterListener from "../FilterListener/FilterListener";
 import styles from "./Home.module.scss";
 import { setOrganicLocation, THREE_MILES } from "../../store/actions/info";
 import { getBoundingBox } from "../../utils/location";
-import { setHighlightLocation } from "../../store/actions/location";
+import {
+  setHighlightLocation,
+  setCurrentLinks
+} from "../../store/actions/location";
 
 const Home = () => {
   const highlight = useSelector(state => state.location.highlight);
@@ -23,6 +26,13 @@ const Home = () => {
       );
 
       dispatch(setHighlightLocation(id));
+    },
+    [dispatch]
+  );
+
+  const onRequest = useCallback(
+    (name, type, links) => {
+      dispatch(setCurrentLinks(name, type, links));
     },
     [dispatch]
   );
@@ -50,6 +60,7 @@ const Home = () => {
                   image={d.image}
                   highlight={highlight === d.id}
                   onClick={() => onClickLocation(d.coords, d.id)}
+                  onRequest={onRequest}
                 />
               </div>
             );

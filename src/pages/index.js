@@ -23,15 +23,13 @@ const HomePage = ({ data }) => {
 export default HomePage;
 
 export const query = graphql`
-  query MyQuery {
+  query HomeQuery {
     allMarkdownRemark {
       edges {
         node {
           frontmatter {
             category
-            email
             name
-            telephone
             templateKey
             title
             image {
@@ -45,6 +43,7 @@ export const query = graphql`
               label
               link
               type
+              category
             }
             location {
               address_components {
@@ -82,6 +81,7 @@ export const query = graphql`
                 }
               }
             }
+            dietary
           }
           fields {
             slug

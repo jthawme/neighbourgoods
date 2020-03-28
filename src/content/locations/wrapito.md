@@ -11,15 +11,15 @@ links:
   - type: deliveroo
     category: order
     label: Deliveroo
-    link: 'https://deliveroo.co.uk/menu/london/arsenal/wrapito-islington'
-  - type: external
+    link: "https://deliveroo.co.uk/menu/london/arsenal/wrapito-islington"
+  - type: just_eat
     label: Just Eat
     category: order
-    link: 'https://www.just-eat.co.uk/restaurants-wrapito-highbury/menu'
+    link: "https://www.just-eat.co.uk/restaurants-wrapito-highbury/menu"
 location:
   address_components:
-    - long_name: '104'
-      short_name: '104'
+    - long_name: "104"
+      short_name: "104"
       types:
         - street_number
     - long_name: Highbury Park
@@ -71,54 +71,54 @@ location:
     periods:
       - close:
           day: 0
-          time: '2300'
+          time: "2300"
         open:
           day: 0
-          time: '1330'
+          time: "1330"
       - close:
           day: 1
-          time: '2300'
+          time: "2300"
         open:
           day: 1
-          time: '1200'
+          time: "1200"
       - close:
           day: 2
-          time: '2300'
+          time: "2300"
         open:
           day: 2
-          time: '1200'
+          time: "1200"
       - close:
           day: 3
-          time: '2300'
+          time: "2300"
         open:
           day: 3
-          time: '1200'
+          time: "1200"
       - close:
           day: 4
-          time: '2300'
+          time: "2300"
         open:
           day: 4
-          time: '1200'
+          time: "1200"
       - close:
           day: 5
-          time: '2300'
+          time: "2300"
         open:
           day: 5
-          time: '1200'
+          time: "1200"
       - close:
           day: 6
-          time: '2300'
+          time: "2300"
         open:
           day: 6
-          time: '1200'
+          time: "1200"
     weekday_text:
-      - 'Monday: 12:00 – 11:00 PM'
-      - 'Tuesday: 12:00 – 11:00 PM'
-      - 'Wednesday: 12:00 – 11:00 PM'
-      - 'Thursday: 12:00 – 11:00 PM'
-      - 'Friday: 12:00 – 11:00 PM'
-      - 'Saturday: 12:00 – 11:00 PM'
-      - 'Sunday: 1:30 – 11:00 PM'
+      - "Monday: 12:00 – 11:00 PM"
+      - "Tuesday: 12:00 – 11:00 PM"
+      - "Wednesday: 12:00 – 11:00 PM"
+      - "Thursday: 12:00 – 11:00 PM"
+      - "Friday: 12:00 – 11:00 PM"
+      - "Saturday: 12:00 – 11:00 PM"
+      - "Sunday: 1:30 – 11:00 PM"
   place_id: ChIJPS7xl0sbdkgRhGxebP5w0ZE
   types:
     - restaurant

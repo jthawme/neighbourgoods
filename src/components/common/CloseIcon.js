@@ -5,7 +5,11 @@ import styles from "./CloseIcon.module.scss";
 
 const CloseIcon = ({ className, ...props }) => {
   return (
-    <button className={`${styles.close} ${className || ""}`} {...props}>
+    <button
+      type="button"
+      className={`${styles.close} ${className || ""}`}
+      {...props}
+    >
       <X />
     </button>
   );

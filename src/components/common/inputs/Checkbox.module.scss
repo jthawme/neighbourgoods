@@ -1,6 +1,6 @@
 :root {
   --checkbox-border-radius: var(--radii-md);
-  --checkbox-inactive-border-color: var(--color-inactive-border);
+  --checkbox-inactive-color: var(--color-inactive-border);
   --checkbox-active-color: var(--color-text);
 
   --checkbox-size: 16px;
@@ -26,8 +26,7 @@
 
   cursor: pointer;
 
-  border: var(--checkbox-border-size) solid
-    var(--checkbox-inactive-border-color);
+  border: var(--checkbox-border-size) solid var(--checkbox-inactive-color);
   border-radius: var(--checkbox-border-radius);
 
   input {
@@ -59,6 +58,7 @@
 
 .label {
   margin-left: var(--size-unit-2);
+  color: var(--checkbox-inactive-color);
 
   .checked & {
     color: var(--checkbox-active-color);

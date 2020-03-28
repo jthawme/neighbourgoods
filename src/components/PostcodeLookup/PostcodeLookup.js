@@ -4,9 +4,10 @@ import Collapsible from "react-collapsible";
 import { useSelector } from "react-redux";
 import { ArrowRight } from "react-feather";
 import Input from "../common/inputs/Input";
+import Spinner from "../common/Spinner";
+import CloseIcon from "../common/CloseIcon";
 
 import styles from "./PostcodeLookup.module.scss";
-import Spinner from "../common/Spinner";
 
 const getPostcode = postCode => {
   return fetch(`https://api.postcodes.io/postcodes/${postCode}`)
@@ -55,6 +56,7 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
 
   return (
     <div className={styles.container}>
+      {onClose && <CloseIcon className={styles.close} onClick={onClose} />}
       <p>
         Support your local independent bars, eateries and grocers through
         COVID-19
@@ -70,6 +72,7 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
               {loading ? <Spinner /> : <ArrowRight />}
             </button>
           }
+          autoFocus
         />
       </form>
       <Collapsible

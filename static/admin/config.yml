@@ -32,17 +32,25 @@ collections:
         name: "image"
         widget: "image"
 
-      - label: "Email"
-        name: "email"
-        widget: "string"
-
-      - label: "Telephone"
-        name: "telephone"
-        widget: "string"
-
       - label: "Category"
         name: "category"
         widget: "categories"
+
+      - label: "Dietary"
+        name: "dietary"
+        widget: "select"
+        multiple: true
+        options:
+          - label: "Vegetarian"
+            value: vegetarian
+          - label: "Vegan"
+            value: vegan
+          - label: "Halal"
+            value: halal
+          - label: "Gluten Free"
+            value: gluten_free
+          - label: "Healthy"
+            value: healthy
 
       - label: "Links"
         name: "links"
@@ -52,6 +60,14 @@ collections:
           - label: "Label"
             name: "label"
             widget: "string"
+          - label: "Category"
+            name: "category"
+            widget: "select"
+            options:
+              - label: "Order"
+                value: "order"
+              - label: "Support"
+                value: "support"
           - label: "Link"
             name: "link"
             widget: "string"
@@ -66,10 +82,16 @@ collections:
                 value: deliveroo
               - label: "Uber Eats"
                 value: uber_eats
+              - label: "Just Eat"
+                value: just_eat
               - label: "Donation"
                 value: donation
               - label: "Voucher"
                 value: voucher
+              - label: "Email"
+                value: email
+              - label: "Phone"
+                value: phone
 
       - label: "Location"
         name: "location"

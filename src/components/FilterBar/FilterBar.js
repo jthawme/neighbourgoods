@@ -1,18 +1,39 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useMemo } from "react";
 
 import { MapPin, ChevronDown } from "react-feather";
 import Collapsible from "react-collapsible";
 
 import styles from "./FilterBar.module.scss";
-import { FilterItem } from "./FilterItem";
+import { CATEGORIES, DIETARY } from "../../cms/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFilter, toggleDietary } from "../../store/actions/filters";
+import Checkbox from "../common/inputs/Checkbox";
 
 const FilterBar = ({ onRequestLocationChange, locationName }) => {
   const [filterOpen, setFilterOpen] = useState(false);
-  const toggleFilter = useCallback(
+  const { activeFilters, activeDietary } = useSelector(state => state.filters);
+  const dispatch = useDispatch();
+
+  const filterLength = useMemo(() => {
+    return activeFilters.length + activeDietary.length;
+  }, [activeFilters.length, activeDietary.length]);
+
+  const toggleFilterTray = useCallback(
     force => {
       setFilterOpen(typeof force === "boolean" ? force : !filterOpen);
     },
     [filterOpen]
+  );
+
+  const toggleFilterItem = useCallback(
+    (value, dietary) => {
+      if (dietary) {
+        dispatch(toggleDietary(value));
+      } else {
+        dispatch(toggleFilter(value));
+      }
+    },
+    [dispatch]
   );
 
   return (
@@ -22,8 +43,13 @@ const FilterBar = ({ onRequestLocationChange, locationName }) => {
           <MapPin />
           <span>{locationName || "Search by postcode"}</span>
         </button>
-        <button className={styles.filterToggle} onClick={toggleFilter}>
-          <span>Filter</span> <ChevronDown />
+        <button
+          className={`${styles.filterToggle} ${filterOpen &&
+            styles.filterToggleOpen}`}
+          onClick={toggleFilterTray}
+        >
+          <span>Filter {filterLength > 0 && `(${filterLength})`}</span>{" "}
+          <ChevronDown />
         </button>
       </nav>
       <Collapsible
@@ -36,54 +62,36 @@ const FilterBar = ({ onRequestLocationChange, locationName }) => {
           <span className={styles.filterTitle}>Categories</span>
 
           <ul>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem selected label="Bar" />
-            </li>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
+            {CATEGORIES.map(category => {
+              return (
+                <li key={category.value}>
+                  <Checkbox
+                    checked={activeFilters.includes(category.value)}
+                    outerTag="label"
+                    label={`${category.label} (0)`}
+                    onChange={() => toggleFilterItem(category.value)}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className={styles.tags}>
           <span className={styles.filterTitle}>Dietary</span>
 
           <ul>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem selected label="Bar" />
-            </li>
-            <li>
-              <FilterItem selected label="Restaurant" />
-            </li>
-            <li>
-              <FilterItem label="Restaurant" />
-            </li>
+            {DIETARY.map(category => {
+              return (
+                <li key={category.value}>
+                  <Checkbox
+                    checked={activeDietary.includes(category.value)}
+                    outerTag="label"
+                    label={`${category.label} (0)`}
+                    onChange={() => toggleFilterItem(category.value, true)}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
       </Collapsible>

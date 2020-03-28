@@ -1,0 +1,121 @@
+.overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-dark-opacity);
+
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+
+  &.opened,
+  &.opening {
+    display: flex;
+
+    opacity: 1;
+  }
+
+  &.centred {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.left {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &.right {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &.closed {
+    display: none;
+  }
+}
+
+.modal {
+  opacity: 0;
+  outline: 0;
+
+  .centred & {
+    transform: scale(0.8);
+
+    transition: {
+      property: opacity, transform;
+      duration: 250ms;
+      timing-function: ease-in-out;
+    }
+  }
+
+  .opening.centred &,
+  .opened.centred & {
+    transition-delay: 250ms;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .closing.centred &,
+  .closed.centred & {
+    transition-delay: 0;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .left & {
+    transform: translate3d(-10%, 0, 0);
+
+    transition: {
+      property: opacity, transform;
+      duration: 250ms;
+      timing-function: ease-in-out;
+    }
+  }
+
+  .opening.left &,
+  .opened.left & {
+    transition-delay: 250ms;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .closing.left &,
+  .closed.left & {
+    transition-delay: 0ms;
+    opacity: 0;
+    transform: translate3d(-10%, 0, 0);
+  }
+
+  .right & {
+    transform: translate3d(10%, 0, 0);
+
+    transition: {
+      property: opacity, transform;
+      duration: 250ms;
+      timing-function: ease-in-out;
+    }
+  }
+
+  .opening.right &,
+  .opened.right & {
+    transition-delay: 250ms;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .closing.right &,
+  .closed.right & {
+    transition-delay: 0ms;
+    opacity: 0;
+    transform: translate3d(10%, 0, 0);
+  }
+}

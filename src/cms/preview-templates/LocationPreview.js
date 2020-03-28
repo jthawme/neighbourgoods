@@ -19,7 +19,7 @@ const LocationPreview = ({ entry, getAsset }) => {
           label: item.label || "NO LABEL"
         }))}
         image={!!data.image && image.url}
-        times={data?.location.opening_hours.periods}
+        times={data?.location?.opening_hours.periods}
         type={data.category}
       />
     );

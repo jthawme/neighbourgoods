@@ -2,18 +2,16 @@
 templateKey: location
 name: Earl Of Essex
 image: /img/earlofessex.jpg
-email: test@test.com
-telephone: '01234'
 category: pub
 links:
   - type: voucher
     label: Buy Voucher
     category: support
-    link: 'https://www.grace-land.co.uk/vouchers/2020'
+    link: "https://www.grace-land.co.uk/vouchers/2020"
 location:
   address_components:
-    - long_name: '25'
-      short_name: '25'
+    - long_name: "25"
+      short_name: "25"
       types:
         - street_number
     - long_name: Danbury Street
@@ -65,54 +63,54 @@ location:
     periods:
       - close:
           day: 0
-          time: '2300'
+          time: "2300"
         open:
           day: 0
-          time: '1200'
+          time: "1200"
       - close:
           day: 1
-          time: '2330'
+          time: "2330"
         open:
           day: 1
-          time: '1200'
+          time: "1200"
       - close:
           day: 2
-          time: '2330'
+          time: "2330"
         open:
           day: 2
-          time: '1200'
+          time: "1200"
       - close:
           day: 3
-          time: '2330'
+          time: "2330"
         open:
           day: 3
-          time: '1200'
+          time: "1200"
       - close:
           day: 4
-          time: '2330'
+          time: "2330"
         open:
           day: 4
-          time: '1200'
+          time: "1200"
       - close:
           day: 6
-          time: '0000'
+          time: "0000"
         open:
           day: 5
-          time: '1200'
+          time: "1200"
       - close:
           day: 0
-          time: '0000'
+          time: "0000"
         open:
           day: 6
-          time: '1200'
+          time: "1200"
     weekday_text:
-      - 'Monday: 12:00 – 11:30 PM'
-      - 'Tuesday: 12:00 – 11:30 PM'
-      - 'Wednesday: 12:00 – 11:30 PM'
-      - 'Thursday: 12:00 – 11:30 PM'
-      - 'Friday: 12:00 PM – 12:00 AM'
-      - 'Saturday: 12:00 PM – 12:00 AM'
-      - 'Sunday: 12:00 – 11:00 PM'
+      - "Monday: 12:00 – 11:30 PM"
+      - "Tuesday: 12:00 – 11:30 PM"
+      - "Wednesday: 12:00 – 11:30 PM"
+      - "Thursday: 12:00 – 11:30 PM"
+      - "Friday: 12:00 PM – 12:00 AM"
+      - "Saturday: 12:00 PM – 12:00 AM"
+      - "Sunday: 12:00 – 11:00 PM"
   place_id: ChIJhZIqd14bdkgR4zDh3BJaasI
   types:
     - bar

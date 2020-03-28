@@ -68,3 +68,7 @@
     transform: translate3d(35%, 0, 0);
   }
 }
+
+.close {
+  right: calc(5% + var(--size-unit-4));
+}

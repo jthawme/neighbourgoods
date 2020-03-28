@@ -38,6 +38,28 @@ function isOpen(times, current = currentTime) {
   }
 }
 
+function getOpenTime(times, current = currentTime) {
+  if (current.day >= times.length) {
+    return false;
+  }
+
+  const slot = times[current.day];
+  const openTime = getTimeFromString(slot.open.time);
+
+  if (current.hours > openTime.hours) {
+    return getOpenTime(times, {
+      ...current,
+      day: (current.day + 1) % 7
+    });
+  }
+
+  return `${openTime.hours
+    .toString()
+    .padStart(2, "0")}.${openTime.minutes.toString().padStart(2, "0")}${
+    slot.open.day !== currentTime.day ? " (+1)" : ""
+  }`;
+}
+
 function getCloseTime(times, current = currentTime) {
   if (current.day >= times.length) {
     return false;
@@ -51,4 +73,11 @@ function getCloseTime(times, current = currentTime) {
     .padStart(2, "0")}.${closeTime.minutes.toString().padStart(2, "0")}`;
 }
 
-export { getCurrentTime, currentTime, isOpen, getTimeFromString, getCloseTime };
+export {
+  getCurrentTime,
+  currentTime,
+  isOpen,
+  getTimeFromString,
+  getOpenTime,
+  getCloseTime
+};

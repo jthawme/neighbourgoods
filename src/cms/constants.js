@@ -2,40 +2,12 @@ export const LINK_TYPES = {
   EXTERNAL: "external",
   DELIVEROO: "deliveroo",
   UBER_EATS: "uber_eats",
+  JUST_EAT: "just_eat",
   DONATION: "donation",
-  VOUCHER: "voucher"
+  VOUCHER: "voucher",
+  EMAIL: "email",
+  PHONE: "phone"
 };
-
-export const LINK_ICONS = {
-  [LINK_TYPES.EXTERNAL]: "🏡",
-  [LINK_TYPES.DELIVEROO]: "🏡",
-  [LINK_TYPES.UBER_EATS]: "🏡",
-  [LINK_TYPES.DONATION]: "❤️",
-  [LINK_TYPES.VOUCHER]: "🎉"
-};
-
-export const LINK_OPTIONS = [
-  {
-    label: "External / Other",
-    value: LINK_TYPES.EXTERNAL
-  },
-  {
-    label: "Deliveroo",
-    value: LINK_TYPES.DELIVEROO
-  },
-  {
-    label: "Uber Eats",
-    value: LINK_TYPES.UBER_EATS
-  },
-  {
-    label: "Donation",
-    value: LINK_TYPES.DONATION
-  },
-  {
-    label: "Voucher",
-    value: LINK_TYPES.VOUCHER
-  }
-];
 
 export const CATEGORY_TYPES = {
   RESAURANT: "restaurant",
@@ -123,3 +95,13 @@ export const DIETARY = [
     value: DIETARY_TYPES.HEALTHY
   }
 ];
+
+export const LINK_CATEGORIES = {
+  SUPPORT: "support",
+  ORDER: "order"
+};
+
+export const LINK_CATEGORY_ICONS = {
+  [LINK_CATEGORIES.ORDER]: "🏡",
+  [LINK_CATEGORIES.SUPPORT]: "❤️"
+};

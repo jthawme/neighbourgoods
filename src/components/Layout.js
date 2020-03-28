@@ -9,10 +9,12 @@ import FilterBar from "./FilterBar/FilterBar";
 import Header from "./Header/Header";
 import FloatingButton from "./common/FloatingButton";
 import Modal from "./common/Modal";
+import FakeModal from "./common/FakeModal";
 import PostcodeLookup from "./PostcodeLookup/PostcodeLookup";
 import AboutContent from "./AboutContent/AboutContent";
 import AddForm from "./AddForm/AddForm";
 import Map from "./Map/Map";
+import LinksPickup from "./LinksPickup/LinksPickup";
 import Toast from "./common/Toast";
 
 import "normalize.css";
@@ -99,35 +101,33 @@ const TemplateWrapper = ({ children }) => {
           />
         </div>
 
-        <Modal
+        <FakeModal
           isOpen={aboutIsOpen}
           type="left"
           onClose={() => setAboutIsOpen(false)}
         >
           <AboutContent onClose={() => setAboutIsOpen(false)} />
-        </Modal>
+        </FakeModal>
 
-        <Modal
+        <FakeModal
           isOpen={addIsOpen}
           type="right"
           onClose={() => setAddIsOpen(false)}
         >
           <AddForm onClose={() => setAddIsOpen(false)} />
+        </FakeModal>
+
+        <Modal
+          isOpen={isOpen}
+          onClose={!!info.borough ? () => setIsOpen(false) : undefined}
+        >
+          <PostcodeLookup
+            onPostcode={onPostCodeData}
+            onClose={!!info.borough ? () => setIsOpen(false) : undefined}
+          />
         </Modal>
 
-        <form name="add" netlify netlify-honeypot="bot-field" hidden>
-          <input type="text" name="name" />
-          <input type="text" name="postCode" />
-          <input type="text" name="category" />
-
-          <textarea name="dietary"></textarea>
-          <textarea name="links"></textarea>
-          <textarea name="support"></textarea>
-        </form>
-
-        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-          <PostcodeLookup onPostcode={onPostCodeData} />
-        </Modal>
+        <LinksPickup />
       </main>
     </ToastProvider>
   );

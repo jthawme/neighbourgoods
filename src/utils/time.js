@@ -27,14 +27,9 @@ function isOpen(times, current = currentTime) {
   const closeTime = getTimeFromString(slot.close.time);
 
   if (slot.close.day !== current.day) {
-    return current.hours > openTime.hours && current.minutes > openTime.minutes;
+    return current.hours > openTime.hours;
   } else {
-    return (
-      current.hours >= openTime.hours &&
-      current.minutes > openTime.minutes &&
-      current.hours <= closeTime.hours &&
-      current.minutes < closeTime.minutes
-    );
+    return current.hours >= openTime.hours && current.hours <= closeTime.hours;
   }
 }
 
@@ -46,7 +41,7 @@ function getOpenTime(times, current = currentTime) {
   const slot = times[current.day];
   const openTime = getTimeFromString(slot.open.time);
 
-  if (current.hours > openTime.hours) {
+  if (currentTime.day === slot.open.day && current.hours > openTime.hours) {
     return getOpenTime(times, {
       ...current,
       day: (current.day + 1) % 7

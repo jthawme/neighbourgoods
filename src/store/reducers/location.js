@@ -1,4 +1,8 @@
-import { SET_CURRENT_LINKS, REMOVE_CURRENT_LINKS } from "../actions/location";
+import {
+  SET_CURRENT_LINKS,
+  REMOVE_CURRENT_LINKS,
+  HIGHLIGHT_LOCATION
+} from "../actions/location";
 
 /**
  * Current shape:
@@ -13,7 +17,8 @@ import { SET_CURRENT_LINKS, REMOVE_CURRENT_LINKS } from "../actions/location";
  */
 
 const initialState = {
-  currentLinks: false
+  currentLinks: false,
+  highlight: false
 };
 
 const locationReducer = (state = initialState, action) => {
@@ -31,6 +36,11 @@ const locationReducer = (state = initialState, action) => {
       return {
         ...state,
         currentLinks: false
+      };
+    case HIGHLIGHT_LOCATION:
+      return {
+        ...state,
+        highlight: action.id
       };
     default:
       return state;

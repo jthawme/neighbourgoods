@@ -1,128 +1,62 @@
-import React from "react";
-import { LINK_TYPES, CATEGORY_TYPES } from "../../cms/constants";
+import React, { useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import LocationCard from "../LocationCard/LocationCard";
+import FilterListener from "../FilterListener/FilterListener";
 
 import styles from "./Home.module.scss";
+import { setOrganicLocation, THREE_MILES } from "../../store/actions/info";
+import { getBoundingBox } from "../../utils/location";
+import { setHighlightLocation } from "../../store/actions/location";
 
-const DEBUG_NAME = "TEST name";
-const DEBUG_LINKS = [
-  {
-    link: "https://twitter.com",
-    type: LINK_TYPES.VOUCHER,
-    label: "Voucher"
-  },
-  {
-    link: "https://twitter.com",
-    type: LINK_TYPES.DELIVEROO,
-    label: "Delivery"
-  }
-];
-const DEBUG_TYPE = CATEGORY_TYPES.BAR;
-const DEBUG_TIMES = [
-  {
-    close: {
-      day: 0,
-      time: "2300"
-    },
-    open: {
-      day: 0,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 1,
-      time: "2330"
-    },
-    open: {
-      day: 1,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 2,
-      time: "2330"
-    },
-    open: {
-      day: 2,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 3,
-      time: "2330"
-    },
-    open: {
-      day: 3,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 4,
-      time: "2330"
-    },
-    open: {
-      day: 4,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 6,
-      time: "0000"
-    },
-    open: {
-      day: 5,
-      time: "1200"
-    }
-  },
-  {
-    close: {
-      day: 0,
-      time: "0000"
-    },
-    open: {
-      day: 6,
-      time: "1200"
-    }
-  }
-];
+const Home = () => {
+  const highlight = useSelector(state => state.location.highlight);
+  const { results } = useSelector(state => state.filters);
+  const dispatch = useDispatch();
 
-const test = {
-  name: DEBUG_NAME,
-  links: DEBUG_LINKS,
-  type: DEBUG_TYPE,
-  times: DEBUG_TIMES
-};
+  const onClickLocation = useCallback(
+    (coords, id) => {
+      dispatch(
+        setOrganicLocation(
+          coords,
+          getBoundingBox(coords.lat, coords.lng, THREE_MILES)
+        )
+      );
 
-const Home = ({ data }) => {
+      dispatch(setHighlightLocation(id));
+    },
+    [dispatch]
+  );
+
   return (
-    <div className={styles.content}>
-      <div className={styles.meta}>
-        <span>
-          {data.length} {data.length === 1 ? "result" : "results"}
-        </span>
+    <>
+      <FilterListener />
+
+      <div className={styles.content}>
+        <div className={styles.meta}>
+          <span>
+            {results.length} {results.length === 1 ? "result" : "results"}
+          </span>
+        </div>
+        <div className={styles.pool}>
+          {results.map(d => {
+            return (
+              <div key={d.slug} className={styles.card}>
+                <LocationCard
+                  className={styles.cardInner}
+                  name={d.name}
+                  times={d?.opening_hours}
+                  type={d.category}
+                  links={d.links}
+                  image={d.image}
+                  highlight={highlight === d.id}
+                  onClick={() => onClickLocation(d.coords, d.id)}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className={styles.pool}>
-        {data.map(d => {
-          return (
-            <div key={d.slug} className={styles.card}>
-              <LocationCard
-                className={styles.cardInner}
-                name={d.name}
-                times={d?.location?.opening_hours.periods}
-                type={d.category}
-                links={d.links}
-                image={d.image.childImageSharp.fluid.src}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    </>
   );
 };
 

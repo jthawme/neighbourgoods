@@ -108,3 +108,20 @@
     }
   }
 }
+
+.filterBtn {
+  display: flex;
+
+  align-items: center;
+}
+
+.filterActive {
+  width: var(--size-unit-2);
+  height: var(--size-unit-2);
+
+  border-radius: 50%;
+
+  background-color: var(--color-accent);
+
+  margin-right: var(--size-unit-2);
+}

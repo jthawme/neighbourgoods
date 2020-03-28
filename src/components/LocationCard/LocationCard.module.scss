@@ -7,6 +7,15 @@
   box-shadow: var(--shadow-subtle);
 }
 
+.highlight {
+  animation: {
+    name: PULSE;
+    duration: 0.5s;
+    iteration-count: 6;
+    direction: alternate;
+  }
+}
+
 .content {
   padding: var(--size-unit-4) var(--size-unit-4) var(--size-unit-5);
 }
@@ -79,5 +88,12 @@
     &:focus {
       opacity: 0.75;
     }
+  }
+}
+
+@keyframes PULSE {
+  to {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-accent-subtle);
   }
 }

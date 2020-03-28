@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
@@ -16,10 +16,20 @@ import AddForm from "./AddForm/AddForm";
 import Map from "./Map/Map";
 import LinksPickup from "./LinksPickup/LinksPickup";
 import Toast from "./common/Toast";
+import MyMarker from "./Marker/Marker";
+
+import {
+  setPostCodeInfo,
+  setOrganicLocation,
+  THREE_MILES
+} from "../store/actions/info";
+import { setHighlightLocation } from "../store/actions/location";
+import { setFilteredResults } from "../store/actions/filters";
+import { getBoundingBox } from "../utils/location";
+import { filterResults } from "../utils/filter";
 
 import "normalize.css";
 import "../styles/global.scss";
-import { setPostCodeInfo } from "../store/actions/info";
 
 const TemplateWrapper = ({ children }) => {
   const dispatch = useDispatch();
@@ -28,20 +38,60 @@ const TemplateWrapper = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [aboutIsOpen, setAboutIsOpen] = useState(false);
   const [addIsOpen, setAddIsOpen] = useState(false);
+  const { activeFilters, activeDietary, results } = useSelector(
+    state => state.filters
+  );
 
-  const onPostCodeData = useCallback(data => {
-    dispatch(
-      setPostCodeInfo(data.postcode, data.admin_district, {
+  const onPostCodeData = useCallback(
+    data => {
+      const currentCoords = {
         lat: data.latitude,
         lng: data.longitude
-      })
-    );
-    setIsOpen(false);
-  }, []);
+      };
+
+      dispatch(
+        setPostCodeInfo(
+          data.postcode,
+          data.admin_district,
+          currentCoords,
+          getBoundingBox(data.latitude, data.longitude, THREE_MILES)
+        )
+      );
+      setIsOpen(false);
+    },
+    [dispatch]
+  );
+
+  const onSearch = useCallback(
+    currentCoords => {
+      dispatch(
+        setOrganicLocation(
+          currentCoords,
+          getBoundingBox(currentCoords.lat, currentCoords.lng, THREE_MILES)
+        )
+      );
+    },
+    [dispatch]
+  );
+
+  const setMarker = useCallback(
+    id => {
+      dispatch(setHighlightLocation(id));
+    },
+    [dispatch]
+  );
 
   const onOpenPostCode = useCallback(() => {
     setIsOpen(true);
   }, []);
+
+  useEffect(() => {
+    dispatch(
+      setFilteredResults(
+        filterResults(info.results, activeFilters, activeDietary)
+      )
+    );
+  }, [activeFilters, activeDietary, info.results, dispatch]);
 
   return (
     <ToastProvider components={{ Toast }}>
@@ -93,7 +143,21 @@ const TemplateWrapper = ({ children }) => {
           <div className="content">{children}</div>
         </div>
         <div className="right">
-          <Map coords={info.coords} />
+          <Map
+            coords={info.coords}
+            boundingBox={info.boundingBox}
+            onMoveSearch={onSearch}
+          >
+            {results.map(r => {
+              return (
+                <MyMarker
+                  key={r.id}
+                  position={r.coords}
+                  onClick={() => setMarker(r.id)}
+                />
+              );
+            })}
+          </Map>
           <FloatingButton
             className="button"
             text="Add a spot"

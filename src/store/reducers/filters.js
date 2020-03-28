@@ -1,8 +1,13 @@
-import { TOGGLE_FILTER, TOGGLE_DIETARY } from "../actions/filters";
+import {
+  TOGGLE_FILTER,
+  TOGGLE_DIETARY,
+  SET_FILTERED_RESULTS
+} from "../actions/filters";
 
 const initialState = {
   activeFilters: [],
-  activeDietary: []
+  activeDietary: [],
+  results: []
 };
 
 const filtersReducer = (state = initialState, action) => {
@@ -37,6 +42,11 @@ const filtersReducer = (state = initialState, action) => {
         activeDietary: list
       };
     }
+    case SET_FILTERED_RESULTS:
+      return {
+        ...state,
+        results: action.results
+      };
     default:
       return state;
   }

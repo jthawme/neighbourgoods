@@ -48,7 +48,10 @@ const FilterBar = ({ onRequestLocationChange, locationName }) => {
             styles.filterToggleOpen}`}
           onClick={toggleFilterTray}
         >
-          <span>Filter {filterLength > 0 && `(${filterLength})`}</span>{" "}
+          <span className={styles.filterBtn}>
+            {filterLength > 0 && <span className={styles.filterActive} />}{" "}
+            Filter
+          </span>{" "}
           <ChevronDown />
         </button>
       </nav>

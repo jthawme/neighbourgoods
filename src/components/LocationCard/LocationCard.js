@@ -15,7 +15,16 @@ import { isOpen, getCloseTime, getOpenTime } from "../../utils/time";
 import { getOrderLinks, getSupportLinks } from "../../utils/links";
 import { setCurrentLinks } from "../../store/actions/location";
 
-const LocationCard = ({ name, links, image, type, times = [], className }) => {
+const LocationCard = ({
+  name,
+  links,
+  image,
+  type,
+  times = [],
+  className,
+  highlight,
+  onClick
+}) => {
   const dispatch = useDispatch();
 
   const typeLabel = useMemo(() => {
@@ -50,10 +59,12 @@ const LocationCard = ({ name, links, image, type, times = [], className }) => {
     dispatch(setCurrentLinks(name, LINK_CATEGORIES.SUPPORT, supportLinks));
   }, [dispatch, name, supportLinks]);
 
-  const cls = classNames(styles.card, className);
+  const cls = classNames(styles.card, className, {
+    [styles.highlight]: highlight
+  });
 
   return (
-    <div className={cls}>
+    <div className={cls} onClick={onClick}>
       <div
         className={styles.image}
         style={image ? { backgroundImage: `url(${image})` } : {}}

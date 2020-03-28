@@ -10,7 +10,7 @@ import Spinner from "../common/Spinner";
 import Select from "../common/inputs/Select";
 import FormRow from "./parts/FormRow";
 import CheckboxGroup from "../common/inputs/CheckboxGroup";
-import { DIETARY, CATEGORIES } from "../../cms/constants";
+import { DIETARY, CATEGORIES, LINK_TYPES } from "../../cms/constants";
 import LinkGroup from "./parts/LinkGroup";
 import LinkGroupTitle from "./parts/LinkGroupTitle";
 import { useToasts } from "react-toast-notifications";
@@ -137,6 +137,7 @@ const AddForm = ({ onClose }) => {
       <form
         method="post"
         action="/"
+        name="add"
         className={styles.right}
         onSubmit={onSubmit}
         data-netlify="true"
@@ -210,7 +211,11 @@ const AddForm = ({ onClose }) => {
               placeholder="Insert URL"
               value={links.deliveroo}
               onTextChange={value =>
-                dispatch({ type: "update_link", key: "deliveroo", value })
+                dispatch({
+                  type: "update_link",
+                  key: LINK_TYPES.DELIVEROO,
+                  value
+                })
               }
               validate
               validateFunc={value => isUrl(value)}
@@ -222,7 +227,43 @@ const AddForm = ({ onClose }) => {
               placeholder="Insert URL"
               value={links.uber_eats}
               onTextChange={value =>
-                dispatch({ type: "update_link", key: "uber_eats", value })
+                dispatch({
+                  type: "update_link",
+                  key: LINK_TYPES.UBER_EATS,
+                  value
+                })
+              }
+              validate
+              validateFunc={value => isUrl(value)}
+              disabled={isSubmitting}
+            />
+            <Input
+              leftSlot={<LinkGroupTitle title="Just Eat" />}
+              hide
+              placeholder="Insert URL"
+              value={links.uber_eats}
+              onTextChange={value =>
+                dispatch({
+                  type: "update_link",
+                  key: LINK_TYPES.JUST_EAT,
+                  value
+                })
+              }
+              validate
+              validateFunc={value => isUrl(value)}
+              disabled={isSubmitting}
+            />
+            <Input
+              leftSlot={<LinkGroupTitle title="Website / Other" />}
+              hide
+              placeholder="Insert URL"
+              value={links.uber_eats}
+              onTextChange={value =>
+                dispatch({
+                  type: "update_link",
+                  key: LINK_TYPES.EXTERNAL,
+                  value
+                })
               }
               validate
               validateFunc={value => isUrl(value)}

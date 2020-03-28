@@ -1,9 +1,15 @@
-import { SET_POSTCODE_INFO } from "../actions/info";
+import {
+  SET_POSTCODE_INFO,
+  SET_RESULTS,
+  SET_ORGANIC_LOCATION
+} from "../actions/info";
 
 const initialState = {
   postCode: false,
   borough: false,
-  coords: false
+  coords: false,
+  boundingBox: false,
+  results: []
 };
 
 const infoReducer = (state = initialState, action) => {
@@ -13,7 +19,21 @@ const infoReducer = (state = initialState, action) => {
         ...state,
         postCode: action.postCode,
         borough: action.borough,
-        coords: action.coords
+        coords: action.coords,
+        boundingBox: action.boundingBox
+      };
+    case SET_ORGANIC_LOCATION:
+      return {
+        ...state,
+        postCode: false,
+        borough: false,
+        coords: action.coords,
+        boundingBox: action.boundingBox
+      };
+    case SET_RESULTS:
+      return {
+        ...state,
+        results: action.results
       };
     default:
       return state;

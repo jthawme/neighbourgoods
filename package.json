@@ -59,7 +59,7 @@
     "clean": "gatsby clean",
     "start": "npm run create:data && npm run develop",
     "create:data": "node scripts/buildData.js",
-    "build": "npm run create:data && npm run build:zipped && npm run clean && gatsby build",
+    "build": "npm run create:data && npm run clean && gatsby build",
     "develop": "dotenv -- npm run clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"

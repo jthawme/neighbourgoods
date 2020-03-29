@@ -326,8 +326,6 @@ const AddForm = ({ onClose }) => {
                 />
               </LinkGroup>
 
-              <input type="hidden" name="support" />
-
               <LinkGroup
                 icon="❤️"
                 title="Offer Support"
@@ -409,6 +407,11 @@ const AddForm = ({ onClose }) => {
                 disabled={isSubmitting}
               />
             </FormRow>
+            <input type="hidden" name="support" />
+            <input type="hidden" name={LINK_TYPES.DELIVEROO} />
+            <input type="hidden" name={LINK_TYPES.UBER_EATS} />
+            <input type="hidden" name={LINK_TYPES.JUST_EAT} />
+            <input type="hidden" name={LINK_TYPES.EXTERNAL} />
           </>
         )}
         <div className={styles.submitBtn}>

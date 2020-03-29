@@ -19,9 +19,9 @@ const LinkGroupTrigger = ({ icon, title, subtitle }) => {
   );
 };
 
-const LinkGroup = ({ icon, title, subtitle, children }) => {
+const LinkGroup = ({ icon, title, subtitle, children, className }) => {
   return (
-    <div className={styles.outer}>
+    <div className={`${styles.outer} ${className || ""}`}>
       <Collapsible
         easing="ease-in-out"
         trigger={

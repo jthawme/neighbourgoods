@@ -88,23 +88,19 @@ const AddForm = ({ onClose }) => {
       setErrorMessage(false);
       setSubmitting(true);
 
-      const { links, support, ...rest } = state;
-
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "add",
-          links: encode(links),
-          support: support.join(" - "),
-          ...rest
+        body: JSON.stringify({
+          ...state,
+          "form-name": "add"
         })
       })
         .then(() => {
           addToast("Submitted spot, thanks!", {
-            appearance: "success"
-            // autoDismiss: true,
-            // autoDismissTimeout: 10000
+            appearance: "success",
+            autoDismiss: true,
+            autoDismissTimeout: 10000
           });
           onClose();
         })
@@ -204,12 +200,13 @@ const AddForm = ({ onClose }) => {
             icon="🏡"
             title="Order delivery"
             subtitle="e.g. Deliveroo, Just Eat, UberEats, Website"
+            className={styles.stacked}
           >
             <Input
               leftSlot={<LinkGroupTitle title="Deliveroo" />}
               hide
               placeholder="Insert URL"
-              value={links.deliveroo}
+              value={links[LINK_TYPES.DELIVEROO] || ""}
               onTextChange={value =>
                 dispatch({
                   type: "update_link",
@@ -225,7 +222,7 @@ const AddForm = ({ onClose }) => {
               leftSlot={<LinkGroupTitle title="Uber Eats" />}
               hide
               placeholder="Insert URL"
-              value={links.uber_eats}
+              value={links[LINK_TYPES.UBER_EATS] || ""}
               onTextChange={value =>
                 dispatch({
                   type: "update_link",
@@ -241,7 +238,7 @@ const AddForm = ({ onClose }) => {
               leftSlot={<LinkGroupTitle title="Just Eat" />}
               hide
               placeholder="Insert URL"
-              value={links.uber_eats}
+              value={links[LINK_TYPES.JUST_EAT] || ""}
               onTextChange={value =>
                 dispatch({
                   type: "update_link",
@@ -257,7 +254,7 @@ const AddForm = ({ onClose }) => {
               leftSlot={<LinkGroupTitle title="Website / Other" />}
               hide
               placeholder="Insert URL"
-              value={links.uber_eats}
+              value={links[LINK_TYPES.EXTERNAL] || ""}
               onTextChange={value =>
                 dispatch({
                   type: "update_link",

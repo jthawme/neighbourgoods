@@ -15,6 +15,7 @@ const Input = ({
   hide,
   validate,
   validateFunc,
+  className,
   ...props
 }) => {
   const [focused, setFocused] = useState(false);
@@ -39,7 +40,7 @@ const Input = ({
     >
       {leftSlot || null}
       <input
-        className={`${styles.input} ${hide && styles.hide}`}
+        className={`${styles.input} ${hide && styles.hide} ${className || ""}`}
         type="text"
         onFocus={onFocus}
         onBlur={onBlur}

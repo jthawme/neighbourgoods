@@ -130,3 +130,11 @@
     }
   }
 }
+
+.stacked {
+  --input-label-direction: column;
+
+  @media screen and (min-width: 768px) {
+    --input-label-direction: row;
+  }
+}

@@ -18,7 +18,7 @@ import Share from "../common/Share";
 
 const formState = {
   name: "",
-  postCode: "",
+  postcode: "",
   category: "restaurant",
   dietary: [],
   links: {},
@@ -89,7 +89,7 @@ const AddForm = ({ onClose }) => {
     query: "(min-width: 768px)"
   });
   const [state, dispatch] = useReducer(reducer, formState);
-  const { name, postCode, category, dietary, links, support } = state;
+  const { name, postcode, category, dietary, links, support } = state;
   const [errorMessage, setErrorMessage] = useState(false);
   const [isSubmitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -101,11 +101,20 @@ const AddForm = ({ onClose }) => {
       setErrorMessage(false);
       setSubmitting(true);
 
+      const linksRed = Object.keys(state.links).reduce((prev, curr) => {
+        return {
+          ...prev,
+          [curr]: state.links[curr]
+        };
+      }, {});
+
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: jsonToEncoded({
           ...state,
+          ...linksRed,
+          support: state.support.join(" - "),
           "form-name": "add"
         })
       })
@@ -187,6 +196,7 @@ const AddForm = ({ onClose }) => {
             <FormRow title="Who are they?*" number="1">
               <Input
                 label="Name"
+                name="name"
                 value={name}
                 onTextChange={text =>
                   dispatch({ type: "update", key: "name", value: text })
@@ -196,9 +206,10 @@ const AddForm = ({ onClose }) => {
               />
               <Input
                 label="Post code"
-                value={postCode}
+                name="postcode"
+                value={postcode}
                 onTextChange={text =>
-                  dispatch({ type: "update", key: "postCode", value: text })
+                  dispatch({ type: "update", key: "postcode", value: text })
                 }
                 disabled={isSubmitting}
                 required
@@ -208,6 +219,7 @@ const AddForm = ({ onClose }) => {
             <FormRow title="What do they do?*" number="2">
               <Select
                 label="Category"
+                name="category"
                 options={CATEGORIES}
                 onValueChange={value =>
                   dispatch({ type: "update", key: "category", value })
@@ -218,6 +230,7 @@ const AddForm = ({ onClose }) => {
 
               <CheckboxGroup
                 label="Dietary Requirements"
+                name="dietary"
                 value={dietary}
                 options={DIETARY}
                 onChange={value =>
@@ -247,6 +260,7 @@ const AddForm = ({ onClose }) => {
                   hide
                   placeholder="Insert URL"
                   value={links[LINK_TYPES.DELIVEROO] || ""}
+                  name="deliveroo"
                   onTextChange={value =>
                     dispatch({
                       type: "update_link",
@@ -308,6 +322,8 @@ const AddForm = ({ onClose }) => {
                 />
               </LinkGroup>
 
+              <input type="hidden" name="support" value="" />
+
               <LinkGroup
                 icon="❤️"
                 title="Offer Support"
@@ -361,6 +377,7 @@ const AddForm = ({ onClose }) => {
               <Input
                 label="Name"
                 value={name}
+                name="name"
                 onTextChange={text =>
                   dispatch({ type: "update", key: "name", value: text })
                 }
@@ -369,15 +386,17 @@ const AddForm = ({ onClose }) => {
               />
               <Input
                 label="Post code"
-                value={postCode}
+                value={postcode}
+                name="postcode"
                 onTextChange={text =>
-                  dispatch({ type: "update", key: "postCode", value: text })
+                  dispatch({ type: "update", key: "postcode", value: text })
                 }
                 disabled={isSubmitting}
                 required
               />
               <Select
                 label="Category"
+                name="category"
                 options={CATEGORIES}
                 onValueChange={value =>
                   dispatch({ type: "update", key: "category", value })

@@ -10,6 +10,10 @@ links:
     label: Deliveroo
     category: order
     link: 'https://deliveroo.co.uk/menu/london/stoke-newington/ozdemir-company-ltd'
+  - type: just_eat
+    label: Just Eat
+    category: order
+    link: 'https://www.just-eat.co.uk/restaurants-emys-kitchen-stoke-newington/menu'
 location:
   address_components:
     - long_name: '131'

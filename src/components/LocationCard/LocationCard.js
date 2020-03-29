@@ -57,12 +57,25 @@ const LocationCard = ({
     onRequest(name, LINK_CATEGORIES.SUPPORT, supportLinks);
   }, [name, onRequest, supportLinks]);
 
+  const onInternalClick = useCallback(
+    e => {
+      const isButton =
+        e.target.tagName === "BUTTON" ||
+        e.target.parentElement.tagName === "BUTTON";
+
+      if (!isButton) {
+        onClick();
+      }
+    },
+    [onClick]
+  );
+
   const cls = classNames(styles.card, className, {
     [styles.highlight]: highlight
   });
 
   return (
-    <div className={cls} onClick={onClick}>
+    <div className={cls} onClick={onInternalClick}>
       <div
         className={styles.image}
         style={image ? { backgroundImage: `url(${image})` } : {}}

@@ -47,7 +47,10 @@ const Home = () => {
             {results.length} {results.length === 1 ? "result" : "results"}
           </span>
         </div>
-        <div className={styles.pool}>
+        <div
+          className={`${styles.pool} ${results.length === 0 &&
+            styles.poolEmpty}`}
+        >
           {results.map(d => {
             return (
               <div key={d.id} className={styles.card}>
@@ -65,6 +68,13 @@ const Home = () => {
               </div>
             );
           })}
+
+          {results.length === 0 && (
+            <p>
+              Please help support small businesses by adding them to the
+              community built map. 🙏
+            </p>
+          )}
         </div>
       </div>
     </>

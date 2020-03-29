@@ -75,8 +75,10 @@ const TemplateWrapper = ({ children }) => {
   );
 
   const setMarker = useCallback(
-    id => {
+    (id, coords) => {
       dispatch(setHighlightLocation(id));
+
+      onSearch(coords);
     },
     [dispatch]
   );
@@ -157,7 +159,7 @@ const TemplateWrapper = ({ children }) => {
                 <MyMarker
                   key={r.id}
                   position={r.coords}
-                  onClick={() => setMarker(r.id)}
+                  onClick={() => setMarker(r.id, r.coords)}
                 />
               );
             })}

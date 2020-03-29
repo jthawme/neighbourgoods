@@ -3,17 +3,23 @@
 
   align-items: center;
 
-  border-right: var(--size-line) solid var(--color-text-light);
+  border-bottom: var(--size-line) solid var(--color-text-light);
 
   padding: var(--size-unit-4);
 
   min-width: 120px;
 
-  width: 25%;
+  width: 100%;
 
   span {
     white-space: pre;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 25%;
+    border-right: var(--size-line) solid var(--color-text-light);
+    border-bottom: 0;
   }
 }

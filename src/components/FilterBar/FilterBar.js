@@ -12,7 +12,31 @@ import Checkbox from "../common/inputs/Checkbox";
 const FilterBar = ({ onRequestLocationChange, locationName }) => {
   const [filterOpen, setFilterOpen] = useState(false);
   const { activeFilters, activeDietary } = useSelector(state => state.filters);
+  const { results } = useSelector(state => state.info);
   const dispatch = useDispatch();
+
+  const filterCounts = useMemo(() => {
+    return results.reduce(
+      (prev, curr) => {
+        if (!prev.category[curr.category]) {
+          prev.category[curr.category] = 0;
+        }
+
+        prev.category[curr.category]++;
+
+        (curr.dietary || []).forEach(d => {
+          if (!prev.dietary[d]) {
+            prev.dietary[d] = 0;
+          }
+
+          prev.dietary[d]++;
+        });
+
+        return prev;
+      },
+      { category: {}, dietary: {} }
+    );
+  }, [results]);
 
   const filterLength = useMemo(() => {
     return activeFilters.length + activeDietary.length;
@@ -71,7 +95,9 @@ const FilterBar = ({ onRequestLocationChange, locationName }) => {
                   <Checkbox
                     checked={activeFilters.includes(category.value)}
                     outerTag="label"
-                    label={`${category.label} (0)`}
+                    label={`${category.label} (${filterCounts.category[
+                      category.value
+                    ] || 0})`}
                     onChange={() => toggleFilterItem(category.value)}
                   />
                 </li>
@@ -89,7 +115,9 @@ const FilterBar = ({ onRequestLocationChange, locationName }) => {
                   <Checkbox
                     checked={activeDietary.includes(category.value)}
                     outerTag="label"
-                    label={`${category.label} (0)`}
+                    label={`${category.label} (${filterCounts.dietary[
+                      category.value
+                    ] || 0})`}
                     onChange={() => toggleFilterItem(category.value, true)}
                   />
                 </li>

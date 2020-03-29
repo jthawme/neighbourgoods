@@ -9,7 +9,8 @@ const InputContainer = ({
   disabled,
   children,
   hide,
-  tag: El = "label"
+  tag: El = "label",
+  stack
 }) => {
   const cls = classNames(
     styles.label,
@@ -18,6 +19,9 @@ const InputContainer = ({
     },
     {
       [styles.disabled]: disabled
+    },
+    {
+      [styles.stack]: stack
     }
   );
 

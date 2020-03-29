@@ -50,7 +50,7 @@ const Home = () => {
         <div className={styles.pool}>
           {results.map(d => {
             return (
-              <div key={d.slug} className={styles.card}>
+              <div key={d.id} className={styles.card}>
                 <LocationCard
                   className={styles.cardInner}
                   name={d.name}

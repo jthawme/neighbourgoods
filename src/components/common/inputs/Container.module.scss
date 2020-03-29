@@ -1,7 +1,13 @@
+:root {
+  --input-label-direction: row;
+}
+
 .label {
   position: relative;
 
   display: flex;
+
+  flex-direction: var(--input-label-direction);
 
   background-color: var(--input-bg-color);
   color: var(--input-fg-inactive-color);

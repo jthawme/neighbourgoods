@@ -1,8 +1,6 @@
 "use strict";
 
-var _axios = _interopRequireDefault(require("axios"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+const axios = require("axios");
 
 const endpoint = "https://maps.googleapis.com/maps/api/place/details/json";
 const FIELDS = ["address_components", "geometry", "formatted_phone_number", "opening_hours", "types", "place_id"];
@@ -11,7 +9,7 @@ module.exports.handler = async function (event, context) {
   try {
     const {
       data
-    } = await _axios.default.get(endpoint, {
+    } = await axios.get(endpoint, {
       params: {
         key: process.env.PLACES_API_KEY,
         place_id: event.queryStringParameters.placeId,

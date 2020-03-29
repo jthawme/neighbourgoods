@@ -40,6 +40,7 @@ collections:
         name: "dietary"
         widget: "select"
         multiple: true
+        required: false
         options:
           - label: "Vegetarian"
             value: vegetarian

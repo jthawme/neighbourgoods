@@ -8,7 +8,7 @@ const LocationPreview = ({ entry, getAsset }) => {
   const data = entry.getIn(["data"]).toJS();
   const image = getAsset(data.image);
 
-  console.log(data, image);
+  // console.log(data, image);
 
   if (data) {
     return (
@@ -19,7 +19,7 @@ const LocationPreview = ({ entry, getAsset }) => {
           label: item.label || "NO LABEL"
         }))}
         image={!!data.image && image.url}
-        times={data?.location?.opening_hours.periods}
+        times={data?.location?.opening_hours?.periods || undefined}
         type={data.category}
       />
     );

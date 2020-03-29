@@ -12,6 +12,10 @@ links:
     label: Deliveroo
     category: order
     link: 'https://deliveroo.co.uk/menu/london/seven-sisters/lemon-and-veg'
+  - type: external
+    label: Website
+    category: order
+    link: 'http://cafelemon.co.uk/'
 location:
   address_components:
     - long_name: '118'

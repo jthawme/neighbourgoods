@@ -13,6 +13,10 @@ links:
     category: order
     link: >-
       https://www.ubereats.com/gb/london/food-delivery/miranda-vegan-veg-cafe/j648_EvISBmu956L3g0BGQ/481a3c4a-d126-498e-88d2-5963d4177c34
+  - type: deliveroo
+    label: Deliveroo
+    category: order
+    link: 'https://deliveroo.co.uk/menu/london/crouch-end/miranda'
 location:
   address_components:
     - long_name: '28'

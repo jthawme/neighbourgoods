@@ -86,7 +86,7 @@ const LocationCard = ({
           <span>{typeLabel}</span>
         </span>
         <span className={styles.info}>
-          {times && <span>{isCurrentlyOpen ? "Open" : "Closed"}</span>}
+          {times && isCurrentlyOpen && <span>Open</span>}
           {!isCurrentlyOpen && openTime && <span>Opens {openTime}</span>}
           {isCurrentlyOpen && closeTime && <span>Closes {closeTime}</span>}
         </span>

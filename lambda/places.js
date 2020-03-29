@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require("axios");
 
 const endpoint = "https://maps.googleapis.com/maps/api/place/details/json";
 

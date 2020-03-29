@@ -12,7 +12,8 @@
 .content {
   position: relative;
 
-  width: calc(100% - 140px);
+  width: 100%;
+  padding: 0 var(--size-unit-6);
   max-width: 450px;
 
   .number {
@@ -24,7 +25,7 @@
     justify-content: center;
 
     top: calc(var(--size-unit-1) * -1);
-    right: calc(100% + var(--size-unit-4));
+    left: var(--size-unit-4);
 
     width: var(--size-unit-8);
     height: var(--size-unit-8);
@@ -52,5 +53,9 @@
 
   > * {
     margin-bottom: var(--size-unit-2);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 70px;
   }
 }

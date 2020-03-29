@@ -19,7 +19,7 @@ const LocationCard = ({
   links,
   image,
   type,
-  times = [],
+  times,
   className,
   highlight,
   onClick,
@@ -86,7 +86,7 @@ const LocationCard = ({
           <span>{typeLabel}</span>
         </span>
         <span className={styles.info}>
-          <span>{isCurrentlyOpen ? "Open" : "Closed"}</span>
+          {times && <span>{isCurrentlyOpen ? "Open" : "Closed"}</span>}
           {!isCurrentlyOpen && openTime && <span>Opens {openTime}</span>}
           {isCurrentlyOpen && closeTime && <span>Closes {closeTime}</span>}
         </span>
@@ -120,18 +120,21 @@ LocationCard.propTypes = {
       link: PropTypes.string
     })
   ),
-  times: PropTypes.arrayOf(
-    PropTypes.shape({
-      close: PropTypes.shape({
-        day: PropTypes.number,
-        time: PropTypes.string
-      }),
-      open: PropTypes.shape({
-        day: PropTypes.number,
-        time: PropTypes.string
+  times: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        close: PropTypes.shape({
+          day: PropTypes.number,
+          time: PropTypes.string
+        }),
+        open: PropTypes.shape({
+          day: PropTypes.number,
+          time: PropTypes.string
+        })
       })
-    })
-  )
+    )
+  ])
 };
 
 export default LocationCard;

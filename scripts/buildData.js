@@ -28,7 +28,9 @@ const data = files
         ...rest,
         id: location.place_id,
         coords: location.geometry.location,
-        opening_hours: location.opening_hours.periods
+        opening_hours: location.opening_hours
+          ? location.opening_hours.periods
+          : false
       };
     }
 

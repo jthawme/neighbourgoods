@@ -2,6 +2,7 @@ import React, { useReducer, useCallback, useState } from "react";
 
 import isUrl from "is-url";
 import { Plus, X } from "react-feather";
+import { useMediaQuery } from "react-responsive";
 
 import styles from "./AddForm.module.scss";
 import CloseIcon from "../common/CloseIcon";
@@ -75,6 +76,9 @@ const encode = data => {
 };
 
 const AddForm = ({ onClose }) => {
+  const isTablet = useMediaQuery({
+    query: "(min-width: 768px)"
+  });
   const { addToast } = useToasts();
   const [state, dispatch] = useReducer(reducer, formState);
   const { name, postCode, category, dietary, links, support } = state;
@@ -140,180 +144,215 @@ const AddForm = ({ onClose }) => {
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmit}
       >
-        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
         <input type="hidden" name="form-name" value="add" />
         <CloseIcon onClick={onClose} />
 
-        <FormRow title="Who are they?*" number="1">
-          <Input
-            label="Name"
-            value={name}
-            onTextChange={text =>
-              dispatch({ type: "update", key: "name", value: text })
-            }
-            disabled={isSubmitting}
-            required
-          />
-          <Input
-            label="Post code"
-            value={postCode}
-            onTextChange={text =>
-              dispatch({ type: "update", key: "postCode", value: text })
-            }
-            disabled={isSubmitting}
-            required
-          />
-        </FormRow>
+        {isTablet ? (
+          <>
+            <FormRow title="Who are they?*" number="1">
+              <Input
+                label="Name"
+                value={name}
+                onTextChange={text =>
+                  dispatch({ type: "update", key: "name", value: text })
+                }
+                disabled={isSubmitting}
+                required
+              />
+              <Input
+                label="Post code"
+                value={postCode}
+                onTextChange={text =>
+                  dispatch({ type: "update", key: "postCode", value: text })
+                }
+                disabled={isSubmitting}
+                required
+              />
+            </FormRow>
 
-        <FormRow title="What do they do?*" number="2">
-          <Select
-            label="Category"
-            options={CATEGORIES}
-            onValueChange={value =>
-              dispatch({ type: "update", key: "category", value })
-            }
-            value={category}
-            disabled={isSubmitting}
-          />
+            <FormRow title="What do they do?*" number="2">
+              <Select
+                label="Category"
+                options={CATEGORIES}
+                onValueChange={value =>
+                  dispatch({ type: "update", key: "category", value })
+                }
+                value={category}
+                disabled={isSubmitting}
+              />
 
-          <CheckboxGroup
-            label="Dietary Requirements"
-            value={dietary}
-            options={DIETARY}
-            onChange={value =>
-              dispatch({ type: "update", key: "dietary", value })
-            }
-            disabled={isSubmitting}
-          />
-        </FormRow>
+              <CheckboxGroup
+                label="Dietary Requirements"
+                value={dietary}
+                options={DIETARY}
+                onChange={value =>
+                  dispatch({ type: "update", key: "dietary", value })
+                }
+                disabled={isSubmitting}
+              />
+            </FormRow>
 
-        <FormRow
-          title="How can people support them?*"
-          subtitle={
-            <span>
-              Include all <u>URLs</u> that will help support them!
-            </span>
-          }
-          number="3"
-        >
-          <LinkGroup
-            icon="🏡"
-            title="Order delivery"
-            subtitle="e.g. Deliveroo, Just Eat, UberEats, Website"
-            className={styles.stacked}
-          >
-            <Input
-              leftSlot={<LinkGroupTitle title="Deliveroo" />}
-              hide
-              placeholder="Insert URL"
-              value={links[LINK_TYPES.DELIVEROO] || ""}
-              onTextChange={value =>
-                dispatch({
-                  type: "update_link",
-                  key: LINK_TYPES.DELIVEROO,
-                  value
-                })
+            <FormRow
+              title="How can people support them?*"
+              subtitle={
+                <span>
+                  Include all <u>URLs</u> that will help support them!
+                </span>
               }
-              validate
-              validateFunc={value => isUrl(value)}
-              disabled={isSubmitting}
-            />
-            <Input
-              leftSlot={<LinkGroupTitle title="Uber Eats" />}
-              hide
-              placeholder="Insert URL"
-              value={links[LINK_TYPES.UBER_EATS] || ""}
-              onTextChange={value =>
-                dispatch({
-                  type: "update_link",
-                  key: LINK_TYPES.UBER_EATS,
-                  value
-                })
-              }
-              validate
-              validateFunc={value => isUrl(value)}
-              disabled={isSubmitting}
-            />
-            <Input
-              leftSlot={<LinkGroupTitle title="Just Eat" />}
-              hide
-              placeholder="Insert URL"
-              value={links[LINK_TYPES.JUST_EAT] || ""}
-              onTextChange={value =>
-                dispatch({
-                  type: "update_link",
-                  key: LINK_TYPES.JUST_EAT,
-                  value
-                })
-              }
-              validate
-              validateFunc={value => isUrl(value)}
-              disabled={isSubmitting}
-            />
-            <Input
-              leftSlot={<LinkGroupTitle title="Website / Other" />}
-              hide
-              placeholder="Insert URL"
-              value={links[LINK_TYPES.EXTERNAL] || ""}
-              onTextChange={value =>
-                dispatch({
-                  type: "update_link",
-                  key: LINK_TYPES.EXTERNAL,
-                  value
-                })
-              }
-              validate
-              validateFunc={value => isUrl(value)}
-              disabled={isSubmitting}
-            />
-          </LinkGroup>
-
-          <LinkGroup
-            icon="❤️"
-            title="Offer Support"
-            subtitle="e.g. Spending vouchers, Fundraisers, Cookbooks"
-          >
-            {support.map((infoValue, index) => {
-              return (
+              number="3"
+            >
+              <LinkGroup
+                icon="🏡"
+                title="Order delivery"
+                subtitle="e.g. Deliveroo, Just Eat, UberEats, Website"
+                className={styles.stacked}
+              >
                 <Input
-                  key={index}
+                  leftSlot={<LinkGroupTitle title="Deliveroo" />}
                   hide
-                  placeholder="Insert URL / Contact info"
-                  value={infoValue}
+                  placeholder="Insert URL"
+                  value={links[LINK_TYPES.DELIVEROO] || ""}
                   onTextChange={value =>
-                    dispatch({ type: "update_support", index, value })
+                    dispatch({
+                      type: "update_link",
+                      key: LINK_TYPES.DELIVEROO,
+                      value
+                    })
                   }
-                  rightSlot={
-                    index > 0 ? (
-                      <button
-                        type="button"
-                        className={styles.remove}
-                        onClick={() =>
-                          dispatch({ type: "delete_support", index })
-                        }
-                      >
-                        <X />
-                      </button>
-                    ) : (
-                      undefined
-                    )
-                  }
+                  validate
+                  validateFunc={value => isUrl(value)}
                   disabled={isSubmitting}
                 />
-              );
-            })}
-            <div className={styles.add}>
-              <button
-                type="button"
-                onClick={() => dispatch({ type: "add_support" })}
-                disabled={isSubmitting}
+                <Input
+                  leftSlot={<LinkGroupTitle title="Uber Eats" />}
+                  hide
+                  placeholder="Insert URL"
+                  value={links[LINK_TYPES.UBER_EATS] || ""}
+                  onTextChange={value =>
+                    dispatch({
+                      type: "update_link",
+                      key: LINK_TYPES.UBER_EATS,
+                      value
+                    })
+                  }
+                  validate
+                  validateFunc={value => isUrl(value)}
+                  disabled={isSubmitting}
+                />
+                <Input
+                  leftSlot={<LinkGroupTitle title="Just Eat" />}
+                  hide
+                  placeholder="Insert URL"
+                  value={links[LINK_TYPES.JUST_EAT] || ""}
+                  onTextChange={value =>
+                    dispatch({
+                      type: "update_link",
+                      key: LINK_TYPES.JUST_EAT,
+                      value
+                    })
+                  }
+                  validate
+                  validateFunc={value => isUrl(value)}
+                  disabled={isSubmitting}
+                />
+                <Input
+                  leftSlot={<LinkGroupTitle title="Website / Other" />}
+                  hide
+                  placeholder="Insert URL"
+                  value={links[LINK_TYPES.EXTERNAL] || ""}
+                  onTextChange={value =>
+                    dispatch({
+                      type: "update_link",
+                      key: LINK_TYPES.EXTERNAL,
+                      value
+                    })
+                  }
+                  validate
+                  validateFunc={value => isUrl(value)}
+                  disabled={isSubmitting}
+                />
+              </LinkGroup>
+
+              <LinkGroup
+                icon="❤️"
+                title="Offer Support"
+                subtitle="e.g. Spending vouchers, Fundraisers, Cookbooks"
               >
-                <Plus />
-                Add a row
-              </button>
-            </div>
-          </LinkGroup>
-        </FormRow>
+                {support.map((infoValue, index) => {
+                  return (
+                    <Input
+                      key={index}
+                      hide
+                      placeholder="Insert URL / Contact info"
+                      value={infoValue}
+                      onTextChange={value =>
+                        dispatch({ type: "update_support", index, value })
+                      }
+                      rightSlot={
+                        index > 0 ? (
+                          <button
+                            type="button"
+                            className={styles.remove}
+                            onClick={() =>
+                              dispatch({ type: "delete_support", index })
+                            }
+                          >
+                            <X />
+                          </button>
+                        ) : (
+                          undefined
+                        )
+                      }
+                      disabled={isSubmitting}
+                    />
+                  );
+                })}
+                <div className={styles.add}>
+                  <button
+                    type="button"
+                    onClick={() => dispatch({ type: "add_support" })}
+                    disabled={isSubmitting}
+                  >
+                    <Plus />
+                    Add a row
+                  </button>
+                </div>
+              </LinkGroup>
+            </FormRow>
+          </>
+        ) : (
+          <>
+            <FormRow title="Who do you want to add?">
+              <Input
+                label="Name"
+                value={name}
+                onTextChange={text =>
+                  dispatch({ type: "update", key: "name", value: text })
+                }
+                disabled={isSubmitting}
+                required
+              />
+              <Input
+                label="Post code"
+                value={postCode}
+                onTextChange={text =>
+                  dispatch({ type: "update", key: "postCode", value: text })
+                }
+                disabled={isSubmitting}
+                required
+              />
+              <Select
+                label="Category"
+                options={CATEGORIES}
+                onValueChange={value =>
+                  dispatch({ type: "update", key: "category", value })
+                }
+                value={category}
+                disabled={isSubmitting}
+              />
+            </FormRow>
+          </>
+        )}
         <div className={styles.submitBtn}>
           {errorMessage && <p className={styles.error}>{errorMessage}</p>}
           <button type="submit">

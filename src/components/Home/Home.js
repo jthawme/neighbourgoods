@@ -4,7 +4,7 @@ import LocationCard from "../LocationCard/LocationCard";
 import FilterListener from "../FilterListener/FilterListener";
 
 import styles from "./Home.module.scss";
-import { setOrganicLocation, THREE_MILES } from "../../store/actions/info";
+import { setOrganicLocation, RADIUS } from "../../store/actions/info";
 import { getBoundingBox } from "../../utils/location";
 import {
   setHighlightLocation,
@@ -21,7 +21,7 @@ const Home = () => {
       dispatch(
         setOrganicLocation(
           coords,
-          getBoundingBox(coords.lat, coords.lng, THREE_MILES)
+          getBoundingBox(coords.lat, coords.lng, RADIUS)
         )
       );
 

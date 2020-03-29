@@ -2,3 +2,51 @@
   width: 100%;
   height: 100%;
 }
+
+.search {
+  position: absolute;
+
+  display: flex;
+
+  align-items: center;
+
+  top: var(--size-unit-4);
+  left: 50%;
+
+  z-index: 10;
+
+  border-radius: var(--radii-button);
+
+  padding: var(--size-unit-3) var(--size-unit-4);
+
+  background-color: var(--color-bg);
+  color: var(--color-accent);
+
+  border: var(--size-line) solid var(--color-accent);
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-dark-subtle);
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d(-50%, -20%, 0);
+
+  outline: 0;
+
+  transition: {
+    duration: 0.25s;
+    property: transform, opacity, visibility;
+  }
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  svg {
+    width: var(--size-unit-4);
+    margin-right: var(--size-unit-2);
+  }
+}

@@ -1,7 +1,8 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
 import styles from "./Map.module.scss";
+import { Search } from "react-feather";
 
 const KEY = "AIzaSyBW3v7DCm0curYCYRNHsLK23HYRayTLKYk";
 
@@ -23,6 +24,7 @@ const MAX_ZOOM = 16;
 const Map = ({ children, coords, boundingBox, onMoveSearch }) => {
   const mapRef = useRef(null);
   const debounceRef = useRef(0);
+  const [currentCenter, setCurrentCenter] = useState(false);
 
   const onCenterChanged = useCallback(() => {
     clearTimeout(debounceRef.current);
@@ -36,33 +38,47 @@ const Map = ({ children, coords, boundingBox, onMoveSearch }) => {
       };
 
       if (newCoords.lat !== coords.lat && newCoords.lng !== coords.lng) {
-        onMoveSearch(newCoords);
+        setCurrentCenter(newCoords);
       }
     }, 500);
   }, [coords]);
 
+  const searchArea = useCallback(() => {
+    onMoveSearch(currentCenter);
+    setCurrentCenter(false);
+  }, [currentCenter]);
+
   return (
-    <LoadScript id="script-loader" googleMapsApiKey={KEY}>
-      <GoogleMap
-        onLoad={map => (mapRef.current = map)}
-        id="example-map"
-        mapContainerClassName={styles.container}
-        zoom={14}
-        center={coords || DEFAULT_COORDS}
-        onDragEnd={onCenterChanged}
-        options={{
-          disableDefaultUI: true,
-          minZoom: MIN_ZOOM,
-          maxZoom: MAX_ZOOM,
-          restriction: {
-            latLngBounds: LONDON_COORDS,
-            strictBounds: false
-          }
-        }}
+    <>
+      <button
+        className={`${styles.search} ${currentCenter && styles.show}`}
+        type="button"
+        onClick={searchArea}
       >
-        {children || null}
-      </GoogleMap>
-    </LoadScript>
+        <Search /> Search this area
+      </button>
+      <LoadScript id="script-loader" googleMapsApiKey={KEY}>
+        <GoogleMap
+          onLoad={map => (mapRef.current = map)}
+          id="example-map"
+          mapContainerClassName={styles.container}
+          zoom={14}
+          center={coords || DEFAULT_COORDS}
+          onDragEnd={onCenterChanged}
+          options={{
+            disableDefaultUI: true,
+            minZoom: MIN_ZOOM,
+            maxZoom: MAX_ZOOM,
+            restriction: {
+              latLngBounds: LONDON_COORDS,
+              strictBounds: false
+            }
+          }}
+        >
+          {children || null}
+        </GoogleMap>
+      </LoadScript>
+    </>
   );
 };
 

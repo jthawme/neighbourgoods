@@ -22,7 +22,7 @@ import MyMarker from "./Marker/Marker";
 import {
   setPostCodeInfo,
   setOrganicLocation,
-  THREE_MILES
+  RADIUS
 } from "../store/actions/info";
 import { setHighlightLocation } from "../store/actions/location";
 import { setFilteredResults } from "../store/actions/filters";
@@ -58,7 +58,7 @@ const TemplateWrapper = ({ children }) => {
           data.postcode,
           data.admin_district,
           currentCoords,
-          getBoundingBox(data.latitude, data.longitude, THREE_MILES)
+          getBoundingBox(data.latitude, data.longitude, RADIUS)
         )
       );
       setIsOpen(false);
@@ -71,7 +71,7 @@ const TemplateWrapper = ({ children }) => {
       dispatch(
         setOrganicLocation(
           currentCoords,
-          getBoundingBox(currentCoords.lat, currentCoords.lng, THREE_MILES)
+          getBoundingBox(currentCoords.lat, currentCoords.lng, RADIUS)
         )
       );
     },

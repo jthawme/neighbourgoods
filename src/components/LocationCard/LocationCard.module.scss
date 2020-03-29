@@ -8,11 +8,13 @@
 }
 
 .highlight {
-  animation: {
-    name: PULSE;
-    duration: 0.5s;
-    iteration-count: 6;
-    direction: alternate;
+  @media screen and (min-width: 768px) {
+    animation: {
+      name: PULSE;
+      duration: 0.5s;
+      iteration-count: 6;
+      direction: alternate;
+    }
   }
 }
 
@@ -59,12 +61,18 @@
 }
 
 .links {
+  display: flex;
+
+  flex-direction: column;
+
   list-style: none;
 
   padding: var(--size-unit-1) 0 0;
   margin: 0;
 
   &Button {
+    display: block;
+
     color: var(--color-accent);
 
     text-decoration: none;
@@ -77,6 +85,8 @@
 
     padding: 0;
     margin: var(--size-unit-3) 0 0;
+
+    text-align: left;
 
     cursor: pointer;
 

@@ -1,5 +1,5 @@
 .wrapper {
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
 
   overflow: auto;
@@ -25,19 +25,35 @@
   footer {
     display: flex;
 
+    flex-direction: column;
     justify-content: space-between;
 
     grid-column: 1 / span 6;
 
-    padding-bottom: var(--size-unit-4);
+    padding-bottom: var(--size-unit-8);
+
+    margin-top: var(--size-unit-8);
 
     a {
       color: var(--color-panel-fg);
       font-size: var(--font-size-large);
+      margin-top: var(--size-unit-4);
 
       &:nth-child(2) {
         text-decoration: none;
       }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 50vw;
+
+    footer {
+      flex-direction: row;
+
+      padding-bottom: var(--size-unit-4);
+
+      margin-top: var(--size-unit-8);
     }
   }
 }

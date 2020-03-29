@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
 
+import { useMediaQuery } from "react-responsive";
 import Collapsible from "react-collapsible";
 import { useSelector } from "react-redux";
 import { ArrowRight } from "react-feather";
@@ -22,6 +23,10 @@ const getPostcode = postCode => {
 };
 
 const PostcodeLookup = ({ onPostcode, onClose }) => {
+  const isTablet = useMediaQuery({
+    query: "(min-width: 768px)"
+  });
+
   const storedPostCode = useSelector(state => state.info.postCode);
   const [postcode, setPostcode] = useState(storedPostCode || "");
   const [loading, setLoading] = useState(false);
@@ -68,12 +73,26 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
           onTextChange={text => setPostcode(text)}
           disabled={loading}
           rightSlot={
-            <button className={styles.button} disabled={loading}>
-              {loading ? <Spinner /> : <ArrowRight />}
-            </button>
+            isTablet ? (
+              <button className={styles.button} disabled={loading}>
+                {loading ? <Spinner /> : <ArrowRight />}
+              </button>
+            ) : (
+              undefined
+            )
           }
           autoFocus
         />
+        {!isTablet ? (
+          <button
+            className={`${styles.button} ${styles.buttonCircle}`}
+            disabled={loading}
+          >
+            {loading ? <Spinner /> : <ArrowRight />}
+          </button>
+        ) : (
+          undefined
+        )}
       </form>
       <Collapsible
         easing="ease-in-out"

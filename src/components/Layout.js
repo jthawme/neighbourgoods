@@ -4,6 +4,7 @@ import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastProvider } from "react-toast-notifications";
+import { useMediaQuery } from "react-responsive";
 
 import FilterBar from "./FilterBar/FilterBar";
 import Header from "./Header/Header";
@@ -41,6 +42,9 @@ const TemplateWrapper = ({ children }) => {
   const { activeFilters, activeDietary, results } = useSelector(
     state => state.filters
   );
+  const isTablet = useMediaQuery({
+    query: "(min-width: 768px)"
+  });
 
   const onPostCodeData = useCallback(
     data => {
@@ -164,19 +168,23 @@ const TemplateWrapper = ({ children }) => {
               );
             })}
           </Map>
-          <FloatingButton
-            className="button"
-            text="Add a spot"
-            onClick={() => setAddIsOpen(true)}
-          />
         </div>
+
+        <FloatingButton
+          className="floating"
+          text="Add a spot"
+          onClick={() => setAddIsOpen(true)}
+        />
 
         <FakeModal
           isOpen={aboutIsOpen}
           type="left"
           onClose={() => setAboutIsOpen(false)}
         >
-          <AboutContent onClose={() => setAboutIsOpen(false)} />
+          <AboutContent
+            open={aboutIsOpen}
+            onClose={() => setAboutIsOpen(false)}
+          />
         </FakeModal>
 
         <FakeModal

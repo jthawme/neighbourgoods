@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 import CloseIcon from "../common/CloseIcon";
 import styles from "./AboutContent.module.scss";
@@ -20,9 +20,21 @@ const tweetLink = () => {
   ].join("");
 };
 
-const AboutContent = ({ onClose }) => {
+const AboutContent = ({ onClose, open }) => {
+  const elRef = useRef(null);
+
+  useEffect(() => {
+    if (open && elRef.current) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          elRef.current.scrollTop = 0;
+        });
+      });
+    }
+  }, [open, elRef]);
+
   return (
-    <aside className={styles.wrapper}>
+    <aside ref={elRef} className={styles.wrapper}>
       <CloseIcon onClick={onClose} />
       <div className={styles.text}>
         <p>

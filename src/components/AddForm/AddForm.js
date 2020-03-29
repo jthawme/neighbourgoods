@@ -108,12 +108,15 @@ const AddForm = ({ onClose }) => {
         };
       }, {});
 
+      const { dietary, support, links, ...rest } = state;
+
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: jsonToEncoded({
-          ...state,
+          ...rest,
           ...linksRed,
+          dietary: dietary.join(" - "),
           support: state.support.join(" - "),
           "form-name": "add"
         })
@@ -228,9 +231,10 @@ const AddForm = ({ onClose }) => {
                 disabled={isSubmitting}
               />
 
+              <input type="hidden" name="dietary" />
+
               <CheckboxGroup
                 label="Dietary Requirements"
-                name="dietary"
                 value={dietary}
                 options={DIETARY}
                 onChange={value =>
@@ -322,7 +326,7 @@ const AddForm = ({ onClose }) => {
                 />
               </LinkGroup>
 
-              <input type="hidden" name="support" value="" />
+              <input type="hidden" name="support" />
 
               <LinkGroup
                 icon="❤️"

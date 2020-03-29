@@ -4,8 +4,7 @@ import LocationCard from "../LocationCard/LocationCard";
 import FilterListener from "../FilterListener/FilterListener";
 
 import styles from "./Home.module.scss";
-import { setOrganicLocation, RADIUS } from "../../store/actions/info";
-import { getBoundingBox } from "../../utils/location";
+import { setCoords } from "../../store/actions/info";
 import {
   setHighlightLocation,
   setCurrentLinks
@@ -18,12 +17,7 @@ const Home = () => {
 
   const onClickLocation = useCallback(
     (coords, id) => {
-      dispatch(
-        setOrganicLocation(
-          coords,
-          getBoundingBox(coords.lat, coords.lng, RADIUS)
-        )
-      );
+      dispatch(setCoords(coords));
 
       dispatch(setHighlightLocation(id));
     },

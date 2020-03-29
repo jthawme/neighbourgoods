@@ -22,7 +22,8 @@ import MyMarker from "./Marker/Marker";
 import {
   setPostCodeInfo,
   setOrganicLocation,
-  RADIUS
+  RADIUS,
+  setCoords
 } from "../store/actions/info";
 import { setHighlightLocation } from "../store/actions/location";
 import { setFilteredResults } from "../store/actions/filters";
@@ -81,8 +82,7 @@ const TemplateWrapper = ({ children }) => {
   const setMarker = useCallback(
     (id, coords) => {
       dispatch(setHighlightLocation(id));
-
-      onSearch(coords);
+      dispatch(setCoords(coords));
     },
     [dispatch]
   );

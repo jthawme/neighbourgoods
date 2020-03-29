@@ -10,6 +10,10 @@ links:
     label: Deliveroo
     category: order
     link: 'https://deliveroo.co.uk/menu/london/seven-sisters/makimayo'
+  - type: just_eat
+    label: Just Eat
+    category: order
+    link: 'https://www.just-eat.co.uk/restaurants-makimayo-new-seven-sisters/menu'
 location:
   address_components:
     - long_name: '75'

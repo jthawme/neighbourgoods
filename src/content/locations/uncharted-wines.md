@@ -2,10 +2,10 @@
 templateKey: location
 name: Uncharted Wines
 image: /img/unchartedwines.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://www.unchartedwines.com/'
+    link: "https://www.unchartedwines.com/"
     category: order
     label: Website
 location:
@@ -14,8 +14,8 @@ location:
       short_name: Unit 16
       types:
         - subpremise
-    - long_name: '35'
-      short_name: '35'
+    - long_name: "35"
+      short_name: "35"
       types:
         - street_number
     - long_name: Corbridge Crescent
@@ -61,42 +61,42 @@ location:
     periods:
       - close:
           day: 1
-          time: '1700'
+          time: "1700"
         open:
           day: 1
           time: 0900
       - close:
           day: 2
-          time: '1700'
+          time: "1700"
         open:
           day: 2
           time: 0900
       - close:
           day: 3
-          time: '1700'
+          time: "1700"
         open:
           day: 3
           time: 0900
       - close:
           day: 4
-          time: '1700'
+          time: "1700"
         open:
           day: 4
           time: 0900
       - close:
           day: 5
-          time: '1700'
+          time: "1700"
         open:
           day: 5
           time: 0900
     weekday_text:
-      - 'Monday: 9:00 AM – 5:00 PM'
-      - 'Tuesday: 9:00 AM – 5:00 PM'
-      - 'Wednesday: 9:00 AM – 5:00 PM'
-      - 'Thursday: 9:00 AM – 5:00 PM'
-      - 'Friday: 9:00 AM – 5:00 PM'
-      - 'Saturday: Closed'
-      - 'Sunday: Closed'
+      - "Monday: 9:00 AM – 5:00 PM"
+      - "Tuesday: 9:00 AM – 5:00 PM"
+      - "Wednesday: 9:00 AM – 5:00 PM"
+      - "Thursday: 9:00 AM – 5:00 PM"
+      - "Friday: 9:00 AM – 5:00 PM"
+      - "Saturday: Closed"
+      - "Sunday: Closed"
   place_id: ChIJ38O_ul8ddkgRVZo_dVihESM
   types:
     - food

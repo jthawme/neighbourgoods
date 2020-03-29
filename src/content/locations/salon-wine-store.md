@@ -2,16 +2,16 @@
 templateKey: location
 name: Salon Wine Store
 image: /img/salonwine.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://www.salonwinestore.co.uk/wine-club'
+    link: "https://www.salonwinestore.co.uk/wine-club"
     label: Website
     category: order
 location:
   address_components:
-    - long_name: '20'
-      short_name: '20'
+    - long_name: "20"
+      short_name: "20"
       types:
         - street_number
     - long_name: Market Row
@@ -63,48 +63,48 @@ location:
     periods:
       - close:
           day: 0
-          time: '1700'
+          time: "1700"
         open:
           day: 0
-          time: '1200'
+          time: "1200"
       - close:
           day: 2
-          time: '2100'
+          time: "2100"
         open:
           day: 2
-          time: '1200'
+          time: "1200"
       - close:
           day: 3
-          time: '2200'
+          time: "2200"
         open:
           day: 3
-          time: '1200'
+          time: "1200"
       - close:
           day: 4
-          time: '2200'
+          time: "2200"
         open:
           day: 4
-          time: '1200'
+          time: "1200"
       - close:
           day: 5
-          time: '2300'
+          time: "2300"
         open:
           day: 5
-          time: '1200'
+          time: "1200"
       - close:
           day: 6
-          time: '2300'
+          time: "2300"
         open:
           day: 6
-          time: '1200'
+          time: "1200"
     weekday_text:
-      - 'Monday: Closed'
-      - 'Tuesday: 12:00 – 9:00 PM'
-      - 'Wednesday: 12:00 – 10:00 PM'
-      - 'Thursday: 12:00 – 10:00 PM'
-      - 'Friday: 12:00 – 11:00 PM'
-      - 'Saturday: 12:00 – 11:00 PM'
-      - 'Sunday: 12:00 – 5:00 PM'
+      - "Monday: Closed"
+      - "Tuesday: 12:00 – 9:00 PM"
+      - "Wednesday: 12:00 – 10:00 PM"
+      - "Thursday: 12:00 – 10:00 PM"
+      - "Friday: 12:00 – 11:00 PM"
+      - "Saturday: 12:00 – 11:00 PM"
+      - "Sunday: 12:00 – 5:00 PM"
   place_id: ChIJ_4IKmmgEdkgRGmH6sJ5hAHw
   types:
     - liquor_store

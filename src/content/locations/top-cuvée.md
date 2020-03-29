@@ -2,10 +2,10 @@
 templateKey: location
 name: Top Cuvée
 image: /img/topcuvee.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://www.topcuvee.com/shop'
+    link: "https://www.topcuvee.com/shop"
     label: Website
     category: order
 location:
@@ -63,42 +63,42 @@ location:
     periods:
       - close:
           day: 1
-          time: '0000'
+          time: "0000"
         open:
           day: 0
-          time: '1200'
+          time: "1200"
       - close:
           day: 4
-          time: '0000'
+          time: "0000"
         open:
           day: 3
-          time: '1800'
+          time: "1800"
       - close:
           day: 5
-          time: '0000'
+          time: "0000"
         open:
           day: 4
-          time: '1800'
+          time: "1800"
       - close:
           day: 6
-          time: '0000'
+          time: "0000"
         open:
           day: 5
-          time: '1800'
+          time: "1800"
       - close:
           day: 0
-          time: '0000'
+          time: "0000"
         open:
           day: 6
-          time: '1200'
+          time: "1200"
     weekday_text:
-      - 'Monday: Closed'
-      - 'Tuesday: Closed'
-      - 'Wednesday: 6:00 PM – 12:00 AM'
-      - 'Thursday: 6:00 PM – 12:00 AM'
-      - 'Friday: 6:00 PM – 12:00 AM'
-      - 'Saturday: 12:00 PM – 12:00 AM'
-      - 'Sunday: 12:00 PM – 12:00 AM'
+      - "Monday: Closed"
+      - "Tuesday: Closed"
+      - "Wednesday: 6:00 PM – 12:00 AM"
+      - "Thursday: 6:00 PM – 12:00 AM"
+      - "Friday: 6:00 PM – 12:00 AM"
+      - "Saturday: 12:00 PM – 12:00 AM"
+      - "Sunday: 12:00 PM – 12:00 AM"
   place_id: ChIJT0cMmpkbdkgRkl_g1Vc_oRY
   types:
     - restaurant

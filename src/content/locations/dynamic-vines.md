@@ -2,10 +2,10 @@
 templateKey: location
 name: Dynamic Vines
 image: /img/dynamicvines.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://www.dynamicvines.com/private-sales-and-shop/'
+    link: "https://www.dynamicvines.com/private-sales-and-shop/"
     category: order
     label: Website
 location:
@@ -63,48 +63,48 @@ location:
     periods:
       - close:
           day: 1
-          time: '1800'
+          time: "1800"
         open:
           day: 1
           time: 0800
       - close:
           day: 2
-          time: '1800'
+          time: "1800"
         open:
           day: 2
           time: 0800
       - close:
           day: 3
-          time: '1800'
+          time: "1800"
         open:
           day: 3
           time: 0800
       - close:
           day: 4
-          time: '1800'
+          time: "1800"
         open:
           day: 4
           time: 0800
       - close:
           day: 5
-          time: '1800'
+          time: "1800"
         open:
           day: 5
           time: 0800
       - close:
           day: 6
-          time: '1400'
+          time: "1400"
         open:
           day: 6
           time: 0800
     weekday_text:
-      - 'Monday: 8:00 AM – 6:00 PM'
-      - 'Tuesday: 8:00 AM – 6:00 PM'
-      - 'Wednesday: 8:00 AM – 6:00 PM'
-      - 'Thursday: 8:00 AM – 6:00 PM'
-      - 'Friday: 8:00 AM – 6:00 PM'
-      - 'Saturday: 8:00 AM – 2:00 PM'
-      - 'Sunday: Closed'
+      - "Monday: 8:00 AM – 6:00 PM"
+      - "Tuesday: 8:00 AM – 6:00 PM"
+      - "Wednesday: 8:00 AM – 6:00 PM"
+      - "Thursday: 8:00 AM – 6:00 PM"
+      - "Friday: 8:00 AM – 6:00 PM"
+      - "Saturday: 8:00 AM – 2:00 PM"
+      - "Sunday: Closed"
   place_id: ChIJ27HmjfYDdkgRUTC8E2w0qGI
   types:
     - food

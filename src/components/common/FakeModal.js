@@ -21,6 +21,9 @@ const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
     if (isOpen && modalState === STATES.CLOSED) {
       clearTimeout(timerRef.current);
 
+      document.body.classList.add(styles.locked);
+      document.body.scrollTop = 0;
+
       setModalState(STATES.IDLE);
 
       requestAnimationFrame(() => {
@@ -34,6 +37,8 @@ const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
       }, 1000);
     } else if (!isOpen && modalState === STATES.OPENED) {
       clearTimeout(timerRef.current);
+
+      document.body.classList.remove(styles.locked);
 
       setModalState(STATES.CLOSING);
 

@@ -2,10 +2,10 @@
 templateKey: location
 name: St John — Wines
 image: /img/stjohns.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://stjohnrestaurant.com/collections/wines'
+    link: "https://stjohnrestaurant.com/collections/wines"
     label: Website
     category: order
 location:
@@ -63,138 +63,138 @@ location:
     periods:
       - close:
           day: 0
-          time: '1130'
+          time: "1130"
         open:
           day: 0
           time: 0900
       - close:
           day: 0
-          time: '1600'
+          time: "1600"
         open:
           day: 0
-          time: '1300'
+          time: "1300"
       - close:
           day: 0
-          time: '2200'
+          time: "2200"
         open:
           day: 0
-          time: '1800'
+          time: "1800"
       - close:
           day: 1
-          time: '1100'
+          time: "1100"
         open:
           day: 1
           time: 0900
       - close:
           day: 1
-          time: '1600'
+          time: "1600"
         open:
           day: 1
-          time: '1200'
+          time: "1200"
       - close:
           day: 1
-          time: '2200'
+          time: "2200"
         open:
           day: 1
-          time: '1800'
+          time: "1800"
       - close:
           day: 2
-          time: '1100'
+          time: "1100"
         open:
           day: 2
           time: 0900
       - close:
           day: 2
-          time: '1600'
+          time: "1600"
         open:
           day: 2
-          time: '1200'
+          time: "1200"
       - close:
           day: 2
-          time: '2200'
+          time: "2200"
         open:
           day: 2
-          time: '1800'
+          time: "1800"
       - close:
           day: 3
-          time: '1100'
+          time: "1100"
         open:
           day: 3
           time: 0900
       - close:
           day: 3
-          time: '1600'
+          time: "1600"
         open:
           day: 3
-          time: '1200'
+          time: "1200"
       - close:
           day: 3
-          time: '2200'
+          time: "2200"
         open:
           day: 3
-          time: '1800'
+          time: "1800"
       - close:
           day: 4
-          time: '1100'
+          time: "1100"
         open:
           day: 4
           time: 0900
       - close:
           day: 4
-          time: '1600'
+          time: "1600"
         open:
           day: 4
-          time: '1200'
+          time: "1200"
       - close:
           day: 4
-          time: '2200'
+          time: "2200"
         open:
           day: 4
-          time: '1800'
+          time: "1800"
       - close:
           day: 5
-          time: '1100'
+          time: "1100"
         open:
           day: 5
           time: 0900
       - close:
           day: 5
-          time: '1600'
+          time: "1600"
         open:
           day: 5
-          time: '1200'
+          time: "1200"
       - close:
           day: 5
-          time: '2230'
+          time: "2230"
         open:
           day: 5
-          time: '1800'
+          time: "1800"
       - close:
           day: 6
-          time: '1130'
+          time: "1130"
         open:
           day: 6
           time: 0900
       - close:
           day: 6
-          time: '1600'
+          time: "1600"
         open:
           day: 6
-          time: '1300'
+          time: "1300"
       - close:
           day: 6
-          time: '2230'
+          time: "2230"
         open:
           day: 6
-          time: '1800'
+          time: "1800"
     weekday_text:
-      - 'Monday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:00 PM'
-      - 'Tuesday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:00 PM'
-      - 'Wednesday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:00 PM'
-      - 'Thursday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:00 PM'
-      - 'Friday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:30 PM'
-      - 'Saturday: 9:00 – 11:30 AM, 1:00 – 4:00 PM, 6:00 – 10:30 PM'
-      - 'Sunday: 9:00 – 11:30 AM, 1:00 – 4:00 PM, 6:00 – 10:00 PM'
+      - "Monday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:00 PM"
+      - "Tuesday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:00 PM"
+      - "Wednesday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:00 PM"
+      - "Thursday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:00 PM"
+      - "Friday: 9:00 – 11:00 AM, 12:00 – 4:00 PM, 6:00 – 10:30 PM"
+      - "Saturday: 9:00 – 11:30 AM, 1:00 – 4:00 PM, 6:00 – 10:30 PM"
+      - "Sunday: 9:00 – 11:30 AM, 1:00 – 4:00 PM, 6:00 – 10:00 PM"
   place_id: ChIJ5_ONJLQcdkgRW3THMc7fBOg
   types:
     - restaurant

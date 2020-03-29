@@ -2,16 +2,16 @@
 templateKey: location
 name: Goldfinch
 image: /img/goldfinch.jpg
-category: bar
+category: alcohol
 links:
   - type: external
-    link: 'https://www.instagram.com/p/B96xDvCHy3q/?utm_source=ig_web_copy_link'
+    link: "https://www.instagram.com/p/B96xDvCHy3q/?utm_source=ig_web_copy_link"
     category: order
     label: Instagram
 location:
   address_components:
-    - long_name: '145'
-      short_name: '145'
+    - long_name: "145"
+      short_name: "145"
       types:
         - street_number
     - long_name: Mitcham Road
@@ -63,48 +63,48 @@ location:
     periods:
       - close:
           day: 0
-          time: '2330'
+          time: "2330"
         open:
           day: 0
-          time: '1700'
+          time: "1700"
       - close:
           day: 2
-          time: '2330'
+          time: "2330"
         open:
           day: 2
-          time: '1700'
+          time: "1700"
       - close:
           day: 3
-          time: '2330'
+          time: "2330"
         open:
           day: 3
-          time: '1700'
+          time: "1700"
       - close:
           day: 4
-          time: '2330'
+          time: "2330"
         open:
           day: 4
-          time: '1700'
+          time: "1700"
       - close:
           day: 6
-          time: '0130'
+          time: "0130"
         open:
           day: 5
-          time: '1700'
+          time: "1700"
       - close:
           day: 0
-          time: '0130'
+          time: "0130"
         open:
           day: 6
-          time: '1700'
+          time: "1700"
     weekday_text:
-      - 'Monday: Closed'
-      - 'Tuesday: 5:00 – 11:30 PM'
-      - 'Wednesday: 5:00 – 11:30 PM'
-      - 'Thursday: 5:00 – 11:30 PM'
-      - 'Friday: 5:00 PM – 1:30 AM'
-      - 'Saturday: 5:00 PM – 1:30 AM'
-      - 'Sunday: 5:00 – 11:30 PM'
+      - "Monday: Closed"
+      - "Tuesday: 5:00 – 11:30 PM"
+      - "Wednesday: 5:00 – 11:30 PM"
+      - "Thursday: 5:00 – 11:30 PM"
+      - "Friday: 5:00 PM – 1:30 AM"
+      - "Saturday: 5:00 PM – 1:30 AM"
+      - "Sunday: 5:00 – 11:30 PM"
   place_id: ChIJ7WHmuQkHdkgRvnkLxkXbJ50
   types:
     - bar

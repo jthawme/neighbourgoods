@@ -2,16 +2,16 @@
 templateKey: location
 name: Drop Wines
 image: /img/dropwine.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://dropwine.co.uk/app/#/winelist'
+    link: "https://dropwine.co.uk/app/#/winelist"
     label: Website
     category: order
 location:
   address_components:
-    - long_name: '175'
-      short_name: '175'
+    - long_name: "175"
+      short_name: "175"
       types:
         - street_number
     - long_name: Drury Lane
@@ -63,54 +63,54 @@ location:
     periods:
       - close:
           day: 0
-          time: '2300'
+          time: "2300"
         open:
           day: 0
-          time: '1200'
+          time: "1200"
       - close:
           day: 1
-          time: '2300'
+          time: "2300"
         open:
           day: 1
-          time: '1200'
+          time: "1200"
       - close:
           day: 2
-          time: '2300'
+          time: "2300"
         open:
           day: 2
-          time: '1200'
+          time: "1200"
       - close:
           day: 3
-          time: '2300'
+          time: "2300"
         open:
           day: 3
-          time: '1200'
+          time: "1200"
       - close:
           day: 4
-          time: '2300'
+          time: "2300"
         open:
           day: 4
-          time: '1200'
+          time: "1200"
       - close:
           day: 5
-          time: '2300'
+          time: "2300"
         open:
           day: 5
-          time: '1200'
+          time: "1200"
       - close:
           day: 6
-          time: '2300'
+          time: "2300"
         open:
           day: 6
-          time: '1200'
+          time: "1200"
     weekday_text:
-      - 'Monday: 12:00 – 11:00 PM'
-      - 'Tuesday: 12:00 – 11:00 PM'
-      - 'Wednesday: 12:00 – 11:00 PM'
-      - 'Thursday: 12:00 – 11:00 PM'
-      - 'Friday: 12:00 – 11:00 PM'
-      - 'Saturday: 12:00 – 11:00 PM'
-      - 'Sunday: 12:00 – 11:00 PM'
+      - "Monday: 12:00 – 11:00 PM"
+      - "Tuesday: 12:00 – 11:00 PM"
+      - "Wednesday: 12:00 – 11:00 PM"
+      - "Thursday: 12:00 – 11:00 PM"
+      - "Friday: 12:00 – 11:00 PM"
+      - "Saturday: 12:00 – 11:00 PM"
+      - "Sunday: 12:00 – 11:00 PM"
   place_id: ChIJAQAEqDQbdkgRyjmwT3Cea0g
   types:
     - liquor_store

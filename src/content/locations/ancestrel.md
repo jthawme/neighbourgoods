@@ -2,10 +2,10 @@
 templateKey: location
 name: Ancestrel
 image: /img/ancestrel.png
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://www.ancestrelwines.com/'
+    link: "https://www.ancestrelwines.com/"
     label: Website
     category: order
 location:
@@ -59,18 +59,18 @@ location:
     periods:
       - close:
           day: 6
-          time: '1400'
+          time: "1400"
         open:
           day: 6
           time: 0900
     weekday_text:
-      - 'Monday: Closed'
-      - 'Tuesday: Closed'
-      - 'Wednesday: Closed'
-      - 'Thursday: Closed'
-      - 'Friday: Closed'
-      - 'Saturday: 9:00 AM – 2:00 PM'
-      - 'Sunday: Closed'
+      - "Monday: Closed"
+      - "Tuesday: Closed"
+      - "Wednesday: Closed"
+      - "Thursday: Closed"
+      - "Friday: Closed"
+      - "Saturday: 9:00 AM – 2:00 PM"
+      - "Sunday: Closed"
   place_id: ChIJTd4jtsYDdkgRnElsQHdnxas
   types:
     - liquor_store

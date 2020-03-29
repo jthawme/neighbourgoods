@@ -2,16 +2,16 @@
 templateKey: location
 name: The Laughing Heart
 image: /img/thelaughingheart.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'http://thelaughingheartlondon.com/wine-cellar/'
+    link: "http://thelaughingheartlondon.com/wine-cellar/"
     category: order
     label: Website
 location:
   address_components:
-    - long_name: '277'
-      short_name: '277'
+    - long_name: "277"
+      short_name: "277"
       types:
         - street_number
     - long_name: Hackney Road
@@ -63,48 +63,48 @@ location:
     periods:
       - close:
           day: 2
-          time: '0200'
+          time: "0200"
         open:
           day: 1
-          time: '1830'
+          time: "1830"
       - close:
           day: 3
-          time: '0200'
+          time: "0200"
         open:
           day: 2
-          time: '1830'
+          time: "1830"
       - close:
           day: 4
-          time: '0200'
+          time: "0200"
         open:
           day: 3
-          time: '1830'
+          time: "1830"
       - close:
           day: 5
-          time: '0200'
+          time: "0200"
         open:
           day: 4
-          time: '1830'
+          time: "1830"
       - close:
           day: 6
-          time: '0200'
+          time: "0200"
         open:
           day: 5
-          time: '1830'
+          time: "1830"
       - close:
           day: 0
-          time: '0200'
+          time: "0200"
         open:
           day: 6
-          time: '1830'
+          time: "1830"
     weekday_text:
-      - 'Monday: 6:30 PM – 2:00 AM'
-      - 'Tuesday: 6:30 PM – 2:00 AM'
-      - 'Wednesday: 6:30 PM – 2:00 AM'
-      - 'Thursday: 6:30 PM – 2:00 AM'
-      - 'Friday: 6:30 PM – 2:00 AM'
-      - 'Saturday: 6:30 PM – 2:00 AM'
-      - 'Sunday: Closed'
+      - "Monday: 6:30 PM – 2:00 AM"
+      - "Tuesday: 6:30 PM – 2:00 AM"
+      - "Wednesday: 6:30 PM – 2:00 AM"
+      - "Thursday: 6:30 PM – 2:00 AM"
+      - "Friday: 6:30 PM – 2:00 AM"
+      - "Saturday: 6:30 PM – 2:00 AM"
+      - "Sunday: Closed"
   place_id: ChIJ_dQE0cAcdkgRGPEtjKmbNEs
   types:
     - bar

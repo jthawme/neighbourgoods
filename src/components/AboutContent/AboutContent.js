@@ -3,22 +3,7 @@ import React, { useRef, useEffect } from "react";
 import CloseIcon from "../common/CloseIcon";
 import styles from "./AboutContent.module.scss";
 
-const tweetLink = () => {
-  const tweet = {
-    url: "https://neighbourgoods.london",
-    text: "Support your local independents, find them on this map",
-    hashtags: "neighbourgoods"
-  };
-
-  return [
-    "https://twitter.com/intent/tweet?",
-    `url=${tweet.url}`,
-    "&",
-    `text=${tweet.text}`,
-    "&",
-    `hashtags=${tweet.hashtags}`
-  ].join("");
-};
+import { tweetLink } from "../../utils/share";
 
 const AboutContent = ({ onClose, open }) => {
   const elRef = useRef(null);

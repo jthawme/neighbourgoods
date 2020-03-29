@@ -2,10 +2,10 @@
 templateKey: location
 name: Bodega Rita's
 image: /img/bodegaritas.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://ritasdining.slerp.com/order#'
+    link: "https://ritasdining.slerp.com/order#"
     label: Website
     category: order
 location:
@@ -54,54 +54,54 @@ location:
     periods:
       - close:
           day: 0
-          time: '1700'
+          time: "1700"
         open:
           day: 0
-          time: '1100'
+          time: "1100"
       - close:
           day: 1
-          time: '1800'
+          time: "1800"
         open:
           day: 1
-          time: '1100'
+          time: "1100"
       - close:
           day: 2
-          time: '1800'
+          time: "1800"
         open:
           day: 2
-          time: '1100'
+          time: "1100"
       - close:
           day: 3
-          time: '1800'
+          time: "1800"
         open:
           day: 3
-          time: '1100'
+          time: "1100"
       - close:
           day: 4
-          time: '1800'
+          time: "1800"
         open:
           day: 4
-          time: '1100'
+          time: "1100"
       - close:
           day: 5
-          time: '1800'
+          time: "1800"
         open:
           day: 5
-          time: '1100'
+          time: "1100"
       - close:
           day: 6
-          time: '1900'
+          time: "1900"
         open:
           day: 6
-          time: '1100'
+          time: "1100"
     weekday_text:
-      - 'Monday: 11:00 AM – 6:00 PM'
-      - 'Tuesday: 11:00 AM – 6:00 PM'
-      - 'Wednesday: 11:00 AM – 6:00 PM'
-      - 'Thursday: 11:00 AM – 6:00 PM'
-      - 'Friday: 11:00 AM – 6:00 PM'
-      - 'Saturday: 11:00 AM – 7:00 PM'
-      - 'Sunday: 11:00 AM – 5:00 PM'
+      - "Monday: 11:00 AM – 6:00 PM"
+      - "Tuesday: 11:00 AM – 6:00 PM"
+      - "Wednesday: 11:00 AM – 6:00 PM"
+      - "Thursday: 11:00 AM – 6:00 PM"
+      - "Friday: 11:00 AM – 6:00 PM"
+      - "Saturday: 11:00 AM – 7:00 PM"
+      - "Sunday: 11:00 AM – 5:00 PM"
   place_id: ChIJBzMH2dAbdkgRTuUftdFpuOw
   types:
     - liquor_store

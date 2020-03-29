@@ -27,6 +27,8 @@
   }
 
   .right {
+    padding-top: var(--size-unit-8);
+
     background-color: var(--color-accent);
 
     overflow: auto;
@@ -144,5 +146,54 @@
 
   @media screen and (min-width: 768px) {
     --input-label-direction: row;
+  }
+}
+
+.success {
+  position: fixed;
+
+  height: 100vh;
+  width: 100%;
+
+  top: 0;
+  right: 0;
+  z-index: 2;
+  background-color: var(--color-accent);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: {
+    duration: 0.5s;
+    property: opacity, visibility;
+  }
+
+  p {
+    color: var(--color-bg);
+
+    text-align: center;
+
+    font-size: var(--font-size-large);
+
+    line-height: 1.4;
+
+    b {
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  .successContainer & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 50%;
   }
 }

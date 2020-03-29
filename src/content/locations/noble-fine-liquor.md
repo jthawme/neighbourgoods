@@ -2,18 +2,18 @@
 templateKey: location
 name: Noble Fine Liquor
 image: /img/noblefineliquor.jpg
-category: wine_shop
+category: alcohol
 dietary:
   - healthy
 links:
   - type: external
-    link: 'https://www.noblefineliquor.co.uk/'
+    link: "https://www.noblefineliquor.co.uk/"
     label: Website
     category: order
 location:
   address_components:
-    - long_name: '27'
-      short_name: '27'
+    - long_name: "27"
+      short_name: "27"
       types:
         - street_number
     - long_name: Broadway Market
@@ -65,54 +65,54 @@ location:
     periods:
       - close:
           day: 0
-          time: '2000'
+          time: "2000"
         open:
           day: 0
-          time: '1200'
+          time: "1200"
       - close:
           day: 1
-          time: '2000'
+          time: "2000"
         open:
           day: 1
-          time: '1200'
+          time: "1200"
       - close:
           day: 2
-          time: '2000'
+          time: "2000"
         open:
           day: 2
-          time: '1200'
+          time: "1200"
       - close:
           day: 3
-          time: '2100'
+          time: "2100"
         open:
           day: 3
-          time: '1200'
+          time: "1200"
       - close:
           day: 4
-          time: '2100'
+          time: "2100"
         open:
           day: 4
-          time: '1200'
+          time: "1200"
       - close:
           day: 5
-          time: '2100'
+          time: "2100"
         open:
           day: 5
-          time: '1200'
+          time: "1200"
       - close:
           day: 6
-          time: '2100'
+          time: "2100"
         open:
           day: 6
-          time: '1100'
+          time: "1100"
     weekday_text:
-      - 'Monday: 12:00 – 8:00 PM'
-      - 'Tuesday: 12:00 – 8:00 PM'
-      - 'Wednesday: 12:00 – 9:00 PM'
-      - 'Thursday: 12:00 – 9:00 PM'
-      - 'Friday: 12:00 – 9:00 PM'
-      - 'Saturday: 11:00 AM – 9:00 PM'
-      - 'Sunday: 12:00 – 8:00 PM'
+      - "Monday: 12:00 – 8:00 PM"
+      - "Tuesday: 12:00 – 8:00 PM"
+      - "Wednesday: 12:00 – 9:00 PM"
+      - "Thursday: 12:00 – 9:00 PM"
+      - "Friday: 12:00 – 9:00 PM"
+      - "Saturday: 11:00 AM – 9:00 PM"
+      - "Sunday: 12:00 – 8:00 PM"
   place_id: ChIJ9xVd0ekcdkgRShXGWJEUIVc
   types:
     - liquor_store

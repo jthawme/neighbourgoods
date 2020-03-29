@@ -15,6 +15,7 @@ import { DIETARY, CATEGORIES, LINK_TYPES } from "../../cms/constants";
 import LinkGroup from "./parts/LinkGroup";
 import LinkGroupTitle from "./parts/LinkGroupTitle";
 import { useToasts } from "react-toast-notifications";
+import Share from "../common/Share";
 
 const formState = {
   name: "",
@@ -64,6 +65,10 @@ const reducer = (state, action) => {
         support
       };
     }
+    case "reset":
+      return {
+        ...formState
+      };
     default:
       return state;
   }
@@ -84,6 +89,7 @@ const AddForm = ({ onClose }) => {
   const { name, postCode, category, dietary, links, support } = state;
   const [errorMessage, setErrorMessage] = useState(false);
   const [isSubmitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const onSubmit = useCallback(
     e => {
@@ -101,12 +107,12 @@ const AddForm = ({ onClose }) => {
         })
       })
         .then(() => {
-          addToast("Submitted spot, thanks!", {
-            appearance: "success",
-            autoDismiss: true,
-            autoDismissTimeout: 10000
-          });
-          onClose();
+          // addToast("Submitted spot, thanks!", {
+          //   appearance: "success",
+          //   autoDismiss: true,
+          //   autoDismissTimeout: 10000
+          // });
+          setSuccess(true);
         })
         .catch(error => {
           setErrorMessage(error.message);
@@ -117,6 +123,15 @@ const AddForm = ({ onClose }) => {
     },
     [state]
   );
+
+  const onInternalClose = useCallback(() => {
+    onClose();
+
+    setTimeout(() => {
+      setSuccess(false);
+      dispatch({ type: "reset" });
+    }, 500);
+  }, [onClose]);
 
   return (
     <section className={styles.container}>
@@ -138,15 +153,32 @@ const AddForm = ({ onClose }) => {
         method="post"
         action="/"
         name="add"
-        className={styles.right}
+        className={`${styles.right} ${success && styles.successContainer}`}
         onSubmit={onSubmit}
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmit}
       >
-        <input type="hidden" name="form-name" value="add" />
-        <CloseIcon onClick={onClose} />
+        <CloseIcon onClick={onInternalClose} />
 
+        <div className={styles.success}>
+          <div className={styles.submitBtn}>
+            <button onClick={onInternalClose} type="button">
+              ❤️ Submitted ❤️
+            </button>
+
+            <p>
+              <b>Thank you</b>
+              <br />
+              Please help us continue to build the support map by sharing with
+              others
+            </p>
+
+            <Share />
+          </div>
+        </div>
+
+        <input type="hidden" name="form-name" value="add" />
         {isTablet ? (
           <>
             <FormRow title="Who are they?*" number="1">

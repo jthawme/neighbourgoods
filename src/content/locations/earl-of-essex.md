@@ -2,7 +2,7 @@
 templateKey: location
 name: Earl Of Essex
 image: /img/earlofessex.jpg
-category: pub
+category: alcohol
 links:
   - type: voucher
     label: Buy Voucher

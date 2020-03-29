@@ -2,16 +2,16 @@
 templateKey: location
 name: Passione Vino
 image: /img/passionevino.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://passionevino.co.uk/'
+    link: "https://passionevino.co.uk/"
     label: Website
     category: order
 location:
   address_components:
-    - long_name: '85'
-      short_name: '85'
+    - long_name: "85"
+      short_name: "85"
       types:
         - street_number
     - long_name: Leonard Street
@@ -63,42 +63,42 @@ location:
     periods:
       - close:
           day: 1
-          time: '2100'
+          time: "2100"
         open:
           day: 1
-          time: '1200'
+          time: "1200"
       - close:
           day: 2
-          time: '2100'
+          time: "2100"
         open:
           day: 2
-          time: '1200'
+          time: "1200"
       - close:
           day: 3
-          time: '2100'
+          time: "2100"
         open:
           day: 3
-          time: '1200'
+          time: "1200"
       - close:
           day: 4
-          time: '2100'
+          time: "2100"
         open:
           day: 4
-          time: '1200'
+          time: "1200"
       - close:
           day: 5
-          time: '2100'
+          time: "2100"
         open:
           day: 5
-          time: '1200'
+          time: "1200"
     weekday_text:
-      - 'Monday: 12:00 – 9:00 PM'
-      - 'Tuesday: 12:00 – 9:00 PM'
-      - 'Wednesday: 12:00 – 9:00 PM'
-      - 'Thursday: 12:00 – 9:00 PM'
-      - 'Friday: 12:00 – 9:00 PM'
-      - 'Saturday: Closed'
-      - 'Sunday: Closed'
+      - "Monday: 12:00 – 9:00 PM"
+      - "Tuesday: 12:00 – 9:00 PM"
+      - "Wednesday: 12:00 – 9:00 PM"
+      - "Thursday: 12:00 – 9:00 PM"
+      - "Friday: 12:00 – 9:00 PM"
+      - "Saturday: Closed"
+      - "Sunday: Closed"
   place_id: ChIJWdkD8K8cdkgR14oiuacyL-s
   types:
     - liquor_store

@@ -2,16 +2,16 @@
 templateKey: location
 name: Gnarly Vines
 image: /img/gnarlyvines.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://gnarlyvines.co.uk/'
+    link: "https://gnarlyvines.co.uk/"
     category: order
     label: Website
 location:
   address_components:
-    - long_name: '464'
-      short_name: '464'
+    - long_name: "464"
+      short_name: "464"
       types:
         - street_number
     - long_name: Hoe Street
@@ -63,18 +63,18 @@ location:
     periods:
       - close:
           day: 3
-          time: '0400'
+          time: "0400"
         open:
           day: 3
-          time: '0300'
+          time: "0300"
     weekday_text:
-      - 'Monday: Closed'
-      - 'Tuesday: Closed'
-      - 'Wednesday: 3:00 – 4:00 AM'
-      - 'Thursday: Closed'
-      - 'Friday: Closed'
-      - 'Saturday: Closed'
-      - 'Sunday: Closed'
+      - "Monday: Closed"
+      - "Tuesday: Closed"
+      - "Wednesday: 3:00 – 4:00 AM"
+      - "Thursday: Closed"
+      - "Friday: Closed"
+      - "Saturday: Closed"
+      - "Sunday: Closed"
   place_id: ChIJ-76N_ZIddkgREujVoNnNVvg
   types:
     - bar

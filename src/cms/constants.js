@@ -11,11 +11,8 @@ export const LINK_TYPES = {
 
 export const CATEGORY_TYPES = {
   RESAURANT: "restaurant",
-  BAR: "bar",
+  ALCOHOL: "alcohol",
   CAFE: "cafe",
-  PUB: "pub",
-  BEER_SHOP: "beer_shop",
-  WINE_SHOP: "wine_shop",
   BAKERY: "bakery",
   GROCERS: "grocers",
   BUTCHERS: "butchers",
@@ -28,24 +25,12 @@ export const CATEGORIES = [
     value: CATEGORY_TYPES.RESAURANT
   },
   {
-    label: "Bar",
-    value: CATEGORY_TYPES.BAR
+    label: "Drinks / Alcohol",
+    value: CATEGORY_TYPES.ALCOHOL
   },
   {
     label: "Café",
     value: CATEGORY_TYPES.CAFE
-  },
-  {
-    label: "Pub",
-    value: CATEGORY_TYPES.PUB
-  },
-  {
-    label: "Beer Shop",
-    value: CATEGORY_TYPES.BEER_SHOP
-  },
-  {
-    label: "Wine Shop",
-    value: CATEGORY_TYPES.WINE_SHOP
   },
   {
     label: "Bakery",

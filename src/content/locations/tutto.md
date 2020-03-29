@@ -2,16 +2,16 @@
 templateKey: location
 name: Tutto
 image: /img/tutto.jpg
-category: wine_shop
+category: alcohol
 links:
   - type: external
-    link: 'https://tuttowines.com/journal/introducing-tutto-a-casa/'
+    link: "https://tuttowines.com/journal/introducing-tutto-a-casa/"
     category: order
     label: Website
 location:
   address_components:
-    - long_name: '303'
-      short_name: '303'
+    - long_name: "303"
+      short_name: "303"
       types:
         - street_number
     - long_name: Hoxton Street

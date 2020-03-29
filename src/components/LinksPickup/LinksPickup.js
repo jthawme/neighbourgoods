@@ -43,7 +43,9 @@ const LinkItem = ({ link, label, type }) => {
       return `tel:${link}`;
     }
 
-    return `${link}?ref=neighbourgoods`;
+    return link.indexOf("?") >= 0
+      ? `${link}&ref=neighbourgoods`
+      : `${link}?ref=neighbourgoods`;
   }, [type, link]);
 
   return (

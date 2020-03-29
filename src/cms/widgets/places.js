@@ -53,6 +53,20 @@ const getInitialValue = value => {
   return value.get ? value.get("place_id") : value.place_id;
 };
 
+const getLabelValue = value => {
+  const address = value.get
+    ? value.get("address_components")
+    : value.address_components;
+
+  return address
+    ? address
+        .map(c => {
+          return c.get ? c.get("short_name") : c.short_name || "";
+        })
+        .join(", ")
+    : "";
+};
+
 class PlacesInfoHelper extends React.Component {
   onSubmit = e => {
     e.preventDefault();
@@ -95,7 +109,7 @@ class PlacesInfoHelper extends React.Component {
         </form>
 
         {value && Object.keys(value).length ? (
-          <ValueContainer>HAS VALUE!</ValueContainer>
+          <ValueContainer>HAS VALUE – {getLabelValue(value)}!</ValueContainer>
         ) : (
           <ValueContainer error>No value yet</ValueContainer>
         )}

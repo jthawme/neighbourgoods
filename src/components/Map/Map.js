@@ -1,8 +1,10 @@
 import React, { useCallback, useRef, useState } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { Circle } from "@react-google-maps/api";
 
 import styles from "./Map.module.scss";
 import { Search } from "react-feather";
+import { RADIUS } from "../../store/actions/info";
 
 const KEY = "AIzaSyBW3v7DCm0curYCYRNHsLK23HYRayTLKYk";
 
@@ -46,7 +48,7 @@ const Map = ({ children, coords, boundingBox, onMoveSearch }) => {
   const searchArea = useCallback(() => {
     onMoveSearch(currentCenter);
     setCurrentCenter(false);
-  }, [currentCenter]);
+  }, [currentCenter, onMoveSearch]);
 
   return (
     <>
@@ -76,6 +78,16 @@ const Map = ({ children, coords, boundingBox, onMoveSearch }) => {
           }}
         >
           {children || null}
+
+          <Circle
+            center={coords || DEFAULT_COORDS}
+            radius={RADIUS * 1.4}
+            options={{
+              fillColor: "transparent",
+              strokeColor: "rgba(85, 40, 245, 0.1)",
+              strokeWidth: 0.1
+            }}
+          />
         </GoogleMap>
       </LoadScript>
     </>

@@ -11,3 +11,4 @@ yarn-error.log
 .env
 functions
 static/data.json
+static/small_img

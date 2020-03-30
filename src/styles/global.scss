@@ -36,8 +36,12 @@ main {
 
     grid-column: 1 / span 1;
 
+    height: 100vh;
+
     .content {
       flex-grow: 1;
+
+      overflow: auto;
     }
   }
 
@@ -89,4 +93,15 @@ main {
   margin: 0;
 
   font-weight: var(--font-weight-bold);
+}
+
+.loading-global {
+  position: fixed;
+
+  top: var(--size-unit-4);
+  right: var(--size-unit-4);
+
+  color: var(--color-accent);
+
+  z-index: 10;
 }

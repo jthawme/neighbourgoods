@@ -2,9 +2,9 @@ import React, { useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import Emoji from "a11y-react-emoji";
-import { useDispatch } from "react-redux";
 
 import styles from "./LocationCard.module.scss";
+import FadeBackgroundImage from "../common/FadeBackgroundImage";
 import {
   CATEGORIES,
   CATEGORY_TYPES,
@@ -23,8 +23,23 @@ const LocationCard = ({
   className,
   highlight,
   onClick,
-  onRequest
+  onRequest,
+  id
 }) => {
+  const imageObject = useMemo(() => {
+    if (typeof image === "string") {
+      return {
+        image
+      };
+    }
+
+    return {
+      image: image.small,
+      largeImage: image.src,
+      backgroundColor: image.color
+    };
+  }, [image]);
+
   const typeLabel = useMemo(() => {
     return CATEGORIES.find(c => c.value === type)?.label;
   }, [type]);
@@ -75,11 +90,8 @@ const LocationCard = ({
   });
 
   return (
-    <div className={cls} onClick={onInternalClick}>
-      <div
-        className={styles.image}
-        style={image ? { backgroundImage: `url(${image})` } : {}}
-      />
+    <div id={id} className={cls} onClick={onInternalClick}>
+      <FadeBackgroundImage {...imageObject} className={styles.image} />
       <div className={styles.content}>
         <span className={styles.title}>{name}</span>
         <span className={styles.info}>

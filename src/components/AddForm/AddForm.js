@@ -14,8 +14,8 @@ import CheckboxGroup from "../common/inputs/CheckboxGroup";
 import { DIETARY, CATEGORIES, LINK_TYPES } from "../../cms/constants";
 import LinkGroup from "./parts/LinkGroup";
 import LinkGroupTitle from "./parts/LinkGroupTitle";
-import { useToasts } from "react-toast-notifications";
 import Share from "../common/Share";
+import Emoji from "a11y-react-emoji";
 
 const formState = {
   name: "",
@@ -74,17 +74,10 @@ const reducer = (state, action) => {
   }
 };
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
-
 const AddForm = ({ onClose }) => {
   const isTablet = useMediaQuery({
     query: "(min-width: 768px)"
   });
-  const { addToast } = useToasts();
   const [state, dispatch] = useReducer(reducer, formState);
   const { name, postCode, category, dietary, links, support } = state;
   const [errorMessage, setErrorMessage] = useState(false);
@@ -157,14 +150,13 @@ const AddForm = ({ onClose }) => {
         onSubmit={onSubmit}
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={onSubmit}
       >
         <CloseIcon onClick={onInternalClose} />
 
         <div className={styles.success}>
           <div className={styles.submitBtn}>
             <button onClick={onInternalClose} type="button">
-              ❤️ Submitted ❤️
+              <Emoji symbol="❤️" /> Submitted <Emoji symbol="❤️" />
             </button>
 
             <p>

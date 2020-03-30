@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 
 import classNames from "classnames";
 
@@ -64,6 +64,15 @@ const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
     return () => window.removeEventListener("keyup", onCloseCallback);
   }, [onClose]);
 
+  const onOverlayClick = useCallback(
+    e => {
+      if (e.target.classList.contains(styles.overlay)) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
   const cls = classNames(
     styles.overlay,
     {
@@ -74,7 +83,7 @@ const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
   );
 
   return (
-    <div className={cls}>
+    <div className={cls} onClick={onOverlayClick}>
       <div className={styles.modal} ref={contentRef}>
         {children}
       </div>

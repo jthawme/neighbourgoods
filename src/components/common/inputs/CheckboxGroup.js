@@ -17,8 +17,6 @@ const CheckboxGroup = ({
       const idx = value.indexOf(checkboxValue);
       const curr = value.slice();
 
-      console.log(idx, checkboxValue);
-
       if (idx >= 0) {
         curr.splice(idx, 1);
       } else {
@@ -27,7 +25,7 @@ const CheckboxGroup = ({
 
       onChange(curr);
     },
-    [value]
+    [value, onChange]
   );
 
   return (

@@ -14,6 +14,7 @@ const Toast = ({
     <div
       className={`${styles.toast} ${styles[appearance]} ${styles[transitionState]}`}
       onClick={onDismiss}
+      role="button"
     >
       {children} <X />
     </div>

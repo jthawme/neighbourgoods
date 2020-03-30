@@ -2,7 +2,8 @@ import {
   SET_POSTCODE_INFO,
   SET_RESULTS,
   SET_ORGANIC_LOCATION,
-  SET_COORDS
+  SET_COORDS,
+  SET_LOADING
 } from "../actions/info";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   borough: false,
   coords: false,
   boundingBox: false,
+  loading: false,
   results: []
 };
 
@@ -40,6 +42,11 @@ const infoReducer = (state = initialState, action) => {
       return {
         ...state,
         results: action.results
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.loading
       };
     default:
       return state;

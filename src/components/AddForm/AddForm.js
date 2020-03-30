@@ -15,6 +15,7 @@ import { DIETARY, CATEGORIES, LINK_TYPES } from "../../cms/constants";
 import LinkGroup from "./parts/LinkGroup";
 import LinkGroupTitle from "./parts/LinkGroupTitle";
 import Share from "../common/Share";
+import Emoji from "a11y-react-emoji";
 
 const formState = {
   name: "",
@@ -122,11 +123,6 @@ const AddForm = ({ onClose }) => {
         })
       })
         .then(() => {
-          // addToast("Submitted spot, thanks!", {
-          //   appearance: "success",
-          //   autoDismiss: true,
-          //   autoDismissTimeout: 10000
-          // });
           setSuccess(true);
         })
         .catch(error => {
@@ -172,14 +168,13 @@ const AddForm = ({ onClose }) => {
         onSubmit={onSubmit}
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={onSubmit}
       >
         <CloseIcon onClick={onInternalClose} />
 
         <div className={styles.success}>
           <div className={styles.submitBtn}>
             <button onClick={onInternalClose} type="button">
-              ❤️ Submitted ❤️
+              <Emoji symbol="❤️" /> Submitted <Emoji symbol="❤️" />
             </button>
 
             <p>

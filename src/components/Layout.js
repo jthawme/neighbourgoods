@@ -32,6 +32,7 @@ import { filterResults } from "../utils/filter";
 
 import "normalize.css";
 import "../styles/global.scss";
+import Spinner from "./common/Spinner";
 
 const TemplateWrapper = ({ children }) => {
   const dispatch = useDispatch();
@@ -136,11 +137,20 @@ const TemplateWrapper = ({ children }) => {
           />
           <meta name="theme-color" content="#fff" />
 
-          <meta property="og:type" content="business.business" />
+          <meta property="og:type" content="website" />
           <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
           <meta property="og:url" content="/" />
           <meta
             property="og:image"
+            content={`${withPrefix("/")}img/og-image.jpg`}
+          />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
+          <meta name="twitter:site" content="/" />
+          <meta
+            name="twitter:image"
             content={`${withPrefix("/")}img/og-image.jpg`}
           />
         </Helmet>
@@ -169,6 +179,12 @@ const TemplateWrapper = ({ children }) => {
             })}
           </Map>
         </div>
+
+        {info.loading && (
+          <div className="loading-global">
+            <Spinner />
+          </div>
+        )}
 
         <FloatingButton
           className="floating"

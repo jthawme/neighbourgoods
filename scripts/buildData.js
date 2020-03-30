@@ -4,6 +4,7 @@ const path = require("path");
 const jsonfile = require("jsonfile");
 const Vibrant = require("node-vibrant");
 const sharp = require("sharp");
+const readline = require("readline");
 
 const locationsContent = path.join(
   __dirname,
@@ -67,8 +68,8 @@ const runner = index => {
 
   const smallImgFile = staticFile(`small_img/${fileName}`);
 
-  process.stdout.clearLine();
-  process.stdout.cursorTo(0);
+  readline.clearLine();
+  readline.cursorTo(0);
   process.stdout.write(`Doing: ${index + 1}/${data.length} – ${fileName} `);
 
   sharp(imgFile)

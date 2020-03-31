@@ -13,7 +13,7 @@ import Emoji from "a11y-react-emoji";
 const formState = {
   name: "",
   borough: "",
-  category: "restaurant",
+  category: "",
   description: ""
 };
 

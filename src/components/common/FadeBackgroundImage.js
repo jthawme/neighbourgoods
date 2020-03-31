@@ -21,12 +21,7 @@ const isDataSaver = () => {
   }
 };
 
-const FadeBackgroundImage = ({
-  className,
-  image,
-  largeImage,
-  backgroundColor = "var(--color-text-light)"
-}) => {
+const FadeBackgroundImage = ({ className, image, largeImage }) => {
   const refTrack = useRef(0);
   const [loaded, setLoaded] = useState(false);
   const [internalImage, setInternalImage] = useState(false);
@@ -74,7 +69,7 @@ const FadeBackgroundImage = ({
   });
 
   return (
-    <div className={cls} style={{ backgroundColor }}>
+    <div className={cls}>
       <div
         style={{
           backgroundImage: internalImage ? `url(${internalImage})` : "none"

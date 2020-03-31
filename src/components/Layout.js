@@ -160,6 +160,10 @@ const TemplateWrapper = ({ children }) => {
             property="og:image"
             content={`https://neighbourgoods.london/og-image.png`}
           />
+          <meta
+            property="twitter:image"
+            content={`https://neighbourgoods.london/og-image.png`}
+          />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
@@ -239,6 +243,7 @@ const TemplateWrapper = ({ children }) => {
           isOpen={addIsOpen}
           type="right"
           onClose={() => setAddIsOpen(false)}
+          aboveAll={!isTablet}
         >
           <AddForm onClose={() => setAddIsOpen(false)} />
         </FakeModal>

@@ -12,7 +12,13 @@ const STATES = {
   CLOSING: "closing"
 };
 
-const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
+const FakeModal = ({
+  isOpen,
+  children,
+  onClose,
+  type = "centred",
+  aboveAll
+}) => {
   const [modalState, setModalState] = useState(STATES.CLOSED);
   const timerRef = useRef(0);
   const contentRef = useRef(null);
@@ -94,7 +100,10 @@ const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
       [styles.open]: isOpen
     },
     [styles[modalState]],
-    [styles[type]]
+    [styles[type]],
+    {
+      [styles.above]: aboveAll
+    }
   );
 
   return (

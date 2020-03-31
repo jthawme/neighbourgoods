@@ -84,6 +84,7 @@ const Home = () => {
                   image={d.imageObject}
                   highlight={highlight === d.id}
                   onClick={() => onClickLocation(d.coords, d.id)}
+                  doGooder={d.doGooder}
                   onRequest={onRequest}
                 />
               </div>

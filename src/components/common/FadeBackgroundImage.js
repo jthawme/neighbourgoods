@@ -21,7 +21,12 @@ const isDataSaver = () => {
   }
 };
 
-const FadeBackgroundImage = ({ className, image, largeImage }) => {
+const FadeBackgroundImage = ({
+  className,
+  image,
+  largeImage,
+  children = null
+}) => {
   const refTrack = useRef(0);
   const [loaded, setLoaded] = useState(false);
   const [internalImage, setInternalImage] = useState(false);
@@ -75,6 +80,7 @@ const FadeBackgroundImage = ({ className, image, largeImage }) => {
           backgroundImage: internalImage ? `url(${internalImage})` : "none"
         }}
       />
+      {children}
     </div>
   );
 };

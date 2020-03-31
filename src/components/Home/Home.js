@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import LocationCard from "../LocationCard/LocationCard";
 import FilterListener from "../FilterListener/FilterListener";
 import scrollIntoView from "scroll-into-view-if-needed";
+import Emoji from "a11y-react-emoji";
+import { useMediaQuery } from "react-responsive";
 
 import styles from "./Home.module.scss";
 import { setCoords, setMapView } from "../../store/actions/info";
@@ -10,12 +12,14 @@ import {
   setHighlightLocation,
   setCurrentLinks
 } from "../../store/actions/location";
-import Emoji from "a11y-react-emoji";
 
 const Home = () => {
   const highlight = useSelector(state => state.location.highlight);
   const { results } = useSelector(state => state.filters);
   const dispatch = useDispatch();
+  const isTablet = useMediaQuery({
+    query: "(min-width: 768px)"
+  });
 
   const onClickLocation = useCallback(
     (coords, id) => {
@@ -56,9 +60,12 @@ const Home = () => {
           <span>
             {results.length} {results.length === 1 ? "result" : "results"}
           </span>
-          <span>
-            <button onClick={toggleMap}>View map</button>
-          </span>
+
+          {!isTablet && (
+            <span>
+              <button onClick={toggleMap}>View map</button>
+            </span>
+          )}
         </div>
         <div
           className={`${styles.pool} ${results.length === 0 &&

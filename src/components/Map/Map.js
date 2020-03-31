@@ -23,7 +23,7 @@ const LONDON_COORDS = {
 const MIN_ZOOM = 12;
 const MAX_ZOOM = 16;
 
-const Map = ({ children, coords, boundingBox, onMoveSearch }) => {
+const Map = ({ children, coords, searchCoords, boundingBox, onMoveSearch }) => {
   const mapRef = useRef(null);
   const debounceRef = useRef(0);
   const [currentCenter, setCurrentCenter] = useState(false);
@@ -80,7 +80,7 @@ const Map = ({ children, coords, boundingBox, onMoveSearch }) => {
           {children || null}
 
           <Circle
-            center={coords || DEFAULT_COORDS}
+            center={searchCoords || DEFAULT_COORDS}
             radius={RADIUS * 1.4}
             options={{
               fillColor: "transparent",

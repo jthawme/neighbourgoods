@@ -11,6 +11,7 @@ const initialState = {
   postCode: false,
   borough: false,
   coords: false,
+  centerCoords: false,
   boundingBox: false,
   loading: false,
   results: [],
@@ -25,6 +26,7 @@ const infoReducer = (state = initialState, action) => {
         postCode: action.postCode,
         borough: action.borough,
         coords: action.coords,
+        centerCoords: action.coords,
         boundingBox: action.boundingBox
       };
     case SET_ORGANIC_LOCATION:
@@ -38,7 +40,7 @@ const infoReducer = (state = initialState, action) => {
     case SET_COORDS:
       return {
         ...state,
-        coords: action.coords
+        centerCoords: action.coords
       };
     case SET_RESULTS:
       return {

@@ -171,7 +171,8 @@ const TemplateWrapper = ({ children }) => {
         <div className="content">{children}</div>
         <div className="right">
           <Map
-            coords={info.coords}
+            coords={info.centerCoords}
+            searchCoords={info.coords}
             boundingBox={info.boundingBox}
             onMoveSearch={onSearch}
           >

@@ -53,20 +53,33 @@ const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
   }, [isOpen, modalState, contentRef]);
 
   useEffect(() => {
-    const onCloseCallback = e => {
-      if (e.key === "Escape" && onClose) {
-        onClose();
-      }
-    };
+    if (isOpen) {
+      const onCloseCallback = e => {
+        if (e.key === "Escape" && onClose) {
+          onClose();
+        }
+      };
 
-    window.addEventListener("keyup", onCloseCallback);
+      window.addEventListener("keyup", onCloseCallback);
 
-    return () => window.removeEventListener("keyup", onCloseCallback);
-  }, [onClose]);
+      contentRef.current.focus();
+
+      return () => window.removeEventListener("keyup", onCloseCallback);
+    }
+  }, [onClose, isOpen]);
 
   const onOverlayClick = useCallback(
     e => {
       if (e.target.classList.contains(styles.overlay)) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
+  const onOverlayPress = useCallback(
+    e => {
+      if (e.target.classList.contains(styles.overlay) && e.keyCode === 13) {
         onClose();
       }
     },
@@ -83,7 +96,13 @@ const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
   );
 
   return (
-    <div className={cls} onClick={onOverlayClick}>
+    <div
+      className={cls}
+      onClick={onOverlayClick}
+      onKeyUp={onOverlayPress}
+      role="button"
+      tabIndex={0}
+    >
       <div className={styles.modal} ref={contentRef}>
         {children}
       </div>

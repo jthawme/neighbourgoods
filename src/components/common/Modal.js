@@ -24,7 +24,7 @@ const Modal = ({ isOpen, children, onClose, type = "centred" }) => {
         beforeClose: styles.modalBeforeClose,
         afterOpen: styles.modalAfterOpen
       }}
-      closeTimeoutMS={1000}
+      closeTimeoutMS={750}
       onRequestClose={onClose}
     >
       {children}

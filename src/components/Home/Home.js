@@ -5,7 +5,7 @@ import FilterListener from "../FilterListener/FilterListener";
 import scrollIntoView from "scroll-into-view-if-needed";
 
 import styles from "./Home.module.scss";
-import { setCoords } from "../../store/actions/info";
+import { setCoords, setMapView } from "../../store/actions/info";
 import {
   setHighlightLocation,
   setCurrentLinks
@@ -33,6 +33,10 @@ const Home = () => {
     [dispatch]
   );
 
+  const toggleMap = useCallback(() => {
+    dispatch(setMapView(true));
+  }, [dispatch]);
+
   useEffect(() => {
     if (highlight) {
       const el = document.getElementById(highlight);
@@ -40,12 +44,6 @@ const Home = () => {
         behavior: "smooth",
         block: "center"
       });
-      // const rect = el.getBoundingClientRect();
-
-      // console.log(rect);
-      // const htmlEl = document.querySelector("html");
-
-      // htmlEl.scrollTop = htmlEl.scrollTop + rect.top - 50;
     }
   }, [highlight]);
 
@@ -57,6 +55,9 @@ const Home = () => {
         <div className={styles.meta}>
           <span>
             {results.length} {results.length === 1 ? "result" : "results"}
+          </span>
+          <span>
+            <button onClick={toggleMap}>View map</button>
           </span>
         </div>
         <div

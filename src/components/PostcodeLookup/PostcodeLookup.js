@@ -81,7 +81,6 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
               undefined
             )
           }
-          autoFocus
         />
         {!isTablet ? (
           <button

@@ -18,12 +18,14 @@ import Map from "./Map/Map";
 import LinksPickup from "./LinksPickup/LinksPickup";
 import Toast from "./common/Toast";
 import MyMarker from "./Marker/Marker";
+import Spinner from "./common/Spinner";
 
 import {
   setPostCodeInfo,
   setOrganicLocation,
   RADIUS,
-  setCoords
+  setCoords,
+  setMapView
 } from "../store/actions/info";
 import { setHighlightLocation } from "../store/actions/location";
 import { setFilteredResults } from "../store/actions/filters";
@@ -32,7 +34,7 @@ import { filterResults } from "../utils/filter";
 
 import "normalize.css";
 import "../styles/global.scss";
-import Spinner from "./common/Spinner";
+import { Map as MapIcon, List } from "react-feather";
 
 const TemplateWrapper = ({ children }) => {
   const dispatch = useDispatch();
@@ -44,6 +46,7 @@ const TemplateWrapper = ({ children }) => {
   const { activeFilters, activeDietary, results } = useSelector(
     state => state.filters
   );
+
   const isTablet = useMediaQuery({
     query: "(min-width: 768px)"
   });
@@ -92,6 +95,10 @@ const TemplateWrapper = ({ children }) => {
     setIsOpen(true);
   }, []);
 
+  const onToggleMap = useCallback(() => {
+    dispatch(setMapView(!info.mapView));
+  }, [info.mapView]);
+
   useEffect(() => {
     dispatch(
       setFilteredResults(
@@ -106,7 +113,7 @@ const TemplateWrapper = ({ children }) => {
 
   return (
     <ToastProvider components={{ Toast }}>
-      <main>
+      <main className={`${info.mapView && "mapOpen"}`}>
         <Helmet>
           <html lang="en" />
           <title>{title}</title>
@@ -160,8 +167,8 @@ const TemplateWrapper = ({ children }) => {
             onRequestLocationChange={onOpenPostCode}
             locationName={info.borough}
           />
-          <div className="content">{children}</div>
         </div>
+        <div className="content">{children}</div>
         <div className="right">
           <Map
             coords={info.coords}
@@ -191,6 +198,12 @@ const TemplateWrapper = ({ children }) => {
           text="Add a spot"
           onClick={() => setAddIsOpen(true)}
         />
+
+        {!isTablet && (
+          <button className="map-toggle" onClick={onToggleMap}>
+            {info.mapView ? <List /> : <MapIcon />}
+          </button>
+        )}
 
         <FakeModal
           isOpen={aboutIsOpen}

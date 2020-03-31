@@ -3,7 +3,8 @@ import {
   SET_RESULTS,
   SET_ORGANIC_LOCATION,
   SET_COORDS,
-  SET_LOADING
+  SET_LOADING,
+  SET_MAP_VIEW
 } from "../actions/info";
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
   coords: false,
   boundingBox: false,
   loading: false,
-  results: []
+  results: [],
+  mapView: false
 };
 
 const infoReducer = (state = initialState, action) => {
@@ -47,6 +49,11 @@ const infoReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: action.loading
+      };
+    case SET_MAP_VIEW:
+      return {
+        ...state,
+        mapView: action.mapView
       };
     default:
       return state;

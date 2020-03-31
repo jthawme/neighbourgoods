@@ -25,9 +25,14 @@ button {
 main {
   display: grid;
 
-  min-height: 100vh;
+  height: 100vh;
 
   grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+
+  grid-template-areas:
+    "left"
+    "content";
 
   .left {
     display: flex;
@@ -36,13 +41,11 @@ main {
 
     grid-column: 1 / span 1;
 
-    height: 100vh;
+    grid-area: left;
+  }
 
-    .content {
-      flex-grow: 1;
-
-      overflow: auto;
-    }
+  .content {
+    grid-area: content;
   }
 
   .right {
@@ -52,27 +55,50 @@ main {
 
     top: 0;
 
-    grid-column: 2 / span 1;
-
     background-color: var(--color-text-light);
 
-    height: 100vh;
+    grid-area: content;
+  }
+
+  &.mapOpen {
+    .content {
+      display: none;
+    }
+
+    .right {
+      display: block;
+    }
   }
 
   .floating {
     position: fixed;
 
-    right: 50%;
+    left: var(--size-unit-4);
     bottom: var(--size-unit-10);
-
-    transform: translate3d(50%, 0, 0);
   }
 
   @media screen and (min-width: 768px) {
+    height: 100vh;
+
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content 1fr;
+
+    grid-template-areas:
+      "left map"
+      "content map";
+
+    .content {
+      overflow: auto;
+    }
 
     .right {
       display: block;
+
+      grid-column: 2 / span 1;
+
+      grid-area: map;
+
+      height: 100vh;
     }
 
     .floating {
@@ -104,4 +130,38 @@ main {
   color: var(--color-accent);
 
   z-index: 10;
+}
+
+.map-toggle {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+
+  bottom: var(--size-unit-10);
+  right: var(--size-unit-4);
+
+  width: 52px;
+  height: 52px;
+
+  background-color: var(--color-text);
+  color: var(--color-bg);
+
+  border-radius: 100%;
+
+  outline: 0;
+
+  border: 0;
+
+  transition: {
+    duration: 0.25s;
+    property: opacity;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
 }

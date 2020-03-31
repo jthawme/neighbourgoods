@@ -33,6 +33,10 @@ const FadeBackgroundImage = ({
   const [dataSaving] = useState(isDataSaver());
 
   useEffect(() => {
+    if (image === internalImage || largeImage === internalImage) {
+      return;
+    }
+
     const currentRef = refTrack.current;
     setLoaded(false);
 

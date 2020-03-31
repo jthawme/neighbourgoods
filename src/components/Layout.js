@@ -136,27 +136,21 @@ const TemplateWrapper = ({ children }) => {
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href={`${withPrefix("/")}img/apple-touch-icon.png`}
+            href={`${withPrefix("/")}meta/apple-touch-icon.png`}
           />
           <link
             rel="icon"
             type="image/png"
-            href={`${withPrefix("/")}img/favicon-32x32.png`}
+            href={`${withPrefix("/")}meta/favicon-32x32.png`}
             sizes="32x32"
           />
           <link
             rel="icon"
             type="image/png"
-            href={`${withPrefix("/")}img/favicon-16x16.png`}
+            href={`${withPrefix("/")}meta/favicon-16x16.png`}
             sizes="16x16"
           />
-
-          <link
-            rel="mask-icon"
-            href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
-            color="#ff4400"
-          />
-          <meta name="theme-color" content="#fff" />
+          <meta name="theme-color" content="#123b42" />
 
           <meta property="og:type" content="website" />
           <meta property="og:title" content={title} />
@@ -164,7 +158,7 @@ const TemplateWrapper = ({ children }) => {
           <meta property="og:url" content="/" />
           <meta
             property="og:image"
-            content={`${withPrefix("/")}img/og-image.jpg`}
+            content={`${withPrefix("/")}og-image.png`}
           />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={title} />
@@ -172,7 +166,7 @@ const TemplateWrapper = ({ children }) => {
           <meta name="twitter:site" content="/" />
           <meta
             name="twitter:image"
-            content={`${withPrefix("/")}img/og-image.jpg`}
+            content={`${withPrefix("/")}og-image.png`}
           />
         </Helmet>
         <div className="left">

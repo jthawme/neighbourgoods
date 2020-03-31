@@ -136,18 +136,18 @@ const TemplateWrapper = ({ children }) => {
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href={`${withPrefix("/")}meta/apple-touch-icon.png`}
+            href={`https://neighbourgoods.london/meta/apple-touch-icon.png`}
           />
           <link
             rel="icon"
             type="image/png"
-            href={`${withPrefix("/")}meta/favicon-32x32.png`}
+            href={`https://neighbourgoods.london/meta/favicon-32x32.png`}
             sizes="32x32"
           />
           <link
             rel="icon"
             type="image/png"
-            href={`${withPrefix("/")}meta/favicon-16x16.png`}
+            href={`https://neighbourgoods.london/meta/favicon-16x16.png`}
             sizes="16x16"
           />
           <meta name="theme-color" content="#123b42" />
@@ -158,7 +158,7 @@ const TemplateWrapper = ({ children }) => {
           <meta property="og:url" content="/" />
           <meta
             property="og:image"
-            content={`${withPrefix("/")}og-image.png`}
+            content={`https://neighbourgoods.london/og-image.png`}
           />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={title} />
@@ -166,7 +166,7 @@ const TemplateWrapper = ({ children }) => {
           <meta name="twitter:site" content="/" />
           <meta
             name="twitter:image"
-            content={`${withPrefix("/")}og-image.png`}
+            content={`https://neighbourgoods.london/og-image.png`}
           />
         </Helmet>
         <div className="left">

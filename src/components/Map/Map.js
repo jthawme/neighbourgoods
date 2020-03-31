@@ -14,10 +14,10 @@ const DEFAULT_COORDS = {
 };
 
 const LONDON_COORDS = {
-  north: 51.630805,
-  east: 0.11673,
-  south: 51.407773,
-  west: -0.308304
+  north: 51.677349,
+  east: 0.175256,
+  south: 51.320853,
+  west: -0.453712
 };
 
 const MIN_ZOOM = 12;

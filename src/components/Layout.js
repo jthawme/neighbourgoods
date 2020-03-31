@@ -210,13 +210,13 @@ const TemplateWrapper = ({ children }) => {
           </div>
         )}
 
-        {!info.mapView && !isTablet && (
+        {(!isTablet && !info.mapView) || isTablet ? (
           <FloatingButton
             className="floating"
             text="Add to map"
             onClick={() => setAddIsOpen(true)}
           />
-        )}
+        ) : null}
 
         {!isTablet && (
           <button className="map-toggle" onClick={onToggleMap}>

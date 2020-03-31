@@ -4,7 +4,8 @@
 
   overflow: auto;
 
-  padding: var(--size-header-clear) var(--size-unit-4) 0;
+  padding: calc(var(--size-header-clear) + var(--size-unit-8))
+    var(--size-unit-4) 0;
 
   background-color: var(--color-panel-bg);
   color: var(--color-panel-fg);
@@ -39,8 +40,13 @@
       font-size: var(--font-size-large);
       margin-top: var(--size-unit-4);
 
-      &:nth-child(2) {
-        text-decoration: none;
+      text-decoration: none;
+    }
+
+    .social {
+      svg {
+        width: 28px;
+        height: 28px;
       }
     }
   }

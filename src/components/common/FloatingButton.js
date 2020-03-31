@@ -1,6 +1,7 @@
 import React from "react";
-import { Plus } from "react-feather";
 import classNames from "classnames";
+
+import Plus from "../../svg/plus.svg";
 
 import styles from "./FloatingButton.module.scss";
 
@@ -10,9 +11,7 @@ const FloatingButton = ({ icon, text, className, ...props }) => {
   return (
     <div className={cls}>
       <button className={styles.button} {...props}>
-        <span className={styles.icon}>
-          {icon ? icon : <Plus size="12px" />}
-        </span>
+        <span className={styles.icon}>{icon ? icon : <Plus />}</span>
         <span className={styles.text}>{text}</span>
       </button>
     </div>

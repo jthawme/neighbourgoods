@@ -1,13 +1,15 @@
 import React, { useCallback, useState, useMemo } from "react";
 
-import { MapPin, ChevronDown } from "react-feather";
+import { useDispatch, useSelector } from "react-redux";
 import Collapsible from "react-collapsible";
 
-import styles from "./FilterBar.module.scss";
-import { CATEGORIES, DIETARY } from "../../cms/constants";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleFilter, toggleDietary } from "../../store/actions/filters";
 import Checkbox from "../common/inputs/Checkbox";
+import Pin from "../../svg/pin.svg";
+import Down from "../../svg/down.svg";
+import { CATEGORIES, DIETARY } from "../../cms/constants";
+import { toggleFilter, toggleDietary } from "../../store/actions/filters";
+
+import styles from "./FilterBar.module.scss";
 
 const FilterBar = ({ onRequestLocationChange, locationName }) => {
   const [filterOpen, setFilterOpen] = useState(false);
@@ -64,7 +66,7 @@ const FilterBar = ({ onRequestLocationChange, locationName }) => {
     <div className={styles.wrapper}>
       <nav className={styles.nav}>
         <button className={styles.location} onClick={onRequestLocationChange}>
-          <MapPin />
+          <Pin />
           <span>{locationName || "Search by postcode"}</span>
         </button>
         <button
@@ -76,7 +78,7 @@ const FilterBar = ({ onRequestLocationChange, locationName }) => {
             {filterLength > 0 && <span className={styles.filterActive} />}{" "}
             Filter
           </span>{" "}
-          <ChevronDown />
+          <Down />
         </button>
       </nav>
       <Collapsible

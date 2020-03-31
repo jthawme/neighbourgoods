@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import ReactModal from "react-modal";
 import classNames from "classnames";
@@ -10,6 +10,10 @@ const Modal = ({ isOpen, children, onClose, type = "centred" }) => {
   const cls = classNames(styles.overlay, styles[type]);
 
   const modalCls = classNames(styles.modal, styles[type]);
+
+  useEffect(() => {
+    document.body.classList.toggle("modal-open", isOpen);
+  }, [isOpen]);
 
   return (
     <ReactModal

@@ -58,6 +58,8 @@ main {
     background-color: var(--color-text-light);
 
     grid-area: content;
+
+    overflow: hidden;
   }
 
   &.mapOpen {
@@ -74,7 +76,7 @@ main {
     position: fixed;
 
     left: var(--size-unit-4);
-    bottom: var(--size-unit-10);
+    bottom: var(--size-unit-4);
   }
 
   @media screen and (min-width: 768px) {
@@ -88,6 +90,8 @@ main {
       "content map";
 
     .content {
+      display: block;
+
       overflow: auto;
     }
 
@@ -104,8 +108,19 @@ main {
     .floating {
       right: 25%;
       left: auto;
+      bottom: var(--size-unit-10);
 
       transform: translate3d(50%, 0, 0);
+    }
+
+    &.mapOpen {
+      .content {
+        display: block;
+      }
+
+      .right {
+        display: block;
+      }
     }
   }
 }
@@ -113,8 +128,9 @@ main {
 #main-logo {
   position: absolute;
 
-  top: var(--size-unit-4);
+  top: var(--size-unit-5);
   left: var(--size-unit-4);
+  height: 40px;
 
   z-index: 20;
 
@@ -122,6 +138,48 @@ main {
   margin: 0;
 
   font-weight: var(--font-weight-bold);
+
+  display: flex;
+
+  align-items: center;
+
+  svg:nth-child(1) {
+    display: none;
+
+    width: auto;
+    height: 40px;
+
+    margin-right: var(--size-unit-4);
+
+    @media screen and (min-width: 500px) {
+      display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+
+    @media screen and (min-width: 850px) {
+      display: block;
+    }
+  }
+
+  svg:nth-child(2) {
+    width: auto;
+    height: 32px;
+
+    margin-top: 3px;
+  }
+
+  .modal-open & {
+    svg:nth-child(1) {
+      color: var(--color-accent);
+    }
+
+    svg:nth-child(2) {
+      color: var(--color-bg);
+    }
+  }
 }
 
 .loading-global {
@@ -143,14 +201,14 @@ main {
 
   position: fixed;
 
-  bottom: var(--size-unit-10);
+  bottom: var(--size-unit-4);
   right: var(--size-unit-4);
 
   width: 52px;
   height: 52px;
 
-  background-color: var(--color-text);
-  color: var(--color-bg);
+  background-color: var(--color-accent);
+  color: var(--color-text);
 
   border-radius: 100%;
 
@@ -166,5 +224,9 @@ main {
   &:hover,
   &:focus {
     opacity: 0.75;
+  }
+
+  @media screen and (min-width: 768px) {
+    bottom: var(--size-unit-10);
   }
 }

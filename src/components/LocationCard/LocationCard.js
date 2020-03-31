@@ -24,6 +24,7 @@ const LocationCard = ({
   highlight,
   onClick,
   onRequest,
+  slim,
   id
 }) => {
   const imageObject = useMemo(() => {
@@ -78,16 +79,23 @@ const LocationCard = ({
         e.target.tagName === "BUTTON" ||
         e.target.parentElement.tagName === "BUTTON";
 
-      if (!isButton) {
+      if (!isButton && onClick) {
         onClick();
       }
     },
     [onClick]
   );
 
-  const cls = classNames(styles.card, className, {
-    [styles.highlight]: highlight
-  });
+  const cls = classNames(
+    styles.card,
+    className,
+    {
+      [styles.highlight]: highlight
+    },
+    {
+      [styles.slim]: slim
+    }
+  );
 
   return (
     <div id={id} className={cls} onClick={onInternalClick}>

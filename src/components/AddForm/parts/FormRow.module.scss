@@ -5,8 +5,6 @@
   justify-content: center;
 
   padding: var(--size-unit-12) 0;
-
-  border-bottom: var(--size-line) solid var(--color-text);
 }
 
 .content {
@@ -14,7 +12,6 @@
 
   width: 100%;
   padding: 0 var(--size-unit-6);
-  max-width: 450px;
 
   .number {
     position: absolute;

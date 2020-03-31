@@ -1,4 +1,13 @@
+:root {
+  --card-image-size: 42%;
+  --card-links-direction: column;
+}
+
 .card {
+  display: flex;
+
+  flex-direction: column;
+
   border-radius: var(--radii-md);
   overflow: hidden;
 
@@ -19,6 +28,11 @@
 }
 
 .content {
+  display: flex;
+
+  flex-direction: column;
+
+  flex-grow: 1;
   padding: var(--size-unit-4) var(--size-unit-4) var(--size-unit-5);
 }
 
@@ -50,14 +64,21 @@
   margin-bottom: var(--size-unit-1);
 }
 
+.info:nth-child(3) {
+  flex-grow: 1;
+}
+
 .image {
-  padding-bottom: 35%;
+  padding-bottom: var(--card-image-size);
 }
 
 .links {
   display: flex;
 
-  flex-direction: column;
+  flex-wrap: wrap;
+
+  flex-direction: var(--card-links-direction);
+  align-items: flex-start;
 
   list-style: none;
 
@@ -67,18 +88,20 @@
   &Button {
     display: block;
 
-    color: var(--color-accent);
+    color: var(--color-text);
 
     text-decoration: none;
 
     font-size: var(--font-size-small);
 
     background-color: transparent;
-    border: 0;
+    border: var(--size-line) solid var(--color-text);
     outline: 0;
 
-    padding: 0;
-    margin: var(--size-unit-3) 0 0;
+    padding: var(--size-unit-2) var(--size-unit-3);
+    margin: var(--size-unit-3) var(--size-unit-3) 0 0;
+
+    border-radius: var(--radii-lg);
 
     text-align: left;
 
@@ -86,11 +109,27 @@
 
     span {
       margin-right: var(--size-unit-2);
+
+      .slim & {
+        display: none;
+      }
     }
 
     &:hover,
     &:focus {
       opacity: 0.75;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+
+    &Button {
+      margin: var(--size-unit-3) 0 0;
+
+      .slim & span {
+        display: inline;
+      }
     }
   }
 }

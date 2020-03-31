@@ -3,7 +3,8 @@ import React, { useRef, useEffect } from "react";
 import CloseIcon from "../common/CloseIcon";
 import styles from "./AboutContent.module.scss";
 
-import { tweetLink } from "../../utils/share";
+import { instagramLink } from "../../utils/share";
+import Instagram from "../../svg/instagram.svg";
 
 const AboutContent = ({ onClose, open }) => {
   const elRef = useRef(null);
@@ -20,33 +21,33 @@ const AboutContent = ({ onClose, open }) => {
 
   return (
     <aside ref={elRef} className={styles.wrapper}>
-      <CloseIcon onClick={onClose} />
+      <CloseIcon onClick={onClose} alt />
       <div className={styles.text}>
         <p>
-          COVID-19 has already caused a lot of disruption to London,
-          particularly to the small bars and eateries that make our city so
-          great. Unfortunately, these are also the ones that are most at risk
-          having lost their steady income. We couldn’t imagine London without
-          them so wanted to help them with the rapid efforts they’ve already
-          made in these unprecedented circumstances.
+          We love London — particularly the small businesses that make our
+          streets and neighbourhoods so special. Since COVID-19 began,
+          restaurants, cafés and independent merchants have been forced to adapt
+          their businesses to support themselves and their staff. We wanted to
+          do something to help, so we created Neighbourgoods — a community-built
+          map that lists the small businesses in your local area and how you can
+          support them.
         </p>
         <p>
-          Neighbourgoods is a community built network of small bars and eateries
-          across London. We have gathered them here so people can find and
-          support their local restaurants, bars, brewers, winers and grocers
-          through these difficult times.
-        </p>
-        <p>
-          But we can’t do it all ourselves. If you have any independent local
-          favourites you can’t imagine London without, please add them to the
-          map.
+          But we need your help to do it. If you know of any small businesses
+          nearby that you can’t imagine your streets without, please take a
+          moment to add them to the map. Thank you.
         </p>
       </div>
 
       <footer>
         <a href="mailto:hello@neighbourgoods.com">hello@neighbourgoods.com</a>
-        <a target="_blank" rel="noreferrer noopener" href={tweetLink()}>
-          #neighbourgoods
+        <a
+          className={styles.social}
+          target="_blank"
+          rel="noreferrer noopener"
+          href={instagramLink()}
+        >
+          <Instagram />
         </a>
       </footer>
     </aside>

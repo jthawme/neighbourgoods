@@ -19,6 +19,10 @@ import LinksPickup from "./LinksPickup/LinksPickup";
 import Toast from "./common/Toast";
 import MyMarker from "./Marker/Marker";
 import Spinner from "./common/Spinner";
+import MobileMapList from "./MobileMapList/MobileMapList";
+
+import List from "../svg/list.svg";
+import MapIcon from "../svg/map.svg";
 
 import {
   setPostCodeInfo,
@@ -34,11 +38,11 @@ import { filterResults } from "../utils/filter";
 
 import "normalize.css";
 import "../styles/global.scss";
-import { Map as MapIcon, List } from "react-feather";
 
 const TemplateWrapper = ({ children }) => {
   const dispatch = useDispatch();
   const info = useSelector(state => state.info);
+  const { highlight } = useSelector(state => state.location);
   const { title, description } = useSiteMetadata();
   const [isOpen, setIsOpen] = useState(true);
   const [aboutIsOpen, setAboutIsOpen] = useState(false);
@@ -86,9 +90,19 @@ const TemplateWrapper = ({ children }) => {
   const setMarker = useCallback(
     (id, coords) => {
       dispatch(setHighlightLocation(id));
-      dispatch(setCoords(coords));
+
+      if (!isTablet && info.mapView) {
+        dispatch(
+          setCoords({
+            lat: coords.lat - 0.002,
+            lng: coords.lng
+          })
+        );
+      } else {
+        dispatch(setCoords(coords));
+      }
     },
-    [dispatch]
+    [dispatch, isTablet, info.mapView]
   );
 
   const onOpenPostCode = useCallback(() => {
@@ -186,6 +200,14 @@ const TemplateWrapper = ({ children }) => {
               );
             })}
           </Map>
+
+          {!isTablet && info.mapView && (
+            <MobileMapList
+              onHighlight={setMarker}
+              results={results}
+              highlight={highlight}
+            />
+          )}
         </div>
 
         {info.loading && (
@@ -194,11 +216,13 @@ const TemplateWrapper = ({ children }) => {
           </div>
         )}
 
-        <FloatingButton
-          className="floating"
-          text="Add a spot"
-          onClick={() => setAddIsOpen(true)}
-        />
+        {!info.mapView && !isTablet && (
+          <FloatingButton
+            className="floating"
+            text="Add to map"
+            onClick={() => setAddIsOpen(true)}
+          />
+        )}
 
         {!isTablet && (
           <button className="map-toggle" onClick={onToggleMap}>
@@ -231,7 +255,11 @@ const TemplateWrapper = ({ children }) => {
         >
           <PostcodeLookup
             onPostcode={onPostCodeData}
-            onClose={!!info.borough ? () => setIsOpen(false) : undefined}
+            onClose={
+              !!info.borough || !!info.coords
+                ? () => setIsOpen(false)
+                : undefined
+            }
           />
         </Modal>
 

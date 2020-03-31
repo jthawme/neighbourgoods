@@ -5,6 +5,7 @@
   --input-fg-color: var(--color-text);
   --input-border-radius: var(--radii-md);
   --input-padding: var(--size-unit-6) var(--size-unit-4) var(--size-unit-3);
+  --input-multiline-min-height: 100px;
 }
 
 .input {
@@ -16,6 +17,7 @@
 
   width: 100%;
   height: 100%;
+  resize: vertical;
 
   padding: var(--input-padding);
 
@@ -28,4 +30,8 @@
   &.hide {
     --input-padding: var(--size-unit-4);
   }
+}
+
+.textarea {
+  min-height: var(--input-multiline-min-height);
 }

@@ -16,6 +16,7 @@ const Input = ({
   validate,
   validateFunc,
   className,
+  multiLine,
   ...props
 }) => {
   const [focused, setFocused] = useState(false);
@@ -30,6 +31,8 @@ const Input = ({
     setValidate(validateFunc ? validateFunc(value) : !!value);
   }, [value, validateFunc]);
 
+  const El = multiLine ? "textarea" : "input";
+
   return (
     <InputContainer
       label={label}
@@ -39,8 +42,9 @@ const Input = ({
       {...labelProps}
     >
       {leftSlot || null}
-      <input
-        className={`${styles.input} ${hide && styles.hide} ${className || ""}`}
+      <El
+        className={`${styles.input} ${hide && styles.hide} ${multiLine &&
+          styles.textarea} ${className || ""}`}
         type="text"
         onFocus={onFocus}
         onBlur={onBlur}

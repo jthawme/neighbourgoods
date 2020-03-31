@@ -1,0 +1,35 @@
+.list {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  .track {
+    display: grid;
+
+    grid-auto-columns: calc(100vw - var(--size-unit-12));
+    grid-auto-flow: column;
+
+    padding-left: var(--size-unit-6);
+
+    transition: {
+      duration: 0.5s;
+      property: transform;
+    }
+  }
+
+  .card {
+    padding: var(--size-unit-4) var(--size-unit-2);
+
+    --card-image-size: 20%;
+    --card-links-direction: row;
+
+    > * {
+      height: 100%;
+    }
+  }
+}

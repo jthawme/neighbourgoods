@@ -14,3 +14,7 @@ export const tweetLink = () => {
     `hashtags=${tweet.hashtags}`
   ].join("");
 };
+
+export const instagramLink = () => {
+  return "https://www.instagram.com/neighbourgoods.london/";
+};

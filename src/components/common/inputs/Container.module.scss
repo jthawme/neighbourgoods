@@ -1,5 +1,6 @@
 :root {
   --input-label-direction: row;
+  --input-label-color: var(--input-fg-inactive-color);
 }
 
 .label {
@@ -10,7 +11,7 @@
   flex-direction: var(--input-label-direction);
 
   background-color: var(--input-bg-color);
-  color: var(--input-fg-inactive-color);
+  color: var(--input-label-color);
 
   border-radius: var(--input-border-radius);
 
@@ -38,12 +39,12 @@
   }
 
   &.inactive .title {
-    transform: scale(1.5) translate(10%, 45%);
+    transform: scale(1.5) translate(var(--size-unit-1), 45%);
   }
 
   &.hide.inactive .title {
     display: block;
-    transform: scale(1.5) translate(10%, 35%);
+    transform: scale(1.5) translate(var(--size-unit-1), 35%);
   }
 
   &.disabled {

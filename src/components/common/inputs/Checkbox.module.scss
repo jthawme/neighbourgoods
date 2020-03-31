@@ -2,6 +2,7 @@
   --checkbox-border-radius: var(--radii-md);
   --checkbox-inactive-color: var(--color-inactive-border);
   --checkbox-active-color: var(--color-text);
+  --checkbox-active-dot-color: var(--color-accent);
 
   --checkbox-size: 16px;
   --checkbox-circle-size: 6px;
@@ -36,6 +37,7 @@
 
 .checked .checkbox {
   border-color: var(--checkbox-border-color);
+  background-color: var(--checkbox-active-color);
 
   &:before {
     position: absolute;
@@ -50,7 +52,7 @@
 
     border-radius: 50%;
 
-    background-color: var(--checkbox-active-color);
+    background-color: var(--checkbox-active-dot-color);
 
     transform: translate3d(-50%, -50%, 0);
   }

@@ -15,13 +15,35 @@
 
   line-height: 0;
 
-  width: 32px;
-  height: 32px;
+  width: var(--size-unit-10);
+  height: var(--size-unit-10);
 
   border: 0;
   outline: 0;
 
   border-radius: 50%;
 
+  padding: var(--size-unit-2);
+
+  transition: {
+    duration: 0.35s;
+    property: opacity;
+  }
+
   cursor: pointer;
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+
+  &.alt {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+  }
 }

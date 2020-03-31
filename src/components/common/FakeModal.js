@@ -18,6 +18,8 @@ const FakeModal = ({ isOpen, children, onClose, type = "centred" }) => {
   const contentRef = useRef(null);
 
   useEffect(() => {
+    document.body.classList.toggle("modal-open", !!isOpen);
+
     if (isOpen && modalState === STATES.CLOSED) {
       clearTimeout(timerRef.current);
 

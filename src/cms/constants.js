@@ -26,7 +26,7 @@ export const CATEGORIES = [
     value: CATEGORY_TYPES.RESAURANT
   },
   {
-    label: "Drinks / Alcohol",
+    label: "Alcohol",
     value: CATEGORY_TYPES.ALCOHOL
   },
   {

@@ -1,14 +1,52 @@
-.container {
-  background-color: var(--color-accent);
+.outer {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: var(--color-text);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   color: var(--color-bg);
 
+  svg:nth-child(1) {
+    width: 40%;
+    height: auto;
+
+    color: var(--color-accent);
+  }
+
+  svg:nth-child(2) {
+    margin-top: var(--size-unit-6);
+
+    width: 300px;
+    height: auto;
+  }
+}
+
+.container {
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+
+  color: var(--color-accent);
+
   border-radius: var(--radii-lg);
 
-  padding: 32px 50px;
+  padding: var(--size-unit-12) var(--size-unit-8);
 
-  max-width: 720px;
-  width: 90%;
+  height: 100%;
 
   margin: 0 auto;
 
@@ -17,7 +55,9 @@
   p {
     font-size: var(--font-size-large);
 
-    margin: 0 0 var(--size-unit-6);
+    margin: 0 0 var(--size-unit-8);
+
+    line-height: 1.4;
 
     &.error {
       margin: 0;
@@ -33,15 +73,35 @@
     flex-direction: column;
 
     align-items: center;
+
+    padding: 0 var(--size-unit-8);
+
+    width: 100%;
+
+    label {
+      width: 100%;
+    }
   }
 
   @media screen and (min-width: 768px) {
     padding: 64px 100px;
+    max-width: 720px;
+    width: 90%;
   }
 }
 
+.inputForm {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-bottom: var(--size-unit-12);
+}
+
 .errorBox {
-  color: var(--color-dark-opacity);
+  color: var(--color-bg);
 
   padding-top: var(--size-unit-4);
 }
@@ -51,14 +111,14 @@
 
   align-items: center;
 
-  background-color: var(--color-text);
+  background-color: var(--color-accent);
   outline: 0;
   border: 0;
 
   padding: var(--size-unit-2) var(--size-unit-6);
   margin: 0;
 
-  color: var(--color-bg);
+  color: var(--color-text);
 
   cursor: pointer;
 
@@ -95,5 +155,5 @@
 }
 
 .close {
-  right: calc(5% + var(--size-unit-4));
+  right: var(--size-unit-4);
 }

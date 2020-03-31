@@ -1,6 +1,6 @@
 :root {
   --floating-button-radius: var(--radii-button);
-  --floating-button-bg-color: var(--color-accent);
+  --floating-button-bg-color: var(--color-text);
   --floating-button-fg-color: var(--color-bg);
   --floating-button-padding: var(--size-unit-4) var(--size-unit-6);
   --floating-button-shadow: var(--shadow-dark-subtle);
@@ -43,11 +43,17 @@
 }
 
 .icon {
-  background-color: var(--color-text);
+  background-color: var(--color-accent);
+  color: var(--floating-button-bg-color);
   border-radius: 50%;
 
   line-height: 0;
 
   padding: var(--size-unit-1);
-  margin-right: var(--size-unit-2);
+  margin-right: var(--size-unit-3);
+
+  svg {
+    width: var(--size-unit-2);
+    height: var(--size-unit-2);
+  }
 }

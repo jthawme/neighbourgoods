@@ -15,25 +15,25 @@
   --font-size-large: 21px;
   --font-size-x-large: 28px;
 
-  --color-text: black;
-  --color-text-light: #808080;
+  --color-text: #123b42;
+  --color-text-light: #909090;
   --color-text-very-light: #e8e8e8;
   --color-bg: white;
   --color-bg-dark: #fbfbfb;
   --color-line: #e8e8e8;
-  --color-accent: #5528f5;
-  --color-accent-light: #aa93fa;
+  --color-accent: #eebfb2;
+  --color-accent-light: #dc9f8e;
   --color-dark-tint: rgba(0, 0, 0, 0.8);
-  --color-dark-opacity: rgba(25, 25, 32, 0.98);
+  --color-dark-opacity: #{transparentize(#123b42, 0.05)};
   --color-inactive-border: #a0a0a0;
-  --color-panel-bg: #383a43;
+  --color-panel-bg: var(--color-text);
   --color-panel-fg: var(--color-bg);
 
   --color-failure: #eb153b;
   --color-success: #02de8f;
 
   --shadow-subtle: 0px 2px 10px rgba(0, 0, 0, 0.06);
-  --shadow-accent-subtle: 0px 2px 10px rgba(85, 40, 245, 0.3);
+  --shadow-accent-subtle: 0px 2px 10px rgba(18, 59, 66, 0.4);
   --shadow-dark-subtle: 0px 4px 12px rgba(0, 0, 0, 0.25);
   --shadow-light-subtle: 0 0 20px 5px rgba(255, 255, 255, 1);
 

@@ -3,10 +3,13 @@ import React, { useState, useCallback } from "react";
 import { useMediaQuery } from "react-responsive";
 import Collapsible from "react-collapsible";
 import { useSelector } from "react-redux";
-import { ArrowRight } from "react-feather";
 import Input from "../common/inputs/Input";
 import Spinner from "../common/Spinner";
 import CloseIcon from "../common/CloseIcon";
+
+import Arrow from "../../svg/arrow.svg";
+import Logo from "../../svg/logo.svg";
+import LogoText from "../../svg/logo-text.svg";
 
 import styles from "./PostcodeLookup.module.scss";
 
@@ -60,46 +63,41 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
   );
 
   return (
-    <div className={styles.container}>
-      {onClose && <CloseIcon className={styles.close} onClick={onClose} />}
-      <p>
-        Support your local independent bars, eateries and grocers through
-        COVID-19
-      </p>
-      <form onSubmit={onSubmit} disabled={loading}>
-        <Input
-          label="Post Code"
-          value={postcode}
-          onTextChange={text => setPostcode(text)}
-          disabled={loading}
-          rightSlot={
-            isTablet ? (
-              <button className={styles.button} disabled={loading}>
-                {loading ? <Spinner /> : <ArrowRight />}
-              </button>
-            ) : (
-              undefined
-            )
-          }
-        />
-        {!isTablet ? (
-          <button
-            className={`${styles.button} ${styles.buttonCircle}`}
-            disabled={loading}
+    <div className={styles.outer}>
+      {onClose && <CloseIcon alt className={styles.close} onClick={onClose} />}
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <Logo />
+          <LogoText />
+        </div>
+
+        <div className={styles.inputForm}>
+          <p>
+            Find and support your local restaurants, cafés and independent
+            merchants through COVID-19
+          </p>
+          <form onSubmit={onSubmit} disabled={loading}>
+            <Input
+              label="Post Code"
+              value={postcode}
+              onTextChange={text => setPostcode(text)}
+              disabled={loading}
+              rightSlot={
+                <button className={styles.button} disabled={loading}>
+                  {loading ? <Spinner /> : <Arrow />}
+                </button>
+              }
+            />
+          </form>
+          <Collapsible
+            easing="ease-in-out"
+            open={showError}
+            contentInnerClassName={styles.errorBox}
           >
-            {loading ? <Spinner /> : <ArrowRight />}
-          </button>
-        ) : (
-          undefined
-        )}
-      </form>
-      <Collapsible
-        easing="ease-in-out"
-        open={showError}
-        contentInnerClassName={styles.errorBox}
-      >
-        <p className={styles.error}>{error}</p>
-      </Collapsible>
+            <p className={styles.error}>{error}</p>
+          </Collapsible>
+        </div>
+      </div>
     </div>
   );
 };

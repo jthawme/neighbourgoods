@@ -20,8 +20,8 @@ const LONDON_COORDS = {
   west: -0.453712
 };
 
-const MIN_ZOOM = 12;
-const MAX_ZOOM = 16;
+const MIN_ZOOM = 13;
+const MAX_ZOOM = 15;
 
 const Map = ({ children, coords, searchCoords, boundingBox, onMoveSearch }) => {
   const mapRef = useRef(null);

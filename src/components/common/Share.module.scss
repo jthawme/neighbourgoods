@@ -8,6 +8,10 @@
 
   color: var(--color-bg);
 
+  li {
+    margin: 0 var(--size-unit-4);
+  }
+
   a {
     display: flex;
 

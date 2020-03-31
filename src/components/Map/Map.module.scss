@@ -10,19 +10,19 @@
 
   align-items: center;
 
-  top: var(--size-unit-4);
+  top: var(--size-unit-2);
   left: 50%;
 
   z-index: 10;
 
   border-radius: var(--radii-button);
 
-  padding: var(--size-unit-3) var(--size-unit-4);
+  padding: var(--size-unit-2) var(--size-unit-4);
 
   background-color: var(--color-bg);
-  color: var(--color-accent);
+  color: var(--color-text);
 
-  border: var(--size-line) solid var(--color-accent);
+  border: var(--size-line) solid var(--color-text);
 
   cursor: pointer;
 
@@ -48,5 +48,10 @@
   svg {
     width: var(--size-unit-4);
     margin-right: var(--size-unit-2);
+  }
+
+  @media screen and (min-width: 768px) {
+    top: var(--size-unit-4);
+    padding: var(--size-unit-3) var(--size-unit-4);
   }
 }

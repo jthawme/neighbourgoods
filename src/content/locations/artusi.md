@@ -8,6 +8,10 @@ links:
     label: Vouchers (120% value)
     category: support
     link: 'https://artusi.co.uk/posts/buy-vouchers-online'
+  - type: external
+    label: Home Delivery
+    category: order
+    link: 'https://www.instagram.com/p/B-STmjwHLSM/'
 location:
   address_components:
     - long_name: '161'

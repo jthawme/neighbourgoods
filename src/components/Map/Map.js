@@ -8,7 +8,7 @@ import { RADIUS } from "../../store/actions/info";
 
 const KEY = "AIzaSyBW3v7DCm0curYCYRNHsLK23HYRayTLKYk";
 
-const DEFAULT_COORDS = {
+export const DEFAULT_COORDS = {
   lat: 51.500152,
   lng: -0.126236
 };

@@ -6,7 +6,7 @@ category: cafe
 links:
   - type: external
     label: Home Delivery
-    link: 'https://www.facebook.com/CafeOscars/posts/2931576706904281'
+    link: 'https://www.instagram.com/p/B-HOMkkHVuO/'
     category: order
   - type: email
     label: Home Delivery (direct email)

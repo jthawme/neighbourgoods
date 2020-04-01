@@ -114,10 +114,13 @@ const AddForm = ({ onClose }) => {
             </button>
 
             <p>
-              <b>Thank you</b>
+              <b>Thank you - we have your submission</b>
               <br />
-              Please help us continue to build the support map by sharing with
-              others
+              We will add it the map as soon as possible
+              <br />
+              <br />
+              Please help us build the map by sharing Neighbourgoods
+              with&nbsp;others
             </p>
 
             <Share />

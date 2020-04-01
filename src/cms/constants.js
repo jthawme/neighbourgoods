@@ -17,7 +17,8 @@ export const CATEGORY_TYPES = {
   GROCERS: "grocers",
   BUTCHERS: "butchers",
   FISHMONGERS: "fishmongers",
-  DESSERT: "dessert"
+  DESSERT: "dessert",
+  RETAIL: "retail"
 };
 
 export const CATEGORIES = [
@@ -52,6 +53,10 @@ export const CATEGORIES = [
   {
     label: "Dessert",
     value: CATEGORY_TYPES.DESSERT
+  },
+  {
+    label: "Retail",
+    value: CATEGORY_TYPES.RETAIL
   }
 ];
 

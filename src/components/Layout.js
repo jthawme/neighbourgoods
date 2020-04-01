@@ -217,7 +217,7 @@ const TemplateWrapper = ({ children }) => {
         {(!isTablet && !info.mapView) || isTablet ? (
           <FloatingButton
             className="floating"
-            text="Add to map"
+            text="Submit a place"
             onClick={() => setAddIsOpen(true)}
           />
         ) : null}

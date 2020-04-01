@@ -5,23 +5,14 @@ import { Circle } from "@react-google-maps/api";
 import styles from "./Map.module.scss";
 import { Search } from "react-feather";
 import { RADIUS } from "../../store/actions/info";
+import {
+  DEFAULT_COORDS,
+  MIN_ZOOM,
+  MAX_ZOOM,
+  LONDON_COORDS
+} from "../../cms/constants";
 
-const KEY = "AIzaSyBW3v7DCm0curYCYRNHsLK23HYRayTLKYk";
-
-export const DEFAULT_COORDS = {
-  lat: 51.500152,
-  lng: -0.126236
-};
-
-const LONDON_COORDS = {
-  north: 51.677349,
-  east: 0.175256,
-  south: 51.320853,
-  west: -0.453712
-};
-
-const MIN_ZOOM = 13;
-const MAX_ZOOM = 15;
+const GOOGLE_MAPS_KEY = "AIzaSyBW3v7DCm0curYCYRNHsLK23HYRayTLKYk";
 
 const Map = ({ children, coords, searchCoords, boundingBox, onMoveSearch }) => {
   const mapRef = useRef(null);
@@ -59,7 +50,7 @@ const Map = ({ children, coords, searchCoords, boundingBox, onMoveSearch }) => {
       >
         <Search /> Search this area
       </button>
-      <LoadScript id="script-loader" googleMapsApiKey={KEY}>
+      <LoadScript id="script-loader" googleMapsApiKey={GOOGLE_MAPS_KEY}>
         <GoogleMap
           onLoad={map => (mapRef.current = map)}
           id="example-map"

@@ -12,8 +12,7 @@ import LogoText from "../../svg/logo-text.svg";
 
 import styles from "./PostcodeLookup.module.scss";
 
-import { DEFAULT_COORDS } from "../Map/Map";
-import { getBoundingBox } from "../../utils/location";
+import { DEFAULT_COORDS } from "../../cms/constants";
 
 const getPostcode = postCode => {
   return fetch(`https://api.postcodes.io/postcodes/${postCode}`)

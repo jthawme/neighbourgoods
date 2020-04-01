@@ -64,4 +64,5 @@ location:
   types:
     - point_of_interest
     - establishment
+do_gooder: 'https://www.instagram.com/p/B-Ka8DgnDS1/?utm_source=ig_web_copy_link'
 ---

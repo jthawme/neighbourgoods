@@ -67,4 +67,5 @@ location:
     - tourist_attraction
     - point_of_interest
     - establishment
+do_gooder: 'https://www.instagram.com/p/B-C_wxxndMb/?utm_source=ig_web_copy_link'
 ---

@@ -1,24 +1,25 @@
 ---
 templateKey: location
-name: Pizza 1889
-image: /img/18889.jpg
-category: restaurant
-dietary:
-  - vegetarian
+name: Lions Express Food & Wine
+image: /img/23617062.jpg
+category: grocers
 links:
-  - type: deliveroo
-    link: >-
-      https://deliveroo.co.uk/menu/london/surrey-quays/pizza-1889?utm_medium=affiliate&utm_source=google_maps_link
+  - type: external
+    link: 'https://goo.gl/maps/WH9netcqNxTocTcG8'
     category: order
-    label: Deliveroo
+    label: Collection only
 location:
   address_components:
-    - long_name: Redriff Road
-      short_name: Redriff Rd
+    - long_name: '119'
+      short_name: '119'
+      types:
+        - street_number
+    - long_name: Poplar High Street
+      short_name: Poplar High St
       types:
         - route
-    - long_name: Rotherhithe
-      short_name: Rotherhithe
+    - long_name: Poplar
+      short_name: Poplar
       types:
         - neighborhood
         - political
@@ -41,80 +42,79 @@ location:
       types:
         - country
         - political
-    - long_name: SE16 7LL
-      short_name: SE16 7LL
+    - long_name: E14 0AE
+      short_name: E14 0AE
       types:
         - postal_code
-  formatted_phone_number: 07871 597502
   geometry:
     location:
-      lat: 51.49487329999999
-      lng: -0.0471599
+      lat: 51.5089895
+      lng: -0.0152012
     viewport:
       northeast:
-        lat: 51.4961558302915
-        lng: -0.04592831970849797
+        lat: 51.51030073029149
+        lng: -0.01385596970849797
       southwest:
-        lat: 51.4934578697085
-        lng: -0.04862628029150203
+        lat: 51.50760276970849
+        lng: -0.01655393029150203
   opening_hours:
     open_now: true
     periods:
       - close:
           day: 0
-          time: '2100'
+          time: '2200'
         open:
           day: 0
-          time: '1130'
+          time: 0800
       - close:
           day: 1
-          time: '2100'
+          time: '2200'
         open:
           day: 1
-          time: '1130'
+          time: '0700'
       - close:
           day: 2
-          time: '2100'
+          time: '2200'
         open:
           day: 2
-          time: '1130'
+          time: '0700'
       - close:
           day: 3
-          time: '2100'
+          time: '2200'
         open:
           day: 3
-          time: '1130'
+          time: '0700'
       - close:
           day: 4
-          time: '2100'
+          time: '2200'
         open:
           day: 4
-          time: '1130'
+          time: '0700'
       - close:
           day: 5
           time: '2200'
         open:
           day: 5
-          time: '1130'
+          time: '0700'
       - close:
           day: 6
           time: '2200'
         open:
           day: 6
-          time: '1130'
+          time: '0700'
     weekday_text:
-      - 'Monday: 11:30 AM – 9:00 PM'
-      - 'Tuesday: 11:30 AM – 9:00 PM'
-      - 'Wednesday: 11:30 AM – 9:00 PM'
-      - 'Thursday: 11:30 AM – 9:00 PM'
-      - 'Friday: 11:30 AM – 10:00 PM'
-      - 'Saturday: 11:30 AM – 10:00 PM'
-      - 'Sunday: 11:30 AM – 9:00 PM'
-  place_id: ChIJ5b8L7QYDdkgRqmPuE7f3jrA
+      - 'Monday: 7:00 AM – 10:00 PM'
+      - 'Tuesday: 7:00 AM – 10:00 PM'
+      - 'Wednesday: 7:00 AM – 10:00 PM'
+      - 'Thursday: 7:00 AM – 10:00 PM'
+      - 'Friday: 7:00 AM – 10:00 PM'
+      - 'Saturday: 7:00 AM – 10:00 PM'
+      - 'Sunday: 8:00 AM – 10:00 PM'
+  place_id: ChIJJYZFcLECdkgRSXI-U9GplAw
   types:
-    - restaurant
+    - convenience_store
     - food
     - point_of_interest
+    - store
     - establishment
-do_gooder: 'https://www.instagram.com/p/B9_zGpQnnqw/?utm_source=ig_web_copy_link'
 ---

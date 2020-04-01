@@ -11,6 +11,10 @@ links:
     label: Home Delivery
     category: order
     link: 'https://www.instagram.com/p/B-cGWbpHYj8/'
+  - type: phone
+    label: Whatsapp (Order For Delivery)
+    category: order
+    link: 07943 504181
 location:
   address_components:
     - long_name: 49A

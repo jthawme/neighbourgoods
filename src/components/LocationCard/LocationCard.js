@@ -106,7 +106,7 @@ const LocationCard = ({
         {doGooder && (
           <a
             className={styles.good}
-            href={""}
+            href={doGooder}
             target="_blank"
             rel="noreferrer noopener"
           >

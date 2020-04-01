@@ -25,7 +25,7 @@ const FadeBackgroundImage = ({
   className,
   image,
   largeImage,
-  backgroundColor = "var(--color-text-light)"
+  children = null
 }) => {
   const refTrack = useRef(0);
   const [loaded, setLoaded] = useState(false);
@@ -74,12 +74,13 @@ const FadeBackgroundImage = ({
   });
 
   return (
-    <div className={cls} style={{ backgroundColor }}>
+    <div className={cls}>
       <div
         style={{
           backgroundImage: internalImage ? `url(${internalImage})` : "none"
         }}
       />
+      {children}
     </div>
   );
 };

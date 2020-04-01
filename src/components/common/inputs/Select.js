@@ -19,7 +19,7 @@ const Select = ({
   return (
     <InputContainer
       label={label}
-      focused={focused || value}
+      focused={focused || (value && value.trim() !== "")}
       disabled={disabled}
       {...labelProps}
     >
@@ -33,6 +33,7 @@ const Select = ({
         onChange={e => onValueChange(e.target.value)}
         {...props}
       >
+        <option value=""> </option>
         {options.map(item => (
           <option key={item.value} value={item.value} className={styles.option}>
             {item.label}

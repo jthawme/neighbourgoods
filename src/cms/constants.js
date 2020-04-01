@@ -95,3 +95,18 @@ export const LINK_CATEGORY_ICONS = {
   [LINK_CATEGORIES.ORDER]: "🏡",
   [LINK_CATEGORIES.SUPPORT]: "❤️"
 };
+
+export const DEFAULT_COORDS = {
+  lat: 51.500152,
+  lng: -0.126236
+};
+
+export const LONDON_COORDS = {
+  north: 51.677349,
+  east: 0.175256,
+  south: 51.320853,
+  west: -0.453712
+};
+
+export const MIN_ZOOM = 13;
+export const MAX_ZOOM = 15;

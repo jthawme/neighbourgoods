@@ -20,14 +20,14 @@
   --color-text-very-light: #e8e8e8;
   --color-bg: white;
   --color-bg-dark: #fbfbfb;
-  --color-line: #e8e8e8;
+  --color-line: var(--color-text);
   --color-accent: #eebfb2;
   --color-accent-light: #dc9f8e;
   --color-dark-tint: rgba(0, 0, 0, 0.8);
   --color-dark-opacity: #{transparentize(#123b42, 0.05)};
   --color-inactive-border: #a0a0a0;
   --color-panel-bg: var(--color-text);
-  --color-panel-fg: var(--color-bg);
+  --color-panel-fg: var(--color-accent);
 
   --color-failure: #eb153b;
   --color-success: #02de8f;

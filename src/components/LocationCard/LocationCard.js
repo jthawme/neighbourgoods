@@ -25,6 +25,7 @@ const LocationCard = ({
   onClick,
   onRequest,
   slim,
+  doGooder,
   id
 }) => {
   const imageObject = useMemo(() => {
@@ -75,11 +76,13 @@ const LocationCard = ({
 
   const onInternalClick = useCallback(
     e => {
-      const isButton =
+      const isInteractive =
         e.target.tagName === "BUTTON" ||
-        e.target.parentElement.tagName === "BUTTON";
+        e.target.parentElement.tagName === "BUTTON" ||
+        e.target.tagName === "A" ||
+        e.target.parentElement.tagName === "A";
 
-      if (!isButton && onClick) {
+      if (!isInteractive && onClick) {
         onClick();
       }
     },
@@ -99,7 +102,19 @@ const LocationCard = ({
 
   return (
     <div id={id} className={cls} onClick={onInternalClick}>
-      <FadeBackgroundImage {...imageObject} className={styles.image} />
+      <FadeBackgroundImage {...imageObject} className={styles.image}>
+        {doGooder && (
+          <a
+            className={styles.good}
+            href={""}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Emoji symbol="😇" />
+            Neighbourgreat
+          </a>
+        )}
+      </FadeBackgroundImage>
       <div className={styles.content}>
         <span className={styles.title}>{name}</span>
         <span className={styles.info}>

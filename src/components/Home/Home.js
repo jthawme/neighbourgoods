@@ -60,12 +60,6 @@ const Home = () => {
           <span>
             {results.length} {results.length === 1 ? "result" : "results"}
           </span>
-
-          {!isTablet && (
-            <span>
-              <button onClick={toggleMap}>View map</button>
-            </span>
-          )}
         </div>
         <div
           className={`${styles.pool} ${results.length === 0 &&
@@ -84,6 +78,7 @@ const Home = () => {
                   image={d.imageObject}
                   highlight={highlight === d.id}
                   onClick={() => onClickLocation(d.coords, d.id)}
+                  doGooder={d.doGooder}
                   onRequest={onRequest}
                 />
               </div>

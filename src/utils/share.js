@@ -16,5 +16,5 @@ export const tweetLink = () => {
 };
 
 export const instagramLink = () => {
-  return "https://www.instagram.com/neighbourgoods.london/";
+  return "https://www.instagram.com/neighbour_goods/";
 };

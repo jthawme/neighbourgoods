@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from "react";
 
-import { useMediaQuery } from "react-responsive";
 import Collapsible from "react-collapsible";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Input from "../common/inputs/Input";
 import Spinner from "../common/Spinner";
 import CloseIcon from "../common/CloseIcon";
@@ -12,6 +11,8 @@ import Logo from "../../svg/logo.svg";
 import LogoText from "../../svg/logo-text.svg";
 
 import styles from "./PostcodeLookup.module.scss";
+
+import { DEFAULT_COORDS } from "../../cms/constants";
 
 const getPostcode = postCode => {
   return fetch(`https://api.postcodes.io/postcodes/${postCode}`)
@@ -26,15 +27,12 @@ const getPostcode = postCode => {
 };
 
 const PostcodeLookup = ({ onPostcode, onClose }) => {
-  const isTablet = useMediaQuery({
-    query: "(min-width: 768px)"
-  });
-
   const storedPostCode = useSelector(state => state.info.postCode);
   const [postcode, setPostcode] = useState(storedPostCode || "");
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [error, setError] = useState(false);
+  const dispatch = useDispatch();
 
   const onSubmit = useCallback(
     e => {
@@ -62,6 +60,19 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
     [postcode, onPostcode]
   );
 
+  const skipPostcode = useCallback(() => {
+    if (onClose) {
+      onClose();
+    } else {
+      onPostcode({
+        postcode: false,
+        admin_district: false,
+        latitude: DEFAULT_COORDS.lat,
+        longitude: DEFAULT_COORDS.lng
+      });
+    }
+  }, [onClose]);
+
   return (
     <div className={styles.outer}>
       {onClose && <CloseIcon alt className={styles.close} onClick={onClose} />}
@@ -78,7 +89,7 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
           </p>
           <form onSubmit={onSubmit} disabled={loading}>
             <Input
-              label="Post Code"
+              label="Enter your postcode"
               value={postcode}
               onTextChange={text => setPostcode(text)}
               disabled={loading}
@@ -96,6 +107,10 @@ const PostcodeLookup = ({ onPostcode, onClose }) => {
           >
             <p className={styles.error}>{error}</p>
           </Collapsible>
+
+          <button className={styles.skip} onClick={skipPostcode}>
+            Skip
+          </button>
         </div>
       </div>
     </div>

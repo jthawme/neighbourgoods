@@ -11,6 +11,7 @@ import { LINK_CATEGORIES, LINK_TYPES } from "../../cms/constants";
 import DeliverooImage from "../../img/types/deliveroo.png";
 import UberEatsImage from "../../img/types/ubereats.png";
 import JustEatImage from "../../img/types/justeat.png";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const getIcon = type => {
   switch (type) {
@@ -49,14 +50,14 @@ const LinkItem = ({ link, label, type }) => {
   }, [type, link]);
 
   return (
-    <a
+    <OutboundLink
       href={fullLink}
       className={styles.link}
       target="_blank"
       rel="noreferrer noopener"
     >
       <span className={styles.icon}>{getIcon(type)}</span> {label}
-    </a>
+    </OutboundLink>
   );
 };
 

@@ -21,6 +21,7 @@ const LocationPreview = ({ entry, getAsset }) => {
         image={!!data.image && image.url}
         times={data?.location?.opening_hours?.periods || undefined}
         type={data.category}
+        doGooder={data.doGooder}
       />
     );
   } else {

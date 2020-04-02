@@ -93,12 +93,14 @@ export const DIETARY = [
 
 export const LINK_CATEGORIES = {
   SUPPORT: "support",
-  ORDER: "order"
+  ORDER: "order",
+  COLLECTION: "collection"
 };
 
 export const LINK_CATEGORY_ICONS = {
   [LINK_CATEGORIES.ORDER]: "🏡",
-  [LINK_CATEGORIES.SUPPORT]: "❤️"
+  [LINK_CATEGORIES.SUPPORT]: "❤️",
+  [LINK_CATEGORIES.COLLECTION]: "🛒"
 };
 
 export const DEFAULT_COORDS = {

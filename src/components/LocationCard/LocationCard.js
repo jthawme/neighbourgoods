@@ -12,7 +12,11 @@ import {
   LINK_CATEGORIES
 } from "../../cms/constants";
 import { isOpen, getCloseTime, getOpenTime } from "../../utils/time";
-import { getOrderLinks, getSupportLinks } from "../../utils/links";
+import {
+  getOrderLinks,
+  getSupportLinks,
+  getCollectionLinks
+} from "../../utils/links";
 
 const LocationCard = ({
   name,
@@ -58,6 +62,10 @@ const LocationCard = ({
     return getCloseTime(times);
   }, [times]);
 
+  const collectionLinks = useMemo(() => {
+    return getCollectionLinks(links);
+  }, [links]);
+
   const orderLinks = useMemo(() => {
     return getOrderLinks(links);
   }, [links]);
@@ -65,6 +73,10 @@ const LocationCard = ({
   const supportLinks = useMemo(() => {
     return getSupportLinks(links);
   }, [links]);
+
+  const setCollectionLinks = useCallback(() => {
+    onRequest(name, LINK_CATEGORIES.COLLECTION, orderLinks);
+  }, [name, onRequest, orderLinks]);
 
   const setOrderLinks = useCallback(() => {
     onRequest(name, LINK_CATEGORIES.ORDER, orderLinks);
@@ -120,16 +132,20 @@ const LocationCard = ({
         <span className={styles.info}>
           <span>{typeLabel}</span>
         </span>
-        <span className={styles.info}>
-          {times && isCurrentlyOpen && <span>Open</span>}
-          {!isCurrentlyOpen && openTime && <span>Opens {openTime}</span>}
-          {isCurrentlyOpen && closeTime && <span>Closes {closeTime}</span>}
-        </span>
         {links && (
           <div className={styles.links}>
             {!!orderLinks.length && (
               <button onClick={setOrderLinks} className={styles.linksButton}>
                 <Emoji symbol={LINK_CATEGORY_ICONS.order} /> Order Delivery
+              </button>
+            )}
+            {!!collectionLinks.length && (
+              <button
+                onClick={setCollectionLinks}
+                className={styles.linksButton}
+              >
+                <Emoji symbol={LINK_CATEGORY_ICONS.collection} /> Collection
+                Info
               </button>
             )}
             {!!supportLinks.length && (

@@ -61,6 +61,18 @@ const LinkItem = ({ link, label, type }) => {
   );
 };
 
+const getTitle = category => {
+  if (category === LINK_CATEGORIES.ORDER) {
+    return "Order Delivery";
+  }
+  if (category === LINK_CATEGORIES.SUPPORT) {
+    return "Offer Support";
+  }
+  if (category === LINK_CATEGORIES.COLLECTION) {
+    return "Collection Info";
+  }
+};
+
 const LinksPickup = () => {
   const dispatch = useDispatch();
   const currentLinks = useSelector(state => state.location.currentLinks);
@@ -84,9 +96,7 @@ const LinksPickup = () => {
 
           <div className={styles.info}>
             <span className={styles.subtitle}>
-              {internalInfo.category === LINK_CATEGORIES.ORDER
-                ? "Order Delivery"
-                : "Offer Support"}
+              {getTitle(internalInfo.category)}
             </span>
             <h1>{internalInfo.name}</h1>
           </div>

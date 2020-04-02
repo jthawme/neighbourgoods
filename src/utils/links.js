@@ -7,3 +7,7 @@ export const getSupportLinks = links => {
 export const getOrderLinks = links => {
   return links.filter(link => link.category === LINK_CATEGORIES.ORDER);
 };
+
+export const getCollectionLinks = links => {
+  return links.filter(link => link.category === LINK_CATEGORIES.COLLECTION);
+};

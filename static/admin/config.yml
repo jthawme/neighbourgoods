@@ -69,6 +69,8 @@ collections:
                 value: "order"
               - label: "Support"
                 value: "support"
+              - label: "Collection"
+                value: "collection"
           - label: "Link"
             name: "link"
             widget: "string"

@@ -10,15 +10,15 @@ import styles from "./Home.module.scss";
 import { setCoords, setMapView } from "../../store/actions/info";
 import {
   setHighlightLocation,
-  setCurrentLinks
+  setCurrentLinks,
 } from "../../store/actions/location";
 
 const Home = () => {
-  const highlight = useSelector(state => state.location.highlight);
-  const { results } = useSelector(state => state.filters);
+  const highlight = useSelector((state) => state.location.highlight);
+  const { results } = useSelector((state) => state.filters);
   const dispatch = useDispatch();
   const isTablet = useMediaQuery({
-    query: "(min-width: 768px)"
+    query: "(min-width: 768px)",
   });
 
   const onClickLocation = useCallback(
@@ -46,7 +46,7 @@ const Home = () => {
       const el = document.getElementById(highlight);
       scrollIntoView(el, {
         behavior: "smooth",
-        block: "center"
+        block: "center",
       });
     }
   }, [highlight]);
@@ -65,7 +65,7 @@ const Home = () => {
           className={`${styles.pool} ${results.length === 0 &&
             styles.poolEmpty}`}
         >
-          {results.map(d => {
+          {results.map((d) => {
             return (
               <div key={d.id} className={styles.card}>
                 <LocationCard
@@ -78,7 +78,7 @@ const Home = () => {
                   image={d.imageObject}
                   highlight={highlight === d.id}
                   onClick={() => onClickLocation(d.coords, d.id)}
-                  doGooder={d.doGooder}
+                  doGooder={d.do_gooder}
                   onRequest={onRequest}
                 />
               </div>

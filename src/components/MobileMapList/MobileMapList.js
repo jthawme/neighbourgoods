@@ -29,7 +29,7 @@ const MobileMapList = ({ results, highlight, onHighlight }) => {
   }, [results.length]);
 
   useEffect(() => {
-    const highlightIndex = results.findIndex(i => i.id === highlight);
+    const highlightIndex = results.findIndex((i) => i.id === highlight);
 
     if (highlightIndex >= 0 && index !== highlightIndex) {
       setIndex(highlightIndex);
@@ -37,7 +37,7 @@ const MobileMapList = ({ results, highlight, onHighlight }) => {
   }, [results, index, highlight]);
 
   const swipeLeft = useCallback(() => {
-    if (index < results.length - 2) {
+    if (index < results.length - 1) {
       onHighlight(results[index + 1].id, results[index + 1].coords);
     }
   }, [results, index, onHighlight]);
@@ -50,7 +50,7 @@ const MobileMapList = ({ results, highlight, onHighlight }) => {
 
   const handlers = useSwipeable({
     onSwipedLeft: swipeLeft,
-    onSwipedRight: swipeRight
+    onSwipedRight: swipeRight,
   });
 
   return (
@@ -59,7 +59,7 @@ const MobileMapList = ({ results, highlight, onHighlight }) => {
         className={styles.track}
         style={{ transform: `translate3d(-${index * cardWidth}px, 0, 0)` }}
       >
-        {results.map(d => {
+        {results.map((d) => {
           return (
             <div key={d.id} className={styles.card}>
               <LocationCard

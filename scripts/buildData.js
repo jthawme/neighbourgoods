@@ -14,18 +14,18 @@ const locationsContent = path.join(
   "locations"
 );
 
-const staticFile = file => path.join(__dirname, "..", "static", file);
+const staticFile = (file) => path.join(__dirname, "..", "static", file);
 
 const outputFile = staticFile("data.json");
 
 const files = fs.readdirSync(locationsContent);
 
 const data = files
-  .map(f => {
+  .map((f) => {
     const p = path.join(locationsContent, f);
     if (fs.existsSync(p)) {
       const parsed = parseMarkdown(fs.readFileSync(p, "utf8"), {
-        content: false
+        content: false,
       });
 
       const { location, skipSize, ...rest } = parsed;
@@ -36,17 +36,17 @@ const data = files
         coords: location.geometry.location,
         opening_hours: location.opening_hours
           ? location.opening_hours.periods
-          : false
+          : false,
       };
     }
 
     return false;
   })
-  .filter(d => d);
+  .filter((d) => d);
 
 const expandedData = [];
 
-const ensureDir = dir => {
+const ensureDir = (dir) => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
@@ -54,7 +54,7 @@ const ensureDir = dir => {
 
 ensureDir(staticFile("small_img"));
 
-const runner = index => {
+const runner = (index) => {
   if (index >= data.length) {
     done(expandedData);
     return;
@@ -80,12 +80,12 @@ const runner = index => {
         const imageObject = {
           src: data[index].image,
           color: err ? "white" : palette.Vibrant.getHex(),
-          small: `/small_img/${fileName}`
+          small: `/small_img/${fileName}`,
         };
 
         expandedData.push({
           ...data[index],
-          imageObject
+          imageObject,
         });
 
         runner(index + 1);

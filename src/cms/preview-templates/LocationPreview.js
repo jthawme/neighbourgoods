@@ -14,14 +14,14 @@ const LocationPreview = ({ entry, getAsset }) => {
     return (
       <LocationCard
         name={data.name || "NO NAME"}
-        links={(data.links || []).map(item => ({
+        links={(data.links || []).map((item) => ({
           ...item,
-          label: item.label || "NO LABEL"
+          label: item.label || "NO LABEL",
         }))}
         image={!!data.image && image.url}
         times={data?.location?.opening_hours?.periods || undefined}
         type={data.category}
-        doGooder={data.doGooder}
+        doGooder={data.do_gooder}
       />
     );
   } else {
@@ -31,9 +31,9 @@ const LocationPreview = ({ entry, getAsset }) => {
 
 LocationPreview.propTypes = {
   entry: PropTypes.shape({
-    getIn: PropTypes.func
+    getIn: PropTypes.func,
   }),
-  getAsset: PropTypes.func
+  getAsset: PropTypes.func,
 };
 
 export default LocationPreview;

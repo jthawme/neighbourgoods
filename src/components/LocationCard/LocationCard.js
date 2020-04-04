@@ -9,13 +9,13 @@ import {
   CATEGORIES,
   CATEGORY_TYPES,
   LINK_CATEGORY_ICONS,
-  LINK_CATEGORIES
+  LINK_CATEGORIES,
 } from "../../cms/constants";
 import { isOpen, getCloseTime, getOpenTime } from "../../utils/time";
 import {
   getOrderLinks,
   getSupportLinks,
-  getCollectionLinks
+  getCollectionLinks,
 } from "../../utils/links";
 
 const LocationCard = ({
@@ -30,24 +30,24 @@ const LocationCard = ({
   onRequest,
   slim,
   doGooder,
-  id
+  id,
 }) => {
   const imageObject = useMemo(() => {
     if (typeof image === "string") {
       return {
-        image
+        image,
       };
     }
 
     return {
       image: image.small,
       largeImage: image.src,
-      backgroundColor: image.color
+      backgroundColor: image.color,
     };
   }, [image]);
 
   const typeLabel = useMemo(() => {
-    return CATEGORIES.find(c => c.value === type)?.label;
+    return CATEGORIES.find((c) => c.value === type)?.label;
   }, [type]);
 
   const isCurrentlyOpen = useMemo(() => {
@@ -87,7 +87,7 @@ const LocationCard = ({
   }, [name, onRequest, supportLinks]);
 
   const onInternalClick = useCallback(
-    e => {
+    (e) => {
       const isInteractive =
         e.target.tagName === "BUTTON" ||
         e.target.parentElement.tagName === "BUTTON" ||
@@ -105,10 +105,10 @@ const LocationCard = ({
     styles.card,
     className,
     {
-      [styles.highlight]: highlight
+      [styles.highlight]: highlight,
     },
     {
-      [styles.slim]: slim
+      [styles.slim]: slim,
     }
   );
 
@@ -168,7 +168,7 @@ LocationCard.propTypes = {
     PropTypes.shape({
       type: PropTypes.string,
       label: PropTypes.string,
-      link: PropTypes.string
+      link: PropTypes.string,
     })
   ),
   times: PropTypes.oneOfType([
@@ -177,15 +177,15 @@ LocationCard.propTypes = {
       PropTypes.shape({
         close: PropTypes.shape({
           day: PropTypes.number,
-          time: PropTypes.string
+          time: PropTypes.string,
         }),
         open: PropTypes.shape({
           day: PropTypes.number,
-          time: PropTypes.string
-        })
+          time: PropTypes.string,
+        }),
       })
-    )
-  ])
+    ),
+  ]),
 };
 
 export default LocationCard;

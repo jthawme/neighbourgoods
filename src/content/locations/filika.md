@@ -1,30 +1,29 @@
 ---
 templateKey: location
-name: Olive Garden
-image: /img/olivegarden.jpeg
+name: Filika
+image: /img/filika.jpg
 category: restaurant
 links:
   - type: external
-    label: Delivery (menu)
+    label: Website
     category: order
-    link: >-
-      http://southfields.theolivegardenrestaurant.co.uk/wp-content/uploads/2018/06/Olive-Garden-Takeaway-Menu-2018.pdf
+    link: 'http://www.filikarestaurant.co.uk/'
   - type: phone
-    label: Delivery (phone)
+    label: Phone
     category: order
-    link: 020 8874 0222
+    link: 020 8530 1333
 location:
   address_components:
-    - long_name: '42'
-      short_name: '42'
+    - long_name: '62'
+      short_name: '62'
       types:
         - street_number
-    - long_name: Replingham Road
-      short_name: Replingham Rd
+    - long_name: High Street
+      short_name: High St
       types:
         - route
-    - long_name: Southfields
-      short_name: Southfields
+    - long_name: Wanstead
+      short_name: Wanstead
       types:
         - neighborhood
         - political
@@ -47,79 +46,55 @@ location:
       types:
         - country
         - political
-    - long_name: SW18 5LR
-      short_name: SW18 5LR
+    - long_name: E11 2RJ
+      short_name: E11 2RJ
       types:
         - postal_code
-  formatted_phone_number: 020 8877 0411
+  formatted_phone_number: 020 8530 1333
   geometry:
     location:
-      lat: 51.4449016
-      lng: -0.2039939
+      lat: 51.5759128
+      lng: 0.0275373
     viewport:
       northeast:
-        lat: 51.4463180802915
-        lng: -0.202681169708498
+        lat: 51.57723783029149
+        lng: 0.02875063029150203
       southwest:
-        lat: 51.44362011970851
-        lng: -0.205379130291502
+        lat: 51.5745398697085
+        lng: 0.02605266970849797
   opening_hours:
     open_now: true
     periods:
       - close:
           day: 0
-          time: '2200'
+          time: '2300'
         open:
           day: 0
-          time: 0900
+          time: '1200'
       - close:
           day: 1
-          time: '1500'
+          time: '2300'
         open:
           day: 1
           time: '1200'
       - close:
-          day: 1
-          time: '2230'
-        open:
-          day: 1
-          time: '1700'
-      - close:
           day: 2
-          time: '1500'
+          time: '2300'
         open:
           day: 2
           time: '1200'
       - close:
-          day: 2
-          time: '2230'
-        open:
-          day: 2
-          time: '1700'
-      - close:
           day: 3
-          time: '1500'
+          time: '2300'
         open:
           day: 3
           time: '1200'
       - close:
-          day: 3
-          time: '2230'
-        open:
-          day: 3
-          time: '1700'
-      - close:
           day: 4
-          time: '1500'
+          time: '2300'
         open:
           day: 4
           time: '1200'
-      - close:
-          day: 4
-          time: '2230'
-        open:
-          day: 4
-          time: '1700'
       - close:
           day: 5
           time: '2300'
@@ -131,16 +106,16 @@ location:
           time: '2300'
         open:
           day: 6
-          time: 0900
+          time: '1200'
     weekday_text:
-      - 'Monday: 12:00 – 3:00 PM, 5:00 – 10:30 PM'
-      - 'Tuesday: 12:00 – 3:00 PM, 5:00 – 10:30 PM'
-      - 'Wednesday: 12:00 – 3:00 PM, 5:00 – 10:30 PM'
-      - 'Thursday: 12:00 – 3:00 PM, 5:00 – 10:30 PM'
+      - 'Monday: 12:00 – 11:00 PM'
+      - 'Tuesday: 12:00 – 11:00 PM'
+      - 'Wednesday: 12:00 – 11:00 PM'
+      - 'Thursday: 12:00 – 11:00 PM'
       - 'Friday: 12:00 – 11:00 PM'
-      - 'Saturday: 9:00 AM – 11:00 PM'
-      - 'Sunday: 9:00 AM – 10:00 PM'
-  place_id: ChIJZQa5PkQPdkgRQQk-lSKgb6w
+      - 'Saturday: 12:00 – 11:00 PM'
+      - 'Sunday: 12:00 – 11:00 PM'
+  place_id: ChIJAQA0sRWn2EcR_YsU1z_5ma8
   types:
     - restaurant
     - food

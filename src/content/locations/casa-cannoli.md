@@ -1,23 +1,24 @@
 ---
 templateKey: location
-name: Hop Burns & Black
-image: /img/hop.jpg
-category: alcohol
+name: Casa Cannoli
+image: /img/casa.jpeg
+category: dessert
 links:
   - type: external
-    link: 'https://shop.hopburnsblack.co.uk/'
+    link: 'http://www.casacannoli.com/'
     category: order
-    label: Online Shop
+    label: Order enquiry
 location:
   address_components:
-    - long_name: '38'
-      short_name: '38'
-      types:
-        - street_number
-    - long_name: East Dulwich Road
-      short_name: E Dulwich Rd
+    - long_name: Granary Square
+      short_name: Granary Square
       types:
         - route
+    - long_name: Kings Cross
+      short_name: Kings Cross
+      types:
+        - neighborhood
+        - political
     - long_name: London
       short_name: London
       types:
@@ -37,28 +38,23 @@ location:
       types:
         - country
         - political
-    - long_name: SE22 9AX
-      short_name: SE22 9AX
+    - long_name: N1C 4PQ
+      short_name: N1C 4PQ
       types:
         - postal_code
-  formatted_phone_number: 020 7450 0284
   geometry:
     location:
-      lat: 51.4620347
-      lng: -0.0696601
+      lat: 51.535202
+      lng: -0.1252334
     viewport:
       northeast:
-        lat: 51.46331753029149
-        lng: -0.06825511970849799
+        lat: 51.53655098029149
+        lng: -0.123884419708498
       southwest:
-        lat: 51.4606195697085
-        lng: -0.07095308029150205
-  place_id: ChIJmXvMUb0DdkgR0cI5mnU9KF8
+        lat: 51.5338530197085
+        lng: -0.126582380291502
+  place_id: >-
+    Ei9HcmFuYXJ5IFNxdWFyZSwgS2luZ3MgQ3Jvc3MsIExvbmRvbiBOMUMgNFBRLCBVSyIuKiwKFAoSCWs5NZA9G3ZIEfmNFBFaQNeHEhQKEgnNTTzHEBt2SBG5a13Q_hFvYQ
   types:
-    - liquor_store
-    - bar
-    - food
-    - point_of_interest
-    - store
-    - establishment
+    - route
 ---

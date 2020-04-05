@@ -4,11 +4,10 @@ name: Hop Burns & Black
 image: /img/hop.jpg
 category: alcohol
 links:
-  - type: deliveroo
-    link: >-
-      https://deliveroo.co.uk/menu/london/peckham/hop-burns-and-black?day=today&postcode=SW98PD&time=ASAP
+  - type: external
+    link: 'https://shop.hopburnsblack.co.uk/'
     category: order
-    label: Deliveroo
+    label: Online Shop
 location:
   address_components:
     - long_name: '38'

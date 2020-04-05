@@ -1,6 +1,6 @@
 ---
 templateKey: location
-name: Dehli Grill
+name: Delhi Grill
 image: /img/dehli-grill.jpg
 category: restaurant
 dietary:

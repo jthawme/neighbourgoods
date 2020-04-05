@@ -4,11 +4,10 @@ name: Dunn's Bakery
 image: /img/dunns.jpg
 category: bakery
 links:
-  - type: deliveroo
-    link: >-
-      https://deliveroo.co.uk/menu/london/crouch-end/dunns-bakery?utm_medium=affiliate&utm_source=google_maps_link
+  - type: external
+    link: 'https://dunnsbakery.selz.com/'
     category: order
-    label: Deliveroo
+    label: Online Shop
 location:
   address_components:
     - long_name: '6'

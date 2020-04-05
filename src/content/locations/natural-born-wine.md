@@ -1,23 +1,24 @@
 ---
 templateKey: location
-name: Hop Burns & Black
-image: /img/hop.jpg
+name: Natural Born Wine
+image: /img/naturalborn.jpeg
 category: alcohol
 links:
   - type: external
-    link: 'https://shop.hopburnsblack.co.uk/'
+    link: 'https://www.naturalbornwine.com/shop'
     category: order
     label: Online Shop
+  - type: external
+    category: support
+    link: 'https://www.naturalbornwine.com/shop/wine-vouchers'
+    label: Wine Voucher
 location:
   address_components:
-    - long_name: '38'
-      short_name: '38'
+    - long_name: London
+      short_name: London
       types:
-        - street_number
-    - long_name: East Dulwich Road
-      short_name: E Dulwich Rd
-      types:
-        - route
+        - locality
+        - political
     - long_name: London
       short_name: London
       types:
@@ -37,28 +38,19 @@ location:
       types:
         - country
         - political
-    - long_name: SE22 9AX
-      short_name: SE22 9AX
-      types:
-        - postal_code
-  formatted_phone_number: 020 7450 0284
   geometry:
     location:
-      lat: 51.4620347
-      lng: -0.0696601
+      lat: 51.5073509
+      lng: -0.1277583
     viewport:
       northeast:
-        lat: 51.46331753029149
-        lng: -0.06825511970849799
+        lat: 51.6723432
+        lng: 0.148271
       southwest:
-        lat: 51.4606195697085
-        lng: -0.07095308029150205
-  place_id: ChIJmXvMUb0DdkgR0cI5mnU9KF8
+        lat: 51.38494009999999
+        lng: -0.3514683
+  place_id: ChIJdd4hrwug2EcRmSrV3Vo6llI
   types:
-    - liquor_store
-    - bar
-    - food
-    - point_of_interest
-    - store
-    - establishment
+    - locality
+    - political
 ---

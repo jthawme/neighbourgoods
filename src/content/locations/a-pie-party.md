@@ -1,21 +1,17 @@
 ---
 templateKey: location
-name: Hop Burns & Black
-image: /img/hop.jpg
-category: alcohol
+name: A Pie Party
+image: /img/pieparty.jpg
+category: bakery
 links:
   - type: external
-    link: 'https://shop.hopburnsblack.co.uk/'
+    link: 'https://apieparty.co.uk/shop/'
     category: order
     label: Online Shop
 location:
   address_components:
-    - long_name: '38'
-      short_name: '38'
-      types:
-        - street_number
-    - long_name: East Dulwich Road
-      short_name: E Dulwich Rd
+    - long_name: Grove Road
+      short_name: Grove Rd
       types:
         - route
     - long_name: London
@@ -37,28 +33,26 @@ location:
       types:
         - country
         - political
-    - long_name: SE22 9AX
-      short_name: SE22 9AX
+    - long_name: E3 5TB
+      short_name: E3 5TB
       types:
         - postal_code
-  formatted_phone_number: 020 7450 0284
+  formatted_phone_number: 020 8985 5699
   geometry:
     location:
-      lat: 51.4620347
-      lng: -0.0696601
+      lat: 51.5365614
+      lng: -0.03897199999999999
     viewport:
       northeast:
-        lat: 51.46331753029149
-        lng: -0.06825511970849799
+        lat: 51.55111584999999
+        lng: -0.01541674999999999
       southwest:
-        lat: 51.4606195697085
-        lng: -0.07095308029150205
-  place_id: ChIJmXvMUb0DdkgR0cI5mnU9KF8
+        lat: 51.52566524999999
+        lng: -0.06484015
+  place_id: ChIJHUND2RgddkgRarf7ZQfLCw4
   types:
-    - liquor_store
-    - bar
-    - food
+    - park
+    - tourist_attraction
     - point_of_interest
-    - store
     - establishment
 ---

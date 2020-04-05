@@ -1,23 +1,32 @@
 ---
 templateKey: location
-name: Hop Burns & Black
-image: /img/hop.jpg
+name: Thomson & Scott
+image: /img/thomson.jpeg
 category: alcohol
 links:
   - type: external
-    link: 'https://shop.hopburnsblack.co.uk/'
+    link: 'https://thomsonandscott.com/pages/bottles'
     category: order
     label: Online Shop
 location:
   address_components:
-    - long_name: '38'
-      short_name: '38'
+    - long_name: '23'
+      short_name: '23'
       types:
         - street_number
-    - long_name: East Dulwich Road
-      short_name: E Dulwich Rd
+    - long_name: Exmouth Market
+      short_name: Exmouth Market
       types:
         - route
+    - long_name: Greater
+      short_name: Greater
+      types:
+        - route
+    - long_name: Clerkenwell
+      short_name: Clerkenwell
+      types:
+        - neighborhood
+        - political
     - long_name: London
       short_name: London
       types:
@@ -37,28 +46,23 @@ location:
       types:
         - country
         - political
-    - long_name: SE22 9AX
-      short_name: SE22 9AX
+    - long_name: EC1R 4QL
+      short_name: EC1R 4QL
       types:
         - postal_code
-  formatted_phone_number: 020 7450 0284
   geometry:
     location:
-      lat: 51.4620347
-      lng: -0.0696601
+      lat: 51.5257886
+      lng: -0.1096897
     viewport:
       northeast:
-        lat: 51.46331753029149
-        lng: -0.06825511970849799
+        lat: 51.5270904302915
+        lng: -0.108277819708498
       southwest:
-        lat: 51.4606195697085
-        lng: -0.07095308029150205
-  place_id: ChIJmXvMUb0DdkgR0cI5mnU9KF8
+        lat: 51.5243924697085
+        lng: -0.110975780291502
+  place_id: ChIJq6pLiUUbdkgRLaPEHtxFQ-w
   types:
-    - liquor_store
-    - bar
-    - food
     - point_of_interest
-    - store
     - establishment
 ---

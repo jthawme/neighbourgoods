@@ -40,7 +40,9 @@ const AboutContent = ({ onClose, open }) => {
       </div>
 
       <footer>
-        <a href="mailto:hello@neighbourgoods.com">hello@neighbourgoods.com</a>
+        <a href="mailto:hello@neighbourgoods.london">
+          hello@neighbourgoods.london
+        </a>
         <a
           className={styles.social}
           target="_blank"

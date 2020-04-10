@@ -7,7 +7,7 @@ export const SET_MAP_VIEW = "SET_MAP_VIEW";
 
 export const THREE_MILES = 4828.03;
 export const ONE_MILE = 1609.34;
-export const RADIUS = ONE_MILE;
+export const RADIUS = ONE_MILE * 2;
 
 export const setPostCodeInfo = (postCode, borough, coords, boundingBox) => {
   return {

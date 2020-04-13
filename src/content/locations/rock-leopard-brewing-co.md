@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Rock Leopard Brewing Co
-image: /img/rock.gif
+image: /img/rock.jpg
 category: alcohol
 links:
   - type: external

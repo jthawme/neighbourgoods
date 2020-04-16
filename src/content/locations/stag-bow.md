@@ -8,6 +8,15 @@ links:
     label: Online Shop
     category: order
     link: 'https://www.stagandbow.com/'
+  - type: donation
+    link: >-
+      https://www.gofundme.com/f/scrubs-for-nhs-staff-on-the-front-line?utm_source=facebook&utm_medium=social&utm_campaign=p_cp+share-sheet
+    category: support
+    label: Scrubs for NHS Staff
+  - type: external
+    category: support
+    link: 'https://www.stagandbow.com/workshop-registration'
+    label: Book a workshop
 location:
   address_components:
     - long_name: '8'

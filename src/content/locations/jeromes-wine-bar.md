@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Jerome's Wine Bar
-image: /img/jeromes.jpeg
+image: /img/jerome.jpeg
 category: alcohol
 links:
   - type: deliveroo

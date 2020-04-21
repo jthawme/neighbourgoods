@@ -2,13 +2,16 @@
 templateKey: location
 name: Yield N16
 image: /img/yield.jpg
-category: grocers
+category: alcohol
 links:
   - type: deliveroo
-    link: >-
-      https://deliveroo.co.uk/menu/london/newington-green/yield-n16?utm_medium=affiliate&utm_source=google_maps_link
+    link: 'https://deliveroo.co.uk/menu/london/newington-green/yield-n16'
     category: order
     label: Deliveroo
+  - type: external
+    category: collection
+    label: Click & Collect
+    link: 'https://yieldn16.selz.com/'
 location:
   address_components:
     - long_name: 44-45

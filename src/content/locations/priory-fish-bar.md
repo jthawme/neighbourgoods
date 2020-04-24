@@ -1,7 +1,7 @@
 ---
 templateKey: location
 name: Priory Fish Bar
-image: /img/priory.webp
+image: /img/priory.jpg
 category: restaurant
 links:
   - type: external

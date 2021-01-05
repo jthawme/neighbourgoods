@@ -10,7 +10,7 @@
   "dependencies": {
     "@react-google-maps/api": "^1.8.6",
     "a11y-react-emoji": "^1.1.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bulma": "^0.8.0",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
